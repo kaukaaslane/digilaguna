@@ -67,19 +67,21 @@ export default function Home() {
         {/* Hero content */}
         <div className="site-container relative z-10 flex min-h-[760px] items-center py-24 md:min-h-[820px] md:py-32">
           <div className="max-w-3xl">
-            <div className="hero-fade-in mb-5 text-[11px] tracking-[0.28em] text-[#a7a39b] uppercase">
+            <div className="hero-fade-in mb-5 text-[11px] tracking-[0.3em] text-[#a7a39b] uppercase">
               Digital studio
             </div>
 
-            <h1 className="hero-fade-in-delay text-[clamp(3.6rem,8vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.055em] text-[#f2f0eb]">
-              Ideas into
+            <h1 className="hero-fade-in-delay text-[clamp(3.6rem,8vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.045em] text-[#f2f0eb]">
+              You bring the idea.
               <br />
-              digital.
+              We figure out
+              <br />
+              what to build.
             </h1>
 
             <p className="hero-fade-in-delay-2 mt-8 max-w-xl text-base leading-7 text-[#a7a39b] sm:text-lg">
-              You bring the idea. I help make sense of it, shape it and bring
-              it to life.
+              Bring us a problem, a rough idea or something you know could work
+              better. We'll help you figure out what comes next.
             </p>
 
             <div className="hero-fade-in-delay-3 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -135,10 +137,11 @@ export default function Home() {
             </div>
 
             {/* Capabilities */}
-            <div className="hero-fade-in-delay-3 mt-20 flex flex-wrap gap-x-6 gap-y-2 text-[10px] tracking-[0.18em] text-[#66645f] uppercase">
-              <span>Web Design</span>
-              <span>Front-end Development</span>
-              <span>Digital Visuals</span>
+            <div className="hero-fade-in-delay-3 mt-20 flex flex-wrap gap-x-6 gap-y-2 text-[10px] tracking-[0.2em] text-[#66645f] uppercase">
+              <span>Websites</span>
+              <span>E-commerce</span>
+              <span>Digital Tools</span>
+              <span>Automation &amp; AI</span>
             </div>
           </div>
         </div>
@@ -158,16 +161,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* POSITIONING */}
+      <section className="border-t border-white/[0.09]">
+        <div className="site-container py-24 md:py-32">
+          <div className="max-w-4xl">
+            <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
+             Start with the problem
+            </div>
+            <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
+              Not every idea needs an app.
+              <br />
+              Not every business needs a complicated website.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[#88857e]">
+              Sometimes the right solution is simpler. Sometimes it isn't. We
+             start by understanding what you're trying to achieve — then figure
+             out what makes sense to build.
+            </p>
+           <p className="mt-6 text-sm uppercase tracking-[0.22em] text-[#a7a39b]">
+             The technology comes after the idea.
+           </p>
+         </div>
+       </div>
+      </section>
+
       {/* SELECTED WORK */}
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="mb-12 flex items-end justify-between gap-8">
             <div>
-              <div className="mb-4 text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
                 Selected work
               </div>
-              <h2 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
-                DROP MOW
+              <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
+                A few things we've been building.
               </h2>
             </div>
 
@@ -215,11 +242,11 @@ export default function Home() {
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="mb-14 max-w-2xl">
-            <div className="mb-4 text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
-              Services
+            <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
+              What we build
             </div>
-            <h2 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
-              What I do
+            <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
+              What could we build together?
             </h2>
           </div>
 
@@ -227,21 +254,33 @@ export default function Home() {
             {[
               {
                 number: "01",
-                title: "WEB DESIGN",
+                title: "Websites",
                 description:
-                  "Make the idea clear before making it beautiful.",
+                  "Clear, purposeful websites that make a business easier to understand and easier to choose.",
               },
               {
                 number: "02",
-                title: "FRONT-END DEVELOPMENT",
+                title: "E-commerce",
                 description:
-                  "Turn the design into something that actually works.",
+                  "Online stores built around the way you actually sell — not around a template.",
               },
               {
                 number: "03",
-                title: "DIGITAL VISUALS",
+                title: "Digital tools",
                 description:
-                  "Visual ideas for screens, spaces, products and print.",
+                  "Custom apps and internal tools for the things your existing software can't quite do.",
+              },
+              {
+                number: "04",
+                title: "Automation & AI",
+                description:
+                  "Less repetitive work. Better workflows. Smarter systems where they actually help.",
+              },
+              {
+                number: "05",
+                title: "Digital visuals",
+                description:
+                  "Visuals for products, brands, spaces and digital experiences.",
               },
             ].map((service) => (
               <div
@@ -252,7 +291,7 @@ export default function Home() {
                   {service.number}
                 </div>
 
-                <h3 className="text-lg font-medium tracking-[-0.02em] transition-transform duration-300 md:text-xl md:group-hover:translate-x-1">
+                <h3 className="text-lg font-medium tracking-[-0.015em] transition-transform duration-300 md:text-xl md:group-hover:translate-x-1">
                   {service.title}
                 </h3>
 
@@ -269,23 +308,35 @@ export default function Home() {
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="mb-14 max-w-2xl">
-            <div className="mb-4 text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
-              Approach
+            <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
+              Process
             </div>
-            <h2 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
-              How I work
+            <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
+              Start with the idea. Not the technology.
             </h2>
           </div>
 
           <div className="grid grid-cols-1 border-t border-white/[0.09] sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["01", "Understand", "What are we actually trying to build?"],
-              ["02", "Design", "Structure, UX and visual direction."],
-              ["03", "Build", "A responsive website that works."],
+              [
+                "01",
+                "Tell us what you're thinking.",
+                "You don't need a finished brief. A problem, a rough idea or even a sentence is enough.",
+              ],
+              [
+                "02",
+                "We figure it out.",
+                "We look at what you're trying to achieve and what kind of solution makes sense.",
+              ],
+              [
+                "03",
+                "We build it.",
+                "The right technology, the right amount of complexity, and nothing added just because we can.",
+              ],
               [
                 "04",
-                "Launch",
-                "Polish, performance and the essentials needed to go live.",
+                "We keep it useful.",
+                "Launch is not the end. Digital things can evolve as your business does.",
               ],
             ].map(([number, title, description]) => (
               <div
@@ -307,11 +358,11 @@ export default function Home() {
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="mb-14 max-w-2xl">
-            <div className="mb-4 text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+            <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
               Digital visuals
             </div>
 
-            <h2 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
+            <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
               Some ideas are better seen than explained.
             </h2>
 
@@ -352,30 +403,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* PROJECT STARTER CTA */}
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.35fr_1fr]">
-            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
-              About
+            <div className="text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
+              Start here
             </div>
 
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">
-                A visual mind with a front-end mindset.
+              <h2 className="text-3xl font-medium tracking-[-0.025em] sm:text-4xl">
+                Not sure what you need yet?
               </h2>
 
               <p className="mt-6 text-base leading-7 text-[#88857e]">
-                I started with web design and digital graphics. Today I
-                combine that visual background with front-end development to
-                design and build complete digital experiences.
+                That's exactly where you can start. Tell us what you're
+                thinking about. We'll help you work out where to take it.
               </p>
 
               <Link
-                href="/about"
+                href="/contact"
                 className="group mt-8 inline-flex cursor-pointer items-center text-sm text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
-                About Digilaguna
+                Start with your idea
                 <span
                   aria-hidden
                   className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
@@ -392,17 +442,16 @@ export default function Home() {
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-28 md:py-40">
           <div className="max-w-3xl">
-            <div className="mb-4 text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
-              Start here
+            <div className="mb-4 text-[10px] tracking-[0.28em] text-[#66645f] uppercase">
+              Get in touch
             </div>
 
-            <h2 className="text-5xl font-medium tracking-[-0.05em] sm:text-6xl md:text-7xl">
-              Have an idea?
+            <h2 className="text-5xl font-medium tracking-[-0.04em] sm:text-6xl md:text-7xl">
+              Have something worth building?
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-[#88857e]">
-              You don't have to have everything figured out. Tell me what
-              you're thinking about.
+              Let's figure out what it could become.
             </p>
 
             <Link

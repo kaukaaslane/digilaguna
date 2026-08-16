@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <header className="border-b border-gray-800 bg-[#080808] md:bg-transparent">
-      <div className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
+      <div className="site-container flex items-center justify-between py-5">
         <div>
           <Link href="/" className="cursor-pointer text-lg font-semibold tracking-tight text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]">
             DIGILAGUNA

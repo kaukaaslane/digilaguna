@@ -5,6 +5,9 @@
   --foreground: #f7f5f2; /* warm white */
   --muted: #9aa0a6; /* soft grey */
   --accent: #c9a96a; /* subtle gold accent */
+  --tracking-body: 0.01em;
+  --tracking-display: -0.02em;
+  --tracking-label: 0.22em;
 }
 
 @theme inline {
@@ -23,10 +26,56 @@
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: var(--tracking-body);
+  line-height: 1.7;
+}
+
+p,
+li,
+a,
+button,
+input,
+textarea,
+select {
+  letter-spacing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: var(--tracking-display);
+  line-height: 1.08;
+}
+
+small,
+.uppercase,
+label,
+span[aria-hidden] {
+  letter-spacing: inherit;
+}
+
+/* Subtle editorial rhythm for uppercase labels and navigation */
+.text-\[10px\],
+.text-\[11px\],
+.text-\[12px\],
+.text-xs,
+.text-sm,
+nav a,
+button {
+  line-height: 1.6;
 }
 
 /* Hero image mask helper to softly blend image into dark background */
@@ -35,11 +84,10 @@ body {
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0));
 }
 
-/* Ensure images and sections don't create horizontal overflow */
+/* Shared desktop alignment for header, hero, and all main-page sections */
 .site-container {
-  max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 2vw, 1.5rem);
+  box-sizing: border-box;
 }
