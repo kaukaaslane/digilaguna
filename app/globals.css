@@ -17,14 +17,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --foreground: #0b0b0b;
-    --muted: #6b6b6b;
-    --accent: #c9a96a;
-  }
-}
+/* Intentionally not switching to a light color scheme - Digilaguna visual system is consistently dark. */
 
 html {
   -webkit-text-size-adjust: 100%;

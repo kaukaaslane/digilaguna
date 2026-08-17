@@ -30,7 +30,7 @@ const sections = [
 
 export default function DropMow() {
   return (
-    <main className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
+    <div className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
       {/* INTRO */}
       <section className="border-b border-white/[0.09]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-36 lg:px-12">
@@ -228,19 +228,14 @@ export default function DropMow() {
 
             <Link
               href="/contact"
-              className="group mt-8 inline-flex cursor-pointer items-center border border-[#f2f0eb]/30 px-6 py-3 text-sm transition-colors duration-300 hover:border-[#f2f0eb] hover:bg-[#f2f0eb] hover:text-[#080808] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+              className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
             >
-              Start a project
-              <span
-                aria-hidden
-                className="ml-3 transition-transform duration-300 group-hover:translate-x-1"
-              >
-                →
-              </span>
+              <span>Start a project</span>
+              <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
             </Link>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

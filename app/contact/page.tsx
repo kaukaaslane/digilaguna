@@ -94,7 +94,7 @@ export default function Contact() {
   const [mode, setMode] = useState<"choice" | "starter" | "form">("choice");
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
+    <div className="min-h-screen overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
       {/* INTRO */}
       <section className="border-b border-white/[0.09]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
@@ -134,7 +134,7 @@ export default function Contact() {
                       01 / Guided
                     </span>
 
-                    <span className="text-[#66645f] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#f2f0eb]">
+                    <span aria-hidden className="inline-flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-md border border-white/[0.06] text-[#66645f] transition-colors duration-200 group-hover:bg-white/[0.02] group-hover:text-[#f2f0eb]">
                       →
                     </span>
                   </div>
@@ -165,7 +165,7 @@ export default function Contact() {
                       02 / Direct
                     </span>
 
-                    <span className="text-[#66645f] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#f2f0eb]">
+                    <span aria-hidden className="inline-flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-md border border-white/[0.06] text-[#66645f] transition-colors duration-200 group-hover:bg-white/[0.02] group-hover:text-[#f2f0eb]">
                       →
                     </span>
                   </div>
@@ -328,12 +328,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="group inline-flex cursor-pointer items-center border border-white/30 px-6 py-3 text-sm transition-colors hover:border-white hover:bg-white hover:text-[#080808] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
-                Send enquiry
-                <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
+                <span>Send enquiry</span>
+                <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
               </button>
             </form>
           </div>
@@ -349,6 +347,6 @@ export default function Contact() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

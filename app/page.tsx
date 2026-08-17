@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
+    <div className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
       {/* HERO */}
       <section className="relative isolate min-h-[760px] overflow-hidden bg-[#080808] md:min-h-[820px]">
         {/* Ambient gold light */}
@@ -86,29 +86,19 @@ export default function Home() {
 
             <div className="hero-fade-in-delay-3 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Link
-                href="/contact"
-                className="group inline-flex cursor-pointer items-center border border-[#f2f0eb]/35 px-6 py-3 text-sm text-[#f2f0eb] transition-colors duration-300 hover:border-[#f2f0eb] hover:bg-[#f2f0eb] hover:text-[#080808] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+              href="/contact"
+              className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
-                Start a project
-                <span
-                  aria-hidden
-                  className="ml-3 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
+              <span>Start a project</span>
+              <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
               </Link>
 
               <Link
                 href="/work"
-                className="group inline-flex cursor-pointer items-center px-2 py-3 text-sm text-[#a7a39b] transition-colors duration-300 hover:text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
-                View selected work
-                <span
-                  aria-hidden
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
+                <span>View selected work</span>
+                <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
               </Link>
             </div>
 
@@ -217,15 +207,10 @@ export default function Home() {
 
               <Link
                 href="/work/dropmow"
-                className="group mt-8 inline-flex items-center text-sm text-[#f2f0eb]"
+                className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
-                View case study
-                <span
-                  aria-hidden
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
+                <span>View case study</span>
+                <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
               </Link>
             </div>
 
@@ -550,6 +535,6 @@ export default function Home() {
           }
         }
       `}</style>
-    </main>
+    </div>
   );
 }

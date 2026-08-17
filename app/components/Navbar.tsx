@@ -31,7 +31,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="border-b border-gray-800 bg-[#080808] md:bg-transparent">
+    <header className="static border-b border-gray-800 bg-[#080808] md:bg-transparent">
       <div className="site-container flex items-center justify-between py-5">
         <div>
           <Link href="/" className="cursor-pointer text-lg font-semibold tracking-tight text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]">
@@ -59,9 +59,10 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className="ml-4 cursor-pointer rounded-full border border-gray-600 px-4 py-2 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+          className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
           >
-            Start a project
+          <span>Start a project</span>
+          <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
           </Link>
         </nav>
 
@@ -73,7 +74,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            className="inline-flex h-11 w-11 md:h-10 md:w-10 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] hover:bg-white/[0.02] active:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
           >
             {/* Icon minimal */}
             {open ? (
@@ -115,7 +116,7 @@ export default function Navbar() {
                 type="button"
                 aria-label="Close menu"
                 onClick={closeMenu}
-                className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="inline-flex h-11 w-11 md:h-10 md:w-10 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] hover:bg-white/[0.02] active:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                   <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -147,9 +148,10 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={closeMenu}
-                  className="inline-block cursor-pointer rounded-full border border-gray-600 px-4 py-2 text-sm font-medium text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                  className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
                 >
-                  Start a project
+                  <span>Start a project</span>
+                  <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
                 </Link>
               </div>
             </nav>
