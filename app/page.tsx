@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 
@@ -19,48 +19,11 @@ export default function Home() {
           className="pointer-events-none absolute inset-y-0 right-[-8%] z-0 hidden w-[62%] md:block"
         >
           <div className="hero-mandala absolute inset-[-8%]">
-            <div
-              className="absolute inset-0 bg-contain bg-right bg-no-repeat"
-              style={{ backgroundImage: "url('/hero.png')" }}
-            />
 
             {/* Fade artwork into the black background */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/35 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/30" />
             <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/20 via-transparent to-[#080808]" />
-          </div>
-        </div>
-
-        {/* Code card — editorial, decorative */}
-        {/* Desktop floating panel (visible on lg+) */}
-        <div aria-hidden className="pointer-events-none hidden lg:block">
-          <div className="absolute right-[8%] top-[18%] z-20 -rotate-3">
-            <div className="w-[340px] font-mono text-sm leading-6" aria-hidden>
-              <div className="bg-[#040404]/[0.82] border border-white/[0.06] rounded-[8px] px-4 py-3">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 bg-[#f2f0eb]/[0.55] rounded-full" />
-                  <span className="w-2 h-2 bg-[#f2d180]/[0.45] rounded-full" />
-                  <span className="w-2 h-2 bg-[#9aa8ff]/[0.38] rounded-full" />
-                  <div className="ml-auto text-[11px] text-white/[0.12]">project.tsx</div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="text-[11px] text-white/[0.10] select-none pt-1 leading-5">01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07<br/></div>
-
-                  <pre className="m-0 p-0 text-[13px] leading-5 overflow-hidden">
-                    <code className="block">
-                      <div className="code-line" style={{animationDelay: '1s'}}><span className="text-[#8f7fd3]">const</span> <span className="text-[#f2f0eb]">project</span><span className="text-[#9e9e9e]"> = </span><span className="text-[#f2d180]">{'{'}</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.06s'}}><span className="text-[#f2f0eb]">idea</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"meaningful"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.12s'}}><span className="text-[#f2f0eb]">design</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"thoughtful"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.18s'}}><span className="text-[#f2f0eb]">code</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"built to last"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line" style={{animationDelay: '1.24s'}}><span className="text-[#f2d180]">{'}'}</span>;</div>
-
-                      <div className="code-line mt-2" style={{animationDelay: '1.32s'}}>&lt;<span className="text-[#89a6d9]">DigitalExperience</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#f2f0eb]">responsive</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#f2f0eb]">human</span><br/>&gt;</div>
-                    </code>
-                  </pre>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -112,16 +75,6 @@ export default function Home() {
                     <span className="w-2 h-2 bg-[#9aa8ff]/[0.38] rounded-full" />
                     <div className="ml-auto text-[11px] text-white/[0.10]">project.tsx</div>
                   </div>
-
-                  <pre className="m-0 p-0 text-[13px] leading-5 overflow-hidden">
-                    <code className="block">
-                      <div className="code-line" style={{animationDelay: '1.4s'}}><span className="text-[#8f7fd3]">const</span> <span className="text-[#f2f0eb]">project</span><span className="text-[#9e9e9e]"> = </span><span className="text-[#f2d180]">{'{'}</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.46s'}}><span className="text-[#f2f0eb]">idea</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"meaningful"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.52s'}}><span className="text-[#f2f0eb]">design</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"thoughtful"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line pl-2" style={{animationDelay: '1.58s'}}><span className="text-[#f2f0eb]">code</span><span className="text-[#9e9e9e]">: </span><span className="text-[#f2d180]">"built to last"</span><span className="text-[#9e9e9e]">,</span></div>
-                      <div className="code-line" style={{animationDelay: '1.64s'}}><span className="text-[#f2d180]">{'}'}</span>;</div>
-                    </code>
-                  </pre>
                 </div>
               </div>
             </div>
@@ -138,16 +91,6 @@ export default function Home() {
 
         {/* Mobile artwork */}
         <div className="relative z-10 -mt-16 md:hidden">
-          <div className="relative mx-auto h-[390px] w-full max-w-[520px] overflow-hidden">
-            <img
-              src="/hero.png"
-              alt="Black and gold mandala artwork"
-              className="hero-mobile-mandala absolute left-1/2 top-0 h-full w-[135%] max-w-none -translate-x-1/2 object-contain"
-            />
-
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#080808] via-transparent to-[#080808]" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#080808] to-transparent" />
-          </div>
         </div>
       </section>
 
@@ -511,11 +454,6 @@ export default function Home() {
           animation: heroFadeIn 0.9s ease-out 0.7s both;
         }
 
-        .hero-mobile-mandala {
-          animation: heroMandalaIn 1.6s cubic-bezier(0.22, 1, 0.36, 1)
-            0.15s both;
-        }
-
         /* apply the reveal to code lines; delays are set inline in JSX for a soft stagger */
         .code-line {
           opacity: 0;
@@ -528,11 +466,6 @@ export default function Home() {
           .hero-fade-in,
           .hero-fade-in-delay,
           .hero-fade-in-delay-2,
-          .hero-fade-in-delay-3,
-          .hero-mobile-mandala,
-          .code-line {
-            animation: none;
-          }
         }
       `}</style>
     </div>
