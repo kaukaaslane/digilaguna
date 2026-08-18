@@ -84,3 +84,41 @@ button {
   padding-inline: clamp(1rem, 2vw, 1.5rem);
   box-sizing: border-box;
 }
+ 
+/* Dark theme text overrides */
+.text-neutral-700 {
+  color: #e8e5df;
+}
+
+.text-neutral-900 {
+  color: #f7f5f2;
+}
+
+.text-neutral-500 {
+  color: #b8b4ad;
+}
+
+/* Global text readability */
+.text-\[\#a7a39b\] {
+  color: #c4c1bb !important;
+}
+
+.text-\[\#88857e\] {
+  color: #b5b2ac !important;
+}
+
+.text-\[\#77736c\] {
+  color: #aaa7a1 !important;
+}
+
+.text-\[\#66645f\] {
+  color: #96938d !important;
+}
+
+.text-\[\#555\] {
+  color: #88857e !important;
+}
+
+.text-\[\#444\] {
+  color: #77736c !important;
+}
