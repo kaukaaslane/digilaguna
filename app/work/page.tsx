@@ -12,9 +12,7 @@ export default function Work() {
             </div>
 
             <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-              Good work starts
-              <br className="hidden sm:block" />
-              with a reason.
+               Good work starts with a reason.
             </h1>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-[#88857e] sm:text-lg">
