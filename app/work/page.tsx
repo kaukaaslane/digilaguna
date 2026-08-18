@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ProjectCTA from "../components/ProjectCTA";
 
 export default function Work() {
   return (
@@ -26,18 +25,16 @@ export default function Work() {
         </div>
       </section>
 
-      {/* SELECTED PROJECT */}
+      {/* SELECTED WORK */}
       <section className="border-b border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <article>
-            {/* Project meta */}
             <div className="mb-12 flex flex-wrap items-center justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.22em] text-[#66645f]">
               <span>01 / Selected project</span>
               <span>Concept</span>
             </div>
 
             <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
-              {/* Project introduction */}
               <div>
                 <div className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#a7a39b]">
                   DropMow
@@ -49,7 +46,6 @@ export default function Work() {
                 </h2>
               </div>
 
-              {/* Project information */}
               <div className="flex flex-col justify-end lg:pb-1">
                 <p className="max-w-xl text-base leading-7 text-[#88857e]">
                   DropMow is a concept project exploring how a product,
@@ -81,7 +77,7 @@ export default function Work() {
               </div>
             </div>
 
-            {/* Project visual placeholder */}
+            {/* Visual placeholder */}
             <div className="mt-16 aspect-[16/9] overflow-hidden border border-white/[0.09] bg-[#111] md:mt-20">
               <div className="flex h-full items-center justify-center px-6 text-center text-[10px] font-medium uppercase tracking-[0.24em] text-[#444]">
                 DropMow project visual
@@ -122,7 +118,7 @@ export default function Work() {
         </div>
       </section>
 
-      {/* PROJECT PRINCIPLES */}
+      {/* WHAT MATTERS */}
       <section className="border-b border-white/[0.09]">
         <div className="site-container py-24 md:py-32">
           <div className="mb-14 max-w-2xl">
@@ -175,8 +171,42 @@ export default function Work() {
         </div>
       </section>
 
-      {/* CTA */}
-      <ProjectCTA />
+      {/* FINAL CTA — SAME LANGUAGE AS HOME */}
+      <section className="border-t border-white/[0.09]">
+        <div className="site-container py-28 md:py-40">
+          <div className="max-w-3xl">
+            <div className="mb-5 text-[10px] font-medium uppercase tracking-[0.28em] text-[#66645f]">
+              Get in touch
+            </div>
+
+            <h2 className="text-5xl font-medium leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-7xl">
+              Have something
+              <br />
+              worth building?
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base leading-7 text-[#88857e]">
+              Let&apos;s figure out what it could become.
+            </p>
+
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+              >
+                <span>Start a project</span>
+
+                <span
+                  aria-hidden
+                  className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                >
+                  →
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
