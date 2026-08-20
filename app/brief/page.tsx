@@ -493,7 +493,7 @@ export default function BriefPage() {
           </ul>
 
           <p className="mt-7 max-w-3xl text-base leading-7">
-            Lisaks on vaadtud Saunumi veebikogemust müügi- ja kasutajateekonna
+            Lisaks on vaadatud Saunumi veebikogemust müügi- ja kasutajateekonna
             vaatenurgast – kuidas olemasolevad tooted, tehnoloogia, sisu,
             juhendid ja CTA-d aitavad kasutajal liikuda järgmise sammuni.
           </p>
