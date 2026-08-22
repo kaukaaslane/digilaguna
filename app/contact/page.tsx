@@ -1,15 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 
-const starterOptions = [
-  "A new website",
-  "Redesign an existing website",
-  "Digital tool or app",
-  "Automation",
-  "Something else",
-];
+type ChatMessagePart = {
+  type: string;
+  text?: string;
+};
+
+type ChatMessage = {
+  id: string;
+  role: string;
+  parts?: ChatMessagePart[];
+};
+
+type SubmitState = {
+  type: "success" | "error";
+  text: string;
+};
 
 function ChatWindow() {
   const initialAssistant =
@@ -32,46 +40,60 @@ function ChatWindow() {
     inputRef.current?.focus();
   }, []);
 
-  const handleSubmit = async (e?: any) => {
-    e?.preventDefault?.();
+  const handleSubmit = async (event?: FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
 
     const text = input.trim();
-    if (!text) return;
+
+    if (!text) {
+      return;
+    }
 
     try {
       await sendMessage({ text });
       setInput("");
       inputRef.current?.focus();
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
   return (
     <div className="flex h-full flex-col">
       <div className="mb-8 max-w-2xl space-y-5">
-        {messages?.map((m: any) => (
-          <div
-            key={m.id}
-            className={
-              m.role === "assistant"
-                ? "text-sm text-[#a7a39b]"
-                : "text-sm text-[#f2f0eb]"
-            }
-          >
-            {m.parts?.map((p: any, idx: number) => (
-              <div key={idx} className="whitespace-pre-wrap leading-7">
-                {p.type === "text" ? p.text : null}
-              </div>
-            ))}
-          </div>
-        ))}
+        {messages?.map((message) => {
+          const typedMessage = message as unknown as ChatMessage;
+
+          return (
+            <div
+              key={typedMessage.id}
+              className={
+                typedMessage.role === "assistant"
+                  ? "text-sm text-[#a7a39b]"
+                  : "text-sm text-[#f2f0eb]"
+              }
+            >
+              {typedMessage.parts?.map((part, index) => (
+                <div
+                  key={index}
+                  className="whitespace-pre-wrap leading-7"
+                >
+                  {part.type === "text" ? part.text : null}
+                </div>
+              ))}
+            </div>
+          );
+        })}
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-auto w-full max-w-2xl">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-auto w-full max-w-2xl"
+      >
         {error && (
           <div className="mb-4 text-sm text-[#d7c1a0]">
             Something went wrong. Please try again.
+
             <button
               type="button"
               onClick={() => clearError && clearError()}
@@ -86,9 +108,9 @@ function ChatWindow() {
           <input
             ref={inputRef}
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(event) => setInput(event.target.value)}
             placeholder="Tell me about your idea..."
-            className="min-h-11 flex-1 rounded-full border border-white/[0.12] bg-transparent px-4 py-3 text-sm text-[#f2f0eb] placeholder:text-[#66645f] outline-none transition-colors focus:border-white/40"
+            className="min-h-11 flex-1 rounded-full border border-white/[0.12] bg-transparent px-4 py-3 text-sm text-[#f2f0eb] outline-none placeholder:text-[#66645f] transition-colors focus:border-white/40"
             aria-label="Message"
           />
 
@@ -97,7 +119,10 @@ function ChatWindow() {
             disabled={status !== "ready"}
             className="group inline-flex h-11 shrink-0 cursor-pointer items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <span>{status === "ready" ? "Send" : "…"}</span>
+            <span>
+              {status === "ready" ? "Send" : "…"}
+            </span>
+
             <span
               aria-hidden
               className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
@@ -112,15 +137,17 @@ function ChatWindow() {
 }
 
 export default function Contact() {
-  const [mode, setMode] = useState<"choice" | "starter" | "form">("choice");
+  const [mode, setMode] = useState<
+    "choice" | "starter" | "form"
+  >("choice");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitState, setSubmitState] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
+
+  const [submitState, setSubmitState] =
+    useState<SubmitState | null>(null);
 
   const handleDirectEnquirySubmit = async (
-    event: React.FormEvent<HTMLFormElement>
+    event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
 
@@ -130,11 +157,14 @@ export default function Contact() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
     const payload = {
       name: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
       company: String(formData.get("company") ?? "").trim(),
-      description: String(formData.get("description") ?? "").trim(),
+      description: String(
+        formData.get("description") ?? ""
+      ).trim(),
     };
 
     setSubmitState(null);
@@ -156,13 +186,19 @@ export default function Contact() {
       };
 
       if (!response.ok || !data.success) {
-        throw new Error(data.error || "Something went wrong. Please try again.");
+        throw new Error(
+          data.error ||
+            "Something went wrong. Please try again."
+        );
       }
 
       form.reset();
+
       setSubmitState({
         type: "success",
-        text: data.message || "Your enquiry has been sent.",
+        text:
+          data.message ||
+          "Your enquiry has been sent.",
       });
     } catch (error) {
       setSubmitState({
@@ -194,9 +230,9 @@ export default function Contact() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-[#a7a39b] md:text-lg">
-              You don&apos;t need a finished brief. Tell me what you&apos;re
-              thinking about and we&apos;ll figure out the right direction
-              together.
+              You don&apos;t need a finished brief. Tell me
+              what you&apos;re thinking about and we&apos;ll figure
+              out the right direction together.
             </p>
           </div>
         </div>
@@ -206,37 +242,44 @@ export default function Contact() {
       {mode === "choice" && (
         <section>
           <div className="site-container py-20 md:py-28">
-            <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+            <div className="grid gap-6 md:grid-cols-2">
               {/* PROJECT STARTER */}
               <button
                 type="button"
                 onClick={() => setMode("starter")}
-                className="group cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="group min-h-[300px] cursor-pointer border border-white/[0.12] p-7 text-left transition-colors duration-300 hover:border-white/[0.3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:p-8"
               >
-                <div className="border-t border-white/[0.12] pt-7 transition-colors duration-300 group-hover:border-white/40">
-                  <div className="mb-12 flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.18em] text-[#77736c]">
-                      01 / Guided
+                <div className="flex h-full flex-col">
+                  <div className="flex items-start justify-between">
+                    {/* ARROW PILL */}
+                    <span className="inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 group-hover:bg-white/[0.04]">
+                      <span
+                        aria-hidden
+                        className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                      >
+                        →
+                      </span>
                     </span>
 
-                    <span
-                      aria-hidden
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-[#f2f0eb] transition-colors duration-150 group-hover:bg-white/[0.04]"
-                    >
-                      →
+                    {/* LABEL */}
+                    <span className="pt-2 text-[10px] uppercase tracking-[0.18em] text-[#77736c]">
+                      01 / Guided
                     </span>
                   </div>
 
-                  <h2 className="text-3xl font-medium leading-[1.02] tracking-[-0.025em] md:text-4xl">
-                    Start with
-                    <br />
-                    Project Starter
-                  </h2>
+                  <div className="mt-auto pt-16">
+                    <h2 className="text-3xl font-medium leading-[1.02] tracking-[-0.025em] md:text-4xl">
+                      Start with
+                      <br />
+                      Project Starter
+                    </h2>
 
-                  <p className="mt-6 max-w-md text-sm leading-7 text-[#a7a39b]">
-                    Not sure exactly what you need? Start a conversation and
-                    we&apos;ll turn the idea into a clearer project direction.
-                  </p>
+                    <p className="mt-6 max-w-md text-sm leading-7 text-[#a7a39b]">
+                      Not sure exactly what you need? Start a
+                      conversation and we&apos;ll turn the idea
+                      into a clearer project direction.
+                    </p>
+                  </div>
                 </div>
               </button>
 
@@ -244,32 +287,39 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={() => setMode("form")}
-                className="group cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="group min-h-[300px] cursor-pointer border border-white/[0.12] p-7 text-left transition-colors duration-300 hover:border-white/[0.3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:p-8"
               >
-                <div className="border-t border-white/[0.12] pt-7 transition-colors duration-300 group-hover:border-white/40">
-                  <div className="mb-12 flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.18em] text-[#77736c]">
-                      02 / Direct
+                <div className="flex h-full flex-col">
+                  <div className="flex items-start justify-between">
+                    {/* ARROW PILL */}
+                    <span className="inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 group-hover:bg-white/[0.04]">
+                      <span
+                        aria-hidden
+                        className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                      >
+                        →
+                      </span>
                     </span>
 
-                    <span
-                      aria-hidden
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-[#f2f0eb] transition-colors duration-150 group-hover:bg-white/[0.04]"
-                    >
-                      →
+                    {/* LABEL */}
+                    <span className="pt-2 text-[10px] uppercase tracking-[0.18em] text-[#77736c]">
+                      02 / Direct
                     </span>
                   </div>
 
-                  <h2 className="text-3xl font-medium leading-[1.02] tracking-[-0.025em] md:text-4xl">
-                    I know what
-                    <br />
-                    I need
-                  </h2>
+                  <div className="mt-auto pt-16">
+                    <h2 className="text-3xl font-medium leading-[1.02] tracking-[-0.025em] md:text-4xl">
+                      I know what
+                      <br />
+                      I need
+                    </h2>
 
-                  <p className="mt-6 max-w-md text-sm leading-7 text-[#a7a39b]">
-                    Already know what you&apos;re looking for? Send a direct
-                    enquiry and tell me about the project in your own words.
-                  </p>
+                    <p className="mt-6 max-w-md text-sm leading-7 text-[#a7a39b]">
+                      Already know what you&apos;re looking
+                      for? Send a direct enquiry and tell me
+                      about the project in your own words.
+                    </p>
+                  </div>
                 </div>
               </button>
             </div>
@@ -293,7 +343,11 @@ export default function Contact() {
                   className="inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
                 >
                   <span>Back</span>
-                  <span aria-hidden className="text-[#66645f]">
+
+                  <span
+                    aria-hidden
+                    className="text-[#66645f]"
+                  >
                     ←
                   </span>
                 </button>
@@ -339,7 +393,11 @@ export default function Contact() {
                   className="inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
                 >
                   <span>Back</span>
-                  <span aria-hidden className="text-[#66645f]">
+
+                  <span
+                    aria-hidden
+                    className="text-[#66645f]"
+                  >
                     ←
                   </span>
                 </button>
@@ -435,7 +493,12 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="group inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  <span>{isSubmitting ? "Sending..." : "Send enquiry"}</span>
+                  <span>
+                    {isSubmitting
+                      ? "Sending..."
+                      : "Send enquiry"}
+                  </span>
+
                   <span
                     aria-hidden
                     className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
@@ -453,8 +516,9 @@ export default function Contact() {
       <section className="border-t border-white/[0.08]">
         <div className="site-container py-12">
           <p className="max-w-xl text-xs leading-6 text-[#66645f]">
-            Not sure what you need yet? That&apos;s perfectly fine. Start with
-            the Project Starter and we&apos;ll work it out from there.
+            Not sure what you need yet? That&apos;s perfectly
+            fine. Start with the Project Starter and we&apos;ll
+            work it out from there.
           </p>
         </div>
       </section>

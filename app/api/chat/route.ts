@@ -134,10 +134,13 @@ export async function POST(req: Request) {
       uiMessages,
       // the SDK will stream events compatible with the AI SDK client UI helpers
     });
-  } catch (err: any) {
-    return new Response(JSON.stringify({ error: err?.message || String(err) }), {
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+
+    return new Response(JSON.stringify({ error: message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 }
+

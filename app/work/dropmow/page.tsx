@@ -219,11 +219,11 @@ export default function DropMow() {
             </div>
 
             <h2 className="text-5xl font-medium tracking-[-0.05em] sm:text-6xl md:text-7xl">
-              Let's make sense of it.
+              Let&apos;s make sense of it.
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-[#88857e]">
-              You don't need to have everything figured out before starting.
+              You don&apos;t need to have everything figured out before starting.
             </p>
 
             <Link
