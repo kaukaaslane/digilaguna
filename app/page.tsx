@@ -236,13 +236,12 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div
-                aria-label="DropMow project visual placeholder"
-                className="relative aspect-[16/10] overflow-hidden border border-white/[0.08] bg-[#111]"
-              >
-                <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-xs uppercase tracking-[0.2em] text-[#444]">
-                  DropMow project visual
-                </div>
+              <div className="relative aspect-[16/10] overflow-hidden border border-white/[0.08] bg-[#111]">
+                <img
+                  src="/fullp.png"
+                  alt="DropMow website project"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </article>
           </div>
@@ -357,21 +356,37 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-              {["01", "02", "03", "04"].map((item, index) => (
-                <div
-                  key={item}
-                  aria-label={`Digital visual ${item} placeholder`}
-                  className={`relative overflow-hidden bg-[#111] ${
-                    index === 0
-                      ? "aspect-[3/4] md:col-span-2 md:row-span-2"
-                      : "aspect-square"
-                  }`}
-                >
-                  <div className="absolute inset-0 flex items-end p-4 text-[10px] uppercase tracking-[0.2em] text-white/20">
-                    Digital Visual {item}
-                  </div>
-                </div>
-              ))}
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#111] md:col-span-2 md:row-span-2">
+                <img
+                  src="/digivisu%20(1).png"
+                  alt="Digital visual 1 created by Digilaguna"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="relative aspect-square overflow-hidden bg-[#111]">
+                <img
+                  src="/digivisu%20(2).png"
+                  alt="Digital visual 2 created by Digilaguna"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="relative aspect-square overflow-hidden bg-[#111]">
+                <img
+                  src="/digivisu%20(3).png"
+                  alt="Digital visual 3 created by Digilaguna"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="relative aspect-square overflow-hidden bg-[#111]">
+                <img
+                  src="/digivisu%20(4).png"
+                  alt="Digital visual 4 created by Digilaguna"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
 
             <Link
