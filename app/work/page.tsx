@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Work() {
@@ -12,7 +13,7 @@ export default function Work() {
             </div>
 
             <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-               Good work starts with a reason.
+              Good work starts with a reason.
             </h1>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-[#88857e] sm:text-lg">
@@ -75,11 +76,16 @@ export default function Work() {
               </div>
             </div>
 
-            {/* Visual placeholder */}
-            <div className="mt-16 aspect-[16/9] overflow-hidden border border-white/[0.09] bg-[#111] md:mt-20">
-              <div className="flex h-full items-center justify-center px-6 text-center text-[10px] font-medium uppercase tracking-[0.24em] text-[#444]">
-                DropMow project visual
-              </div>
+            {/* PROJECT VISUAL */}
+            <div className="relative mt-16 aspect-[16/9] overflow-hidden border border-white/[0.09] bg-[#111] md:mt-20">
+              <Image
+                src="/fullp.png"
+                alt="DropMow project"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 1400px"
+                className="object-cover object-top"
+              />
             </div>
           </article>
         </div>
@@ -169,7 +175,7 @@ export default function Work() {
         </div>
       </section>
 
-      {/* FINAL CTA — SAME LANGUAGE AS HOME */}
+      {/* FINAL CTA */}
       <section className="border-t border-white/[0.09]">
         <div className="site-container py-28 md:py-40">
           <div className="max-w-3xl">

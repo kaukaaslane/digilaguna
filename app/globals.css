@@ -73,18 +73,42 @@ button {
 
 /* Hero image mask helper to softly blend image into dark background */
 .hero-image-mask {
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0));
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0)
+  );
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
 /* Shared desktop alignment for header, hero, and all main-page sections */
 .site-container {
-  width: min(100%, 1120px);
+  width: 100%;
+  max-width: 1280px;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 2vw, 1.5rem);
+  padding-left: 24px;
+  padding-right: 24px;
   box-sizing: border-box;
 }
- 
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
 /* Dark theme text overrides */
 .text-neutral-700 {
   color: #e8e5df;

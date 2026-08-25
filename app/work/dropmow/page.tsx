@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const sections = [
@@ -28,9 +29,37 @@ const sections = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Is DropMow a real service?",
+    answer:
+      "DropMow was developed as a service concept and digital product exploration. The case study focuses on how the idea could be presented and experienced through a real-world website.",
+  },
+  {
+    question: "What was the main UX challenge?",
+    answer:
+      "The main challenge was making a relatively technical robotic lawn-care service feel simple and approachable. The interface therefore focuses on explaining the value of the service before introducing unnecessary technical detail.",
+  },
+  {
+    question: "Why a service model instead of selling the robot?",
+    answer:
+      "The concept explores a model where customers can benefit from robotic lawn care without having to purchase, store or maintain the equipment themselves.",
+  },
+  {
+    question: "Was the website built from scratch?",
+    answer:
+      "Yes. The front-end concept was developed with Next.js, TypeScript and Tailwind CSS, with responsive behaviour and reusable components considered throughout the build.",
+  },
+  {
+    question: "What would happen next?",
+    answer:
+      "The next step would be validating the concept with real customers, testing the service economics and refining the website around real usage, pricing and operational requirements.",
+  },
+];
+
 export default function DropMow() {
   return (
-    <div className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
+    <main className="overflow-x-hidden bg-[#080808] text-[#f2f0eb]">
       {/* INTRO */}
       <section className="border-b border-white/[0.09]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-36 lg:px-12">
@@ -77,20 +106,18 @@ export default function DropMow() {
         </div>
       </section>
 
-      {/* HERO VISUAL PLACEHOLDER */}
+      {/* HERO VISUAL */}
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1400px]">
           <div className="relative aspect-[16/9] overflow-hidden border border-white/[0.08] bg-[#101010]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="mb-3 text-[10px] tracking-[0.25em] text-[#444] uppercase">
-                  Selected screen
-                </div>
-                <div className="text-sm text-[#555]">
-                  DropMow homepage visual
-                </div>
-              </div>
-            </div>
+            <Image
+              src="/hero.png"
+              alt="DropMow homepage"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 1400px"
+              className="object-cover object-top"
+            />
           </div>
         </div>
       </section>
@@ -121,7 +148,73 @@ export default function DropMow() {
         </div>
       </section>
 
-      {/* VISUALS */}
+      {/* HOW IT WORKS */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
+          <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              How it works
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+                Lawn care, without the ownership.
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#88857e]">
+                We bring the robot to your lawn, set everything up and let it
+                do the work.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden border border-white/[0.08] bg-[#101010]">
+            <Image
+              src="/howsec.png"
+              alt="DropMow how it works"
+              width={2400}
+              height={1350}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* SECOND SCREEN */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
+          <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              Project screen
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+                A simple service model.
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#88857e]">
+                The experience keeps the service understandable from the
+                first interaction through to getting started.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden border border-white/[0.08] bg-[#101010]">
+            <Image
+              src="/2sec.png"
+              alt="DropMow service screen"
+              width={2400}
+              height={1350}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* SELECTED SCREENS */}
       <section className="border-t border-white/[0.09]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
@@ -135,23 +228,197 @@ export default function DropMow() {
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-[#88857e]">
-                Real project screens will be added here. The layout is
-                intentionally prepared for large desktop views and supporting
-                mobile screens.
+                The final experience was designed to work across desktop and
+                mobile while keeping the same visual language throughout.
               </p>
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden border border-white/[0.08] bg-[#101010]">
-              <div className="absolute inset-0 flex items-center justify-center text-[10px] tracking-[0.2em] text-[#444] uppercase">
-                Desktop screen
-              </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* DESKTOP */}
+            <div className="relative overflow-hidden border border-white/[0.08] bg-[#101010]">
+              <Image
+                src="/fullp.png"
+                alt="DropMow desktop website"
+                width={2400}
+                height={1350}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="h-auto w-full"
+              />
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden border border-white/[0.08] bg-[#101010]">
-              <div className="absolute inset-0 flex items-center justify-center text-[10px] tracking-[0.2em] text-[#444] uppercase">
-                Mobile screen
+            {/* MOBILE */}
+            <div className="relative overflow-hidden border border-white/[0.08] bg-[#101010]">
+              <Image
+                src="/mobile.png"
+                alt="DropMow mobile website"
+                width={1200}
+                height={1800}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="h-auto w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GET STARTED SCREEN */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
+          <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              Get started
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+                Ready for a better lawn?
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#88857e]">
+                The final step is deliberately simple: tell us about the
+                property and start a conversation.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden border border-white/[0.08] bg-[#101010]">
+            <Image
+              src="/formfoot.png"
+              alt="DropMow get started form"
+              width={2400}
+              height={1350}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* FULL PROJECT */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+          <div className="mb-10">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              Full project
+            </div>
+
+            <h2 className="mt-4 text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+              DropMow from top to bottom.
+            </h2>
+          </div>
+
+          <div className="overflow-hidden border border-white/[0.08] bg-[#101010]">
+            <Image
+              src="/fullp.png"
+              alt="Full DropMow website"
+              width={2400}
+              height={5000}
+              sizes="100vw"
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* NEXT STEPS */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
+          <div className="grid gap-10 md:grid-cols-[0.4fr_1fr]">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              Next steps
+            </div>
+
+            <div className="max-w-3xl">
+              <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+                From concept to something real.
+              </h2>
+
+              <p className="mt-6 text-base leading-7 text-[#88857e]">
+                The next phase would be less about adding features and more
+                about validating the idea in the real world.
+              </p>
+
+              <div className="mt-10 border-t border-white/[0.09]">
+                <div className="grid gap-6 border-b border-white/[0.09] py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
+                  <div className="text-xs text-[#66645f]">01</div>
+
+                  <h3 className="text-lg font-medium md:text-xl">
+                    Validate the service
+                  </h3>
+
+                  <p className="text-sm leading-6 text-[#88857e] md:text-base">
+                    Test the concept with real homeowners and understand what
+                    would make the service genuinely useful.
+                  </p>
+                </div>
+
+                <div className="grid gap-6 border-b border-white/[0.09] py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
+                  <div className="text-xs text-[#66645f]">02</div>
+
+                  <h3 className="text-lg font-medium md:text-xl">
+                    Test the economics
+                  </h3>
+
+                  <p className="text-sm leading-6 text-[#88857e] md:text-base">
+                    Explore pricing, equipment utilisation, maintenance and
+                    the operational model behind the service.
+                  </p>
+                </div>
+
+                <div className="grid gap-6 border-b border-white/[0.09] py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
+                  <div className="text-xs text-[#66645f]">03</div>
+
+                  <h3 className="text-lg font-medium md:text-xl">
+                    Build the real product
+                  </h3>
+
+                  <p className="text-sm leading-6 text-[#88857e] md:text-base">
+                    Turn the validated concept into a service people can
+                    actually book, use and return to throughout the season.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-white/[0.09]">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
+          <div className="grid gap-10 md:grid-cols-[0.4fr_1fr]">
+            <div className="text-[10px] tracking-[0.25em] text-[#66645f] uppercase">
+              FAQ
+            </div>
+
+            <div className="max-w-3xl">
+              <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
+                Questions around the concept.
+              </h2>
+
+              <div className="mt-10 border-t border-white/[0.09]">
+                {faqs.map((faq) => (
+                  <details
+                    key={faq.question}
+                    className="group border-b border-white/[0.09]"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-8 py-6 text-left text-base font-medium marker:hidden [&::-webkit-details-marker]:hidden">
+                      <span>{faq.question}</span>
+
+                      <span
+                        aria-hidden
+                        className="shrink-0 text-xl font-normal text-[#66645f] transition-transform duration-200 group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                    </summary>
+
+                    <div className="max-w-2xl pb-7 pr-10 text-sm leading-6 text-[#88857e] md:text-base">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
               </div>
             </div>
           </div>
@@ -199,6 +466,7 @@ export default function DropMow() {
               className="group inline-flex cursor-pointer items-center text-sm text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
             >
               View selected work
+
               <span
                 aria-hidden
                 className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
@@ -223,19 +491,26 @@ export default function DropMow() {
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-[#88857e]">
-              You don&apos;t need to have everything figured out before starting.
+              You don&apos;t need to have everything figured out before
+              starting.
             </p>
 
             <Link
               href="/contact"
-              className="group inline-flex items-center h-11 md:h-9 gap-2 px-4 rounded-full border border-white/12 text-sm font-medium text-[#f2f0eb] cursor-pointer hover:bg-white/[0.04] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+              className="group mt-8 inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
             >
               <span>Start a project</span>
-              <span aria-hidden className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]">→</span>
+
+              <span
+                aria-hidden
+                className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+              >
+                →
+              </span>
             </Link>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
