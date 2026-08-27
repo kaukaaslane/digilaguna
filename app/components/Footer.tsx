@@ -2,101 +2,109 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { localizePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-const navLinkClass =
-  "cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]";
+const navLinkClass = "link-nav";
 
-export default function Footer() {
+export default function Footer({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const pathname = usePathname();
+  const p = (route: string) => localizePath(route, locale);
 
   return (
-    <footer className="border-t border-gray-800 bg-[#080808] text-[#f2f0eb]">
+    <footer className="border-t border-line bg-bg text-text">
       <div className="site-container py-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
-            <div className="text-lg font-semibold text-[#f2f0eb]">
+            <div className="text-lg font-semibold text-text">
               DIGILAGUNA
             </div>
 
-            <div className="text-sm text-[#a7a39b]">
-              Ideas into digital.
+            <div className="text-sm text-text-secondary">
+              {dict.footer.tagline}
             </div>
           </div>
 
-          <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#f2f0eb]">
-            <Link href="/services" className={navLinkClass}>
-              Services
+          <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-text">
+            <Link href={p("/services")} className={navLinkClass}>
+              {dict.nav.services}
             </Link>
 
-            <Link href="/work" className={navLinkClass}>
-              Work
+            <Link href={p("/work")} className={navLinkClass}>
+              {dict.nav.work}
             </Link>
 
-            <Link href="/digital-visuals" className={navLinkClass}>
-              Digital Visuals
+            <Link href={p("/digital-visuals")} className={navLinkClass}>
+              {dict.nav.visuals}
             </Link>
 
-            <Link href="/about" className={navLinkClass}>
-              About
+            <Link href={p("/about")} className={navLinkClass}>
+              {dict.nav.about}
             </Link>
 
-            <Link href="/contact" className={navLinkClass}>
-              Contact
+            <Link href={p("/contact")} className={navLinkClass}>
+              {dict.nav.contact}
             </Link>
           </nav>
         </div>
 
-        <div className="mt-6 border-t border-white/10 pt-5">
+        <div className="mt-6 border-t border-line pt-5">
           <nav
-            aria-label="Legal"
-            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-[#a7a39b]"
+            aria-label={dict.footer.legal}
+            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-text-secondary"
           >
             <Link
-              href="/privacy"
-              className="hover:text-[#f2f0eb] hover:underline"
+              href={p("/privacy")}
+              className="link-nav"
             >
-              Privacy Policy
+              {dict.footer.privacy}
             </Link>
 
             <Link
-              href="/terms"
-              className="hover:text-[#f2f0eb] hover:underline"
+              href={p("/terms")}
+              className="link-nav"
             >
-              Terms of Service
+              {dict.footer.terms}
             </Link>
 
             <Link
-              href="/cookies"
-              className="hover:text-[#f2f0eb] hover:underline"
+              href={p("/cookies")}
+              className="link-nav"
             >
-              Cookie Policy
+              {dict.footer.cookies}
             </Link>
 
             <Link
-              href="/legal-notice"
-              className="hover:text-[#f2f0eb] hover:underline"
+              href={p("/legal-notice")}
+              className="link-nav"
             >
-              Legal Notice
+              {dict.footer.notice}
             </Link>
           </nav>
         </div>
 
         <div className="mt-8 flex items-center justify-between gap-6">
-          <div className="text-xs text-[#7e7a74]">
+          <div className="text-xs text-text-faint">
             © {new Date().getFullYear()} Digilaguna OÜ
           </div>
 
-          {pathname !== "/contact" && (
+          {pathname !== p("/contact") && (
             <div>
               <Link
-                href="/contact"
-                className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:h-9"
+                href={p("/contact")}
+                className="btn btn-secondary"
               >
-                <span>Start a project</span>
+                <span>{dict.nav.cta}</span>
 
                 <span
                   aria-hidden
-                  className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                  className="btn-arrow"
                 >
                   →
                 </span>

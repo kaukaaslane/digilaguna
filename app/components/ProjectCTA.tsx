@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function ProjectCTA() {
   return (
-    <section className="border-t border-gray-800">
-      <div className="site-container py-28 md:py-40">
+    <section className="border-t border-line">
+      <div className="site-container section-xl">
         <div className="max-w-3xl">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.28em] text-[#66645f]">
+          <p className="mb-4 eyebrow">
             Start here
           </p>
 
@@ -13,7 +13,7 @@ export default function ProjectCTA() {
             Have an idea?
           </h2>
 
-          <p className="mt-6 max-w-xl text-base leading-7 text-[#88857e]">
+          <p className="mt-6 max-w-xl text-base leading-7 text-text-muted">
             You do not need to know exactly what you need yet. Tell us what you
             are trying to achieve and we&apos;ll figure out the next step.
           </p>
@@ -21,10 +21,10 @@ export default function ProjectCTA() {
           <div className="mt-8">
             <Link
               href="/contact"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/[0.14] px-5 text-sm font-medium text-[#f2f0eb] transition-colors hover:border-white/[0.3] hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f2f0eb]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+              className="btn btn-primary"
             >
               Start a project
-              <span aria-hidden>→</span>
+              <span aria-hidden className="btn-arrow">→</span>
             </Link>
           </div>
         </div>

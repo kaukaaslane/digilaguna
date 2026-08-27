@@ -3,9 +3,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LocaleSwitcher from "./LocaleSwitcher";
+import { localizePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export default function Navbar() {
+export default function Navbar({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const pathname = usePathname();
+  const p = (route: string) => localizePath(route, locale);
   const [open, setOpen] = useState(false);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
@@ -35,73 +45,80 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-800 bg-[#080808]">
+    <header className="sticky top-0 z-40 rule bg-bg">
       <div className="site-container flex items-center justify-between py-5">
         <div>
           <Link
-            href="/"
-            className="cursor-pointer text-lg font-semibold tracking-tight text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/")}
+            className="cursor-pointer text-lg font-semibold tracking-tight text-text"
           >
             DIGILAGUNA
           </Link>
 
-          <div className="text-xs text-[#a7a39b]">
-            Ideas into digital.
+          <div className="text-xs text-text-secondary">
+            {dict.footer.tagline}
           </div>
         </div>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-6 text-sm text-gray-100 md:flex">
+        <nav className="hidden items-center gap-6 text-sm text-text md:flex">
           <Link
-            href="/services"
-            className="cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/services")}
+            data-active={pathname === p("/services")}
+            className="link-nav"
           >
-            Services
+            {dict.nav.services}
           </Link>
 
           <Link
-            href="/work"
-            className="cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/work")}
+            data-active={pathname === p("/work")}
+            className="link-nav"
           >
-            Work
+            {dict.nav.work}
           </Link>
 
           <Link
-            href="/digital-visuals"
-            className="cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/digital-visuals")}
+            data-active={pathname === p("/digital-visuals")}
+            className="link-nav"
           >
-            Digital Visuals
+            {dict.nav.visuals}
           </Link>
 
           <Link
-            href="/about"
-            className="cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/about")}
+            data-active={pathname === p("/about")}
+            className="link-nav"
           >
-            About
+            {dict.nav.about}
           </Link>
 
           <Link
-            href="/contact"
-            className="cursor-pointer hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+            href={p("/contact")}
+            data-active={pathname === p("/contact")}
+            className="link-nav"
           >
-            Contact
+            {dict.nav.contact}
           </Link>
 
-          {pathname !== "/contact" && (
+          {pathname !== p("/contact") && (
             <Link
-              href="/contact"
-              className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:h-9"
+              href={p("/contact")}
+            data-active={pathname === p("/contact")}
+              className="btn btn-secondary"
             >
-              <span>Start a project</span>
+              <span>{dict.nav.cta}</span>
 
               <span
                 aria-hidden
-                className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                className="btn-arrow"
               >
                 →
               </span>
             </Link>
           )}
+          <LocaleSwitcher locale={locale} label={dict.nav.language} />
         </nav>
 
         {/* Mobile hamburger */}
@@ -110,9 +127,9 @@ export default function Navbar() {
             type="button"
             aria-controls="mobile-menu"
             aria-expanded={open}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? dict.nav.menuClose : dict.nav.menuOpen}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] hover:bg-white/[0.02] active:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:h-10 md:w-10"
+            className="btn-icon"
           >
             {open ? (
               <svg
@@ -180,21 +197,21 @@ export default function Navbar() {
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex flex-col bg-[#080808] text-[#f2f0eb]"
+          className="fixed inset-0 z-50 flex flex-col bg-bg text-text"
         >
           {/* Header row inside overlay */}
-          <div className="flex items-center justify-between border-b border-gray-800 px-6 py-5">
+          <div className="flex items-center justify-between rule px-6 py-5">
             <div>
               <Link
-                href="/"
+                href={p("/")}
                 onClick={closeMenu}
-                className="cursor-pointer text-lg font-semibold tracking-tight text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="cursor-pointer text-lg font-semibold tracking-tight text-text"
               >
                 DIGILAGUNA
               </Link>
 
-              <div className="text-xs text-[#a7a39b]">
-                Ideas into digital.
+              <div className="text-xs text-text-secondary">
+                {dict.footer.tagline}
               </div>
             </div>
 
@@ -202,9 +219,9 @@ export default function Navbar() {
               <button
                 ref={closeBtnRef}
                 type="button"
-                aria-label="Close menu"
+                aria-label={dict.nav.menuClose}
                 onClick={closeMenu}
-                className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-[#f2f0eb] hover:bg-white/[0.02] active:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:h-10 md:w-10"
+                className="btn-icon"
               >
                 <svg
                   width="20"
@@ -234,65 +251,78 @@ export default function Navbar() {
           </div>
 
           <div className="overflow-auto px-6 py-8">
-            <nav className="flex min-h-[60vh] flex-col gap-6 text-xl text-[#f2f0eb]">
+            <nav className="flex min-h-[60vh] flex-col gap-6 text-xl text-text">
               <Link
-                href="/services"
+                href={p("/services")}
+            data-active={pathname === p("/services")}
                 onClick={closeMenu}
-                className="block cursor-pointer text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="link-nav block"
               >
-                Services
+                {dict.nav.services}
               </Link>
 
               <Link
-                href="/work"
+                href={p("/work")}
+            data-active={pathname === p("/work")}
                 onClick={closeMenu}
-                className="block cursor-pointer text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="link-nav block"
               >
-                Work
+                {dict.nav.work}
               </Link>
 
               <Link
-                href="/digital-visuals"
+                href={p("/digital-visuals")}
+            data-active={pathname === p("/digital-visuals")}
                 onClick={closeMenu}
-                className="block cursor-pointer text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="link-nav block"
               >
-                Digital Visuals
+                {dict.nav.visuals}
               </Link>
 
               <Link
-                href="/about"
+                href={p("/about")}
+            data-active={pathname === p("/about")}
                 onClick={closeMenu}
-                className="block cursor-pointer text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="link-nav block"
               >
-                About
+                {dict.nav.about}
               </Link>
 
               <Link
-                href="/contact"
+                href={p("/contact")}
+            data-active={pathname === p("/contact")}
                 onClick={closeMenu}
-                className="block cursor-pointer text-[#f2f0eb] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
+                className="link-nav block"
               >
-                Contact
+                {dict.nav.contact}
               </Link>
 
-              {pathname !== "/contact" && (
+              {pathname !== p("/contact") && (
                 <div className="mt-6">
                   <Link
-                    href="/contact"
+                    href={p("/contact")}
+            data-active={pathname === p("/contact")}
                     onClick={closeMenu}
-                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-4 text-sm font-medium text-[#f2f0eb] transition-colors duration-150 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] md:h-9"
+                    className="btn btn-secondary"
                   >
-                    <span>Start a project</span>
+                    <span>{dict.nav.cta}</span>
 
                     <span
                       aria-hidden
-                      className="text-[#66645f] transition-colors duration-150 group-hover:text-[#f2f0eb]"
+                      className="btn-arrow"
                     >
                       →
                     </span>
                   </Link>
                 </div>
               )}
+              <div className="mt-8">
+                <LocaleSwitcher
+                  locale={locale}
+                  label={dict.nav.language}
+                  onNavigate={closeMenu}
+                />
+              </div>
             </nav>
           </div>
         </div>
