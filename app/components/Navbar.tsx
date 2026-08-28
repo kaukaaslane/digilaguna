@@ -51,7 +51,7 @@ export default function Navbar({
         <Link href={p("/")} className="flex cursor-pointer items-center gap-3">
           <Image src="/logo.svg" alt="Digilaguna" width={28} height={30} priority />
 
-          <div>
+          <div className="border-l border-white/25 pl-3">
             <div className="text-lg font-semibold tracking-tight text-text">
               DIGILAGUNA
             </div>

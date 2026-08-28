@@ -25,7 +25,7 @@ export default function Footer({
           <div className="flex items-center gap-3">
             <Image src="/logo.svg" alt="Digilaguna" width={28} height={30} />
 
-            <div>
+            <div className="border-l border-white/25 pl-3">
               <div className="text-lg font-semibold text-text">
                 DIGILAGUNA
               </div>
