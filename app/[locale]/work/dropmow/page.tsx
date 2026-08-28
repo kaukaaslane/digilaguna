@@ -1,87 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isLocale, localizePath, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-const sections = [
-  {
-    number: "01",
-    title: "The idea",
-    text: "DropMow explores a service model where robotic lawn care becomes something you use rather than something you have to own, store or maintain.",
-  },
-  {
-    number: "02",
-    title: "The challenge",
-    text: "How do you make a relatively technical service feel simple, trustworthy and approachable? The interface needed to explain the idea quickly without overwhelming the visitor with technical detail.",
-  },
-  {
-    number: "03",
-    title: "Design direction",
-    text: "The visual direction is calm, minimal and Scandinavian-inspired. Clear typography, generous space and a restrained interface help keep the focus on the service rather than the technology behind it.",
-  },
-  {
-    number: "04",
-    title: "UX & structure",
-    text: "The experience follows a simple path: understand the service, see how it works, explore the pricing and start a conversation. The goal is to remove friction rather than add more information.",
-  },
-  {
-    number: "05",
-    title: "Front-end development",
-    text: "The website was built with Next.js, TypeScript and Tailwind CSS, with a focus on responsive behaviour, reusable components, accessibility and a multilingual structure.",
-  },
-];
+export default async function DropMow({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
 
-const faqs = [
-  {
-    question: "Is DropMow a real service?",
-    answer:
-      "DropMow was developed as a service concept and digital product exploration. The case study focuses on how the idea could be presented and experienced through a real-world website.",
-  },
-  {
-    question: "What was the main UX challenge?",
-    answer:
-      "The main challenge was making a relatively technical robotic lawn-care service feel simple and approachable. The interface therefore focuses on explaining the value of the service before introducing unnecessary technical detail.",
-  },
-  {
-    question: "Why a service model instead of selling the robot?",
-    answer:
-      "The concept explores a model where customers can benefit from robotic lawn care without having to purchase, store or maintain the equipment themselves.",
-  },
-  {
-    question: "Was the website built from scratch?",
-    answer:
-      "Yes. The front-end concept was developed with Next.js, TypeScript and Tailwind CSS, with responsive behaviour and reusable components considered throughout the build.",
-  },
-  {
-    question: "What would happen next?",
-    answer:
-      "The next step would be validating the concept with real customers, testing the service economics and refining the website around real usage, pricing and operational requirements.",
-  },
-];
+  const dict = await getDictionary(locale as Locale);
+  const t = dict.workDropmow;
+  const c = dict.common;
+  const p = (route: string) => localizePath(route, locale as Locale);
 
-export default function DropMow() {
   return (
     <div className="overflow-x-hidden bg-bg text-text">
       {/* INTRO */}
       <section className="rule">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-36 lg:px-12">
-          <div className="mb-8 eyebrow">
-            Case study / 01
-          </div>
+          <div className="mb-8 eyebrow">{t.intro.kicker}</div>
 
           <div className="grid gap-12 lg:grid-cols-[1fr_0.45fr] lg:items-end">
             <div>
               <h1 className="max-w-5xl text-5xl font-medium leading-[0.95] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[7rem]">
-                DROP MOW
+                {t.intro.title}
               </h1>
 
               <p className="mt-8 max-w-2xl text-xl leading-8 text-text-secondary sm:text-2xl">
-                Robotic lawn care, rethought.
+                {t.intro.subtitle}
               </p>
             </div>
 
             <div className="text-sm leading-6 text-text-faint lg:pb-2">
-              <div>Web Design</div>
-              <div>UX</div>
-              <div>Front-end Development</div>
+              {t.intro.meta.map((line) => (
+                <div key={line}>{line}</div>
+              ))}
             </div>
           </div>
         </div>
@@ -91,15 +48,11 @@ export default function DropMow() {
       <section>
         <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 md:py-28 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[0.55fr_1fr]">
-            <div className="eyebrow">
-              Overview
-            </div>
+            <div className="eyebrow">{t.overview.label}</div>
 
             <div className="max-w-3xl">
               <p className="text-2xl leading-[1.35] tracking-[-0.02em] text-text sm:text-3xl">
-                A multilingual website concept for a robotic lawn-care
-                service, designed around clarity, simplicity and a calm
-                Scandinavian visual direction.
+                {t.overview.body}
               </p>
             </div>
           </div>
@@ -126,14 +79,12 @@ export default function DropMow() {
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-36 lg:px-12">
           <div className="border-t border-line">
-            {sections.map((section) => (
+            {t.sections.map((section) => (
               <article
                 key={section.number}
                 className="grid gap-6 rule py-10 md:grid-cols-[80px_0.55fr_1fr] md:gap-8 md:py-14"
               >
-                <div className="text-xs text-text-faint">
-                  {section.number}
-                </div>
+                <div className="text-xs text-text-faint">{section.number}</div>
 
                 <h2 className="text-2xl font-medium tracking-[-0.025em]">
                   {section.title}
@@ -152,18 +103,15 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              How it works
-            </div>
+            <div className="eyebrow">{t.howItWorks.label}</div>
 
             <div>
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                Lawn care, without the ownership.
+                {t.howItWorks.title}
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted">
-                We bring the robot to your lawn, set everything up and let it
-                do the work.
+                {t.howItWorks.body}
               </p>
             </div>
           </div>
@@ -185,18 +133,15 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              Project screen
-            </div>
+            <div className="eyebrow">{t.secondScreen.label}</div>
 
             <div>
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                A simple service model.
+                {t.secondScreen.title}
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted">
-                The experience keeps the service understandable from the
-                first interaction through to getting started.
+                {t.secondScreen.body}
               </p>
             </div>
           </div>
@@ -218,18 +163,15 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              Selected screens
-            </div>
+            <div className="eyebrow">{t.selectedScreens.label}</div>
 
             <div>
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                The interface
+                {t.selectedScreens.title}
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted">
-                The final experience was designed to work across desktop and
-                mobile while keeping the same visual language throughout.
+                {t.selectedScreens.body}
               </p>
             </div>
           </div>
@@ -266,18 +208,15 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              Get started
-            </div>
+            <div className="eyebrow">{t.getStarted.label}</div>
 
             <div>
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                Ready for a better lawn?
+                {t.getStarted.title}
               </h2>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted">
-                The final step is deliberately simple: tell us about the
-                property and start a conversation.
+                {t.getStarted.body}
               </p>
             </div>
           </div>
@@ -299,12 +238,10 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="mb-10">
-            <div className="eyebrow">
-              Full project
-            </div>
+            <div className="eyebrow">{t.fullProject.label}</div>
 
             <h2 className="mt-4 text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-              DropMow from top to bottom.
+              {t.fullProject.title}
             </h2>
           </div>
 
@@ -325,59 +262,36 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="grid gap-10 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              Next steps
-            </div>
+            <div className="eyebrow">{t.nextSteps.label}</div>
 
             <div className="max-w-3xl">
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                From concept to something real.
+                {t.nextSteps.title}
               </h2>
 
               <p className="mt-6 text-base leading-7 text-text-muted">
-                The next phase would be less about adding features and more
-                about validating the idea in the real world.
+                {t.nextSteps.body}
               </p>
 
               <div className="mt-10 border-t border-line">
-                <div className="grid gap-6 rule py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
-                  <div className="text-xs text-text-faint">01</div>
+                {t.nextSteps.items.map((item) => (
+                  <div
+                    key={item.number}
+                    className="grid gap-6 rule py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8"
+                  >
+                    <div className="text-xs text-text-faint">
+                      {item.number}
+                    </div>
 
-                  <h3 className="text-lg font-medium md:text-xl">
-                    Validate the service
-                  </h3>
+                    <h3 className="text-lg font-medium md:text-xl">
+                      {item.title}
+                    </h3>
 
-                  <p className="text-sm leading-6 text-text-muted md:text-base">
-                    Test the concept with real homeowners and understand what
-                    would make the service genuinely useful.
-                  </p>
-                </div>
-
-                <div className="grid gap-6 rule py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
-                  <div className="text-xs text-text-faint">02</div>
-
-                  <h3 className="text-lg font-medium md:text-xl">
-                    Test the economics
-                  </h3>
-
-                  <p className="text-sm leading-6 text-text-muted md:text-base">
-                    Explore pricing, equipment utilisation, maintenance and
-                    the operational model behind the service.
-                  </p>
-                </div>
-
-                <div className="grid gap-6 rule py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8">
-                  <div className="text-xs text-text-faint">03</div>
-
-                  <h3 className="text-lg font-medium md:text-xl">
-                    Build the real product
-                  </h3>
-
-                  <p className="text-sm leading-6 text-text-muted md:text-base">
-                    Turn the validated concept into a service people can
-                    actually book, use and return to throughout the season.
-                  </p>
-                </div>
+                    <p className="text-sm leading-6 text-text-muted md:text-base">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -388,21 +302,16 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="grid gap-10 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              FAQ
-            </div>
+            <div className="eyebrow">{t.faq.label}</div>
 
             <div className="max-w-3xl">
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                Questions around the concept.
+                {t.faq.title}
               </h2>
 
               <div className="mt-10 border-t border-line">
-                {faqs.map((faq) => (
-                  <details
-                    key={faq.question}
-                    className="group rule"
-                  >
+                {t.faq.items.map((faq) => (
+                  <details key={faq.question} className="group rule">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-8 py-6 text-left text-base font-medium marker:hidden [&::-webkit-details-marker]:hidden">
                       <span>{faq.question}</span>
 
@@ -429,20 +338,15 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12">
           <div className="grid gap-10 md:grid-cols-[0.4fr_1fr]">
-            <div className="eyebrow">
-              Reflection
-            </div>
+            <div className="eyebrow">{t.learning.label}</div>
 
             <div className="max-w-3xl">
               <h2 className="text-3xl font-medium tracking-[-0.035em] sm:text-4xl">
-                Designing for clarity.
+                {t.learning.title}
               </h2>
 
               <p className="mt-6 text-base leading-7 text-text-muted">
-                This project started as an exploration of how a relatively
-                technical service could be presented in a simple, human way.
-                The challenge was not to explain every technical detail, but
-                to make the value of the service easy to understand.
+                {t.learning.body}
               </p>
             </div>
           </div>
@@ -452,20 +356,18 @@ export default function DropMow() {
       {/* NEXT PROJECT */}
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-36 lg:px-12">
-          <div className="mb-6 eyebrow">
-            Next
-          </div>
+          <div className="mb-6 eyebrow">{t.nextProject.label}</div>
 
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <h2 className="text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-              More work
+              {t.nextProject.title}
             </h2>
 
             <Link
-              href="/work"
+              href={p("/work")}
               className="group inline-flex cursor-pointer items-center text-sm text-text"
             >
-              View selected work
+              {c.viewWork}
 
               <span
                 aria-hidden
@@ -482,31 +384,23 @@ export default function DropMow() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:px-8 md:py-40 lg:px-12">
           <div className="max-w-3xl">
-            <div className="mb-5 eyebrow">
-              Have an idea?
-            </div>
+            <div className="mb-5 eyebrow">{t.startProject.label}</div>
 
             <h2 className="text-5xl font-medium tracking-[-0.05em] sm:text-6xl md:text-7xl">
-              Let&apos;s make sense of it.
+              {t.startProject.title}
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-text-muted">
-              You don&apos;t need to have everything figured out before
-              starting.
+              {t.startProject.body}
             </p>
 
             <Link
-              href="/contact"
+              href={p("/contact")}
               className="mt-8 hover:bg-white/[0.04] btn btn-primary"
             >
-              <span>Start a project</span>
+              <span>{c.startProject}</span>
 
-              <span
-                aria-hidden
-                className="btn-arrow"
-              >
-                →
-              </span>
+              <span aria-hidden className="btn-arrow">→</span>
             </Link>
           </div>
         </div>

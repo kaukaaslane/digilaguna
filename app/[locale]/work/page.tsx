@@ -1,24 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isLocale, localizePath, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export default function Work() {
+export default async function Work({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+
+  const dict = await getDictionary(locale as Locale);
+  const t = dict.work;
+  const c = dict.common;
+  const p = (route: string) => localizePath(route, locale as Locale);
+
   return (
     <div className="overflow-x-hidden bg-bg text-text">
       {/* HERO */}
       <section className="rule">
         <div className="site-container section-lg">
           <div className="max-w-4xl">
-            <div className="mb-5 eyebrow">
-              Selected work
-            </div>
+            <div className="mb-5 eyebrow">{t.hero.eyebrow}</div>
 
             <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-              Good work starts with a reason.
+              {t.hero.title}
             </h1>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-text-muted sm:text-lg">
-              A look at projects, experiments and ideas we&apos;ve taken from
-              an early thought into something people can actually use.
+              {t.hero.lead}
             </p>
           </div>
         </div>
@@ -29,48 +41,35 @@ export default function Work() {
         <div className="site-container section-lg">
           <article>
             <div className="mb-12 flex flex-wrap items-center justify-between gap-4 tag-list">
-              <span>01 / Selected project</span>
-              <span>Concept</span>
+              <span>{t.selected.kicker}</span>
+              <span>{t.selected.type}</span>
             </div>
 
             <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
               <div>
-                <div className="mb-5 eyebrow">
-                  DropMow
-                </div>
+                <div className="mb-5 eyebrow">{t.selected.label}</div>
 
                 <h2 className="max-w-3xl text-4xl font-medium leading-[1.02] tracking-[-0.035em] sm:text-5xl md:text-6xl">
-                  A digital concept for a smarter way to think about
-                  autonomous lawn care.
+                  {t.selected.title}
                 </h2>
               </div>
 
               <div className="flex flex-col justify-end lg:pb-1">
                 <p className="max-w-xl text-base leading-7 text-text-muted">
-                  DropMow is a concept project exploring how a product,
-                  service and digital experience could come together around
-                  autonomous mowing.
+                  {t.selected.body}
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 tag-list">
-                  <span>Web design</span>
-                  <span>UX</span>
-                  <span>Front-end</span>
+                  {t.selected.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
                 </div>
 
                 <div className="mt-10">
-                  <Link
-                    href="/work/dropmow"
-                    className="btn btn-secondary"
-                  >
-                    <span>View case study</span>
+                  <Link href={p("/work/dropmow")} className="btn btn-secondary">
+                    <span>{c.viewCase}</span>
 
-                    <span
-                      aria-hidden
-                      className="btn-arrow"
-                    >
-                      →
-                    </span>
+                    <span aria-hidden className="btn-arrow">→</span>
                   </Link>
                 </div>
               </div>
@@ -96,27 +95,22 @@ export default function Work() {
         <div className="site-container section-lg">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
-              <div className="mb-5 eyebrow">
-                How we approach projects
-              </div>
+              <div className="mb-5 eyebrow">{t.approach.eyebrow}</div>
 
               <h2 className="max-w-xl text-3xl font-medium leading-[1.05] tracking-[-0.03em] sm:text-4xl md:text-5xl">
-                We&apos;re interested in the part before the build.
+                {t.approach.title}
               </h2>
             </div>
 
             <div className="max-w-2xl">
-              <p className="text-base leading-7 text-text-muted">
-                The question, the problem, the rough idea that isn&apos;t
-                quite a product yet. That&apos;s often where the most useful
-                work starts.
-              </p>
-
-              <p className="mt-6 text-base leading-7 text-text-muted">
-                Not every project needs more technology. Sometimes it needs
-                better structure, clearer communication or simply a different
-                way of looking at the problem.
-              </p>
+              {t.approach.body.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="mt-6 text-base leading-7 text-text-muted first:mt-0"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
@@ -126,36 +120,15 @@ export default function Work() {
       <section className="rule">
         <div className="site-container section-lg">
           <div className="mb-14 max-w-2xl">
-            <div className="mb-5 eyebrow">
-              What matters
-            </div>
+            <div className="mb-5 eyebrow">{t.matters.eyebrow}</div>
 
             <h2 className="text-3xl font-medium leading-[1.05] tracking-[-0.03em] sm:text-4xl">
-              Technology should solve a problem, not create another one.
+              {t.matters.title}
             </h2>
           </div>
 
           <div className="border-t border-line">
-            {[
-              {
-                number: "01",
-                title: "Clarity",
-                description:
-                  "The purpose of a digital product should be easy to understand before the technology gets complicated.",
-              },
-              {
-                number: "02",
-                title: "Useful design",
-                description:
-                  "Design should make things easier to understand, navigate and use — not simply make them look different.",
-              },
-              {
-                number: "03",
-                title: "Right-sized technology",
-                description:
-                  "We use the technology a project actually needs instead of adding complexity for its own sake.",
-              },
-            ].map((item) => (
+            {t.matters.items.map((item) => (
               <div
                 key={item.number}
                 className="grid gap-4 rule py-8 md:grid-cols-[80px_0.8fr_1fr] md:gap-8 md:py-10"
@@ -179,33 +152,21 @@ export default function Work() {
       <section className="border-t border-line">
         <div className="site-container section-xl">
           <div className="max-w-3xl">
-            <div className="mb-5 eyebrow">
-              Get in touch
-            </div>
+            <div className="mb-5 eyebrow">{t.finalCta.eyebrow}</div>
 
-            <h2 className="text-5xl font-medium leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-              Have something
-              <br />
-              worth building?
+            <h2 className="whitespace-pre-line text-5xl font-medium leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-7xl">
+              {t.finalCta.title}
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-text-muted">
-              Let&apos;s figure out what it could become.
+              {t.finalCta.body}
             </p>
 
             <div className="mt-10">
-              <Link
-                href="/contact"
-                className="btn btn-primary"
-              >
-                <span>Start a project</span>
+              <Link href={p("/contact")} className="btn btn-primary">
+                <span>{c.startProject}</span>
 
-                <span
-                  aria-hidden
-                  className="btn-arrow"
-                >
-                  →
-                </span>
+                <span aria-hidden className="btn-arrow">→</span>
               </Link>
             </div>
           </div>

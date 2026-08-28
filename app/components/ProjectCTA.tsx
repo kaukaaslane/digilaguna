@@ -1,29 +1,34 @@
 import Link from "next/link";
+import { localizePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export default function ProjectCTA() {
+export default function ProjectCTA({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
   return (
     <section className="border-t border-line">
       <div className="site-container section-xl">
         <div className="max-w-3xl">
-          <p className="mb-4 eyebrow">
-            Start here
-          </p>
+          <p className="mb-4 eyebrow">{dict.projectCta.eyebrow}</p>
 
           <h2 className="text-5xl font-medium tracking-[-0.04em] sm:text-6xl md:text-7xl">
-            Have an idea?
+            {dict.projectCta.title}
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-text-muted">
-            You do not need to know exactly what you need yet. Tell us what you
-            are trying to achieve and we&apos;ll figure out the next step.
+            {dict.projectCta.body}
           </p>
 
           <div className="mt-8">
             <Link
-              href="/contact"
+              href={localizePath("/contact", locale)}
               className="btn btn-primary"
             >
-              Start a project
+              {dict.common.startProject}
               <span aria-hidden className="btn-arrow">→</span>
             </Link>
           </div>
