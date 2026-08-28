@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localizePath, type Locale } from "@/i18n/config";
@@ -21,13 +22,17 @@ export default function Footer({
     <footer className="border-t border-line bg-bg text-text">
       <div className="site-container py-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <div>
-            <div className="text-lg font-semibold text-text">
-              DIGILAGUNA
-            </div>
+          <div className="flex items-center gap-3">
+            <Image src="/logo.svg" alt="Digilaguna" width={28} height={30} />
 
-            <div className="text-sm text-text-secondary">
-              {dict.footer.tagline}
+            <div>
+              <div className="text-lg font-semibold text-text">
+                DIGILAGUNA
+              </div>
+
+              <div className="text-sm text-text-secondary">
+                {dict.footer.tagline}
+              </div>
             </div>
           </div>
 

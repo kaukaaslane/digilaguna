@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -47,18 +48,19 @@ export default function Navbar({
   return (
     <header className="sticky top-0 z-40 rule bg-bg">
       <div className="site-container flex items-center justify-between py-5">
-        <div>
-          <Link
-            href={p("/")}
-            className="cursor-pointer text-lg font-semibold tracking-tight text-text"
-          >
-            DIGILAGUNA
-          </Link>
+        <Link href={p("/")} className="flex cursor-pointer items-center gap-3">
+          <Image src="/logo.svg" alt="Digilaguna" width={28} height={30} priority />
 
-          <div className="text-xs text-text-secondary">
-            {dict.footer.tagline}
+          <div>
+            <div className="text-lg font-semibold tracking-tight text-text">
+              DIGILAGUNA
+            </div>
+
+            <div className="text-xs text-text-secondary">
+              {dict.footer.tagline}
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-6 text-sm text-text md:flex">
@@ -201,19 +203,23 @@ export default function Navbar({
         >
           {/* Header row inside overlay */}
           <div className="flex items-center justify-between rule px-6 py-5">
-            <div>
-              <Link
-                href={p("/")}
-                onClick={closeMenu}
-                className="cursor-pointer text-lg font-semibold tracking-tight text-text"
-              >
-                DIGILAGUNA
-              </Link>
+            <Link
+              href={p("/")}
+              onClick={closeMenu}
+              className="flex cursor-pointer items-center gap-3"
+            >
+              <Image src="/logo.svg" alt="Digilaguna" width={28} height={30} />
 
-              <div className="text-xs text-text-secondary">
-                {dict.footer.tagline}
+              <div>
+                <div className="text-lg font-semibold tracking-tight text-text">
+                  DIGILAGUNA
+                </div>
+
+                <div className="text-xs text-text-secondary">
+                  {dict.footer.tagline}
+                </div>
               </div>
-            </div>
+            </Link>
 
             <div>
               <button
