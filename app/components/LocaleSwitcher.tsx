@@ -22,6 +22,10 @@ export default function LocaleSwitcher({
 
   // Remember the choice so middleware doesn't override it on the next visit.
   const remember = (next: Locale) => {
+    // Writes document.cookie in response to a click, not during render; the
+    // compiler's static analysis can't distinguish that from an in-render
+    // mutation here.
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${next};path=/;max-age=31536000;samesite=lax`;
     onNavigate?.();
   };
