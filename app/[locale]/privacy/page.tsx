@@ -9,7 +9,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const m = (await getDictionary(locale as Locale)).legal.privacy.meta;
+  const m = (await getDictionary(locale as Locale)).legal.privacy;
 
   return {
     title: m.title,
