@@ -549,7 +549,7 @@ const en = {
         "Goods bought online carry a 14-day right of withdrawal. This does not apply to personalised orders.",
       ai:
         "The works are created with the help of artificial intelligence and finished by hand. They are digital art, printed on canvas.",
-      vat: "All prices include VAT.",
+      vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",
     },
   },
   notFound: {

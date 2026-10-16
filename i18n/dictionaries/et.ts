@@ -550,7 +550,7 @@ const et: Dictionary = {
         "Veebis ostetud tootel on 14-päevane taganemisõigus. Isikupärastatud tellimustele see ei laiene.",
       ai:
         "Teosed on loodud tehisintellekti abil ja viimistletud käsitsi, need on digitaalne kunst, trükitud lõuendile.",
-      vat: "Kõik hinnad sisaldavad käibemaksu.",
+      vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",
     },
   },
   notFound: {

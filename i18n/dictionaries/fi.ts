@@ -550,7 +550,7 @@ const fi: Dictionary = {
         "Verkosta ostetulla tuotteella on 14 päivän peruuttamisoikeus. Se ei koske yksilöityjä tilauksia.",
       ai:
         "Teokset on luotu tekoälyn avulla ja viimeistelty käsin. Ne ovat digitaalista taidetta, painettuna kankaalle.",
-      vat: "Kaikki hinnat sisältävät arvonlisäveron.",
+      vat: "Digilaguna OÜ ei ole arvonlisäverovelvollinen. Näytetyt hinnat ovat lopullisia.",
     },
   },
   notFound: {
