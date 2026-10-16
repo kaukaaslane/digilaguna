@@ -3,6 +3,25 @@ import { notFound } from "next/navigation";
 import { isLocale, localizePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const m = (await getDictionary(locale as Locale)).services.meta;
+
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: `/${locale}/services` },
+    openGraph: { title: m.title, description: m.description },
+  };
+}
+
 export default async function ServicesPage({
   params,
 }: {

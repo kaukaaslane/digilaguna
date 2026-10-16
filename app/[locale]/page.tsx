@@ -11,6 +11,25 @@ const VISUALS = [
   { src: "/visual-04.webp", box: "aspect-square", sizes: "(min-width: 768px) 25vw, 50vw" },
 ];
 
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const m = (await getDictionary(locale as Locale)).home.meta;
+
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: `/${locale}` },
+    openGraph: { title: m.title, description: m.description },
+  };
+}
+
 export default async function Home({
   params,
 }: {

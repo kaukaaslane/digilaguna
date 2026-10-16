@@ -40,6 +40,11 @@ const et: Dictionary = {
   },
 
   home: {
+    meta: {
+      title: "Digilaguna — digistuudio Tallinnas",
+      description:
+        "Veebilehed, e-pood, digitaalsed tööriistad, automatiseerimine ja visuaalid. Alustame probleemist, mitte tehnoloogiast.",
+    },
     hero: {
       eyebrow: "Digistuudio",
       title: ["Sina tuled ideega.", "Meie mõtleme välja,", "mida ehitada."],
@@ -198,6 +203,11 @@ const et: Dictionary = {
   },
 
   about: {
+    meta: {
+      title: "Meist — Digilaguna",
+      description:
+        "Digistuudio, mis ühendab veebidisaini, front-end arenduse ja digitaalse visuaali. Kuidas me töötame ja miks alustame ideest.",
+    },
     eyebrow: "Digilagunast",
     title: "Digitaalne töö peaks tunduma läbimõeldud, mitte keeruline.",
     lead: "Digilaguna ühendab veebidisaini, front-end arenduse ja digitaalse visuaali, et muuta ideed asjadeks, mida inimesed tegelikult kasutavad.",
@@ -225,6 +235,11 @@ const et: Dictionary = {
   },
 
   contact: {
+    meta: {
+      title: "Kontakt — alusta projekti | Digilaguna",
+      description:
+        "Sul ei ole vaja valmis briifi. Räägi, mida mõtled, ja leiame koos õige suuna.",
+    },
     intro: {
       eyebrow: "Alusta projekti",
       title: "Alustame\nideest.",
@@ -250,6 +265,11 @@ const et: Dictionary = {
   },
 
   services: {
+    meta: {
+      title: "Teenused — veebilehed, e-pood, tööriistad, AI | Digilaguna",
+      description:
+        "Veebilehed, e-poed, digitaalsed tööriistad, automatiseerimine, tehisintellekt ja visuaalid — sinu ettevõtte tegeliku vajaduse järgi.",
+    },
     hero: {
       eyebrow: "Teenused",
       title: "Digitaalne töö,\nmis lähtub\nprobleemist.",
@@ -332,6 +352,11 @@ const et: Dictionary = {
   },
 
   work: {
+    meta: {
+      title: "Tööd — valitud projektid | Digilaguna",
+      description:
+        "Projektid, katsetused ja ideed, mille oleme viinud varajasest mõttest millekski, mida inimesed päriselt kasutavad.",
+    },
     hero: {
       eyebrow: "Valitud tööd",
       title: "Hea töö algab põhjusest.",
@@ -370,6 +395,11 @@ const et: Dictionary = {
   },
 
   workDropmow: {
+    meta: {
+      title: "DropMow — robotniidukite teenus | Digilaguna",
+      description:
+        "Mitmekeelse veebilehe kontseptsioon robotniidukite teenusele — selgus, vaoshoitus ja rahulik põhjamaine visuaal.",
+    },
     intro: {
       kicker: "Juhtumiuuring / 01",
       title: "DROP MOW",
@@ -449,6 +479,11 @@ const et: Dictionary = {
   },
 
   digitalVisuals: {
+    meta: {
+      title: "Digitaalsed visuaalid — Digilaguna",
+      description:
+        "Visuaalid toodetele, veebilehtedele, kampaaniatele ja trükisele — loodud lähtuvalt ideest, formaadist ja kasutuskohast.",
+    },
     hero: {
       eyebrow: "Digitaalsed visuaalid",
       title: "Kui õiget visuaali ei ole olemas, loome selle.",
@@ -551,6 +586,28 @@ const et: Dictionary = {
       ai:
         "Teosed on loodud tehisintellekti abil ja viimistletud käsitsi, need on digitaalne kunst, trükitud lõuendile.",
       vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",
+    },
+  },
+  legal: {
+    privacy: {
+      title: "Privaatsuspoliitika — Digilaguna",
+      description:
+        "Kuidas Digilaguna OÜ isikuandmeid kogub, kasutab ja kaitseb.",
+    },
+    terms: {
+      title: "Kasutustingimused — Digilaguna",
+      description:
+        "Tingimused, mis kehtivad Digilaguna veebilehe ja teenuste kasutamisel.",
+    },
+    cookies: {
+      title: "Küpsiste poliitika — Digilaguna",
+      description:
+        "Milliseid küpsiseid Digilaguna veebileht kasutab ja milleks.",
+    },
+    legalNotice: {
+      title: "Õiguslik teade — Digilaguna",
+      description:
+        "Digilaguna OÜ ettevõtte andmed ja õiguslik teave.",
     },
   },
   notFound: {

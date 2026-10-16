@@ -1,3 +1,24 @@
+import type { Metadata } from "next";
+import { isLocale, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const m = (await getDictionary(locale as Locale)).legal.cookies.meta;
+
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: `/${locale}/cookies` },
+    openGraph: { title: m.title, description: m.description },
+  };
+}
+
 export default function CookiesPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-24">

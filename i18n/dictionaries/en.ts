@@ -38,6 +38,11 @@ const en = {
   },
 
   home: {
+    meta: {
+      title: "Digilaguna — digital studio in Tallinn",
+      description:
+        "Websites, e-commerce, custom tools, automation and digital visuals. We start with the problem, not the technology.",
+    },
     hero: {
       eyebrow: "Digital studio",
       // Kept deliberately plain — this line has to survive three translations.
@@ -197,6 +202,11 @@ const en = {
   },
 
   about: {
+    meta: {
+      title: "About — Digilaguna",
+      description:
+        "A digital studio bringing web design, front-end development and digital visuals together. How we work and why we start with the idea.",
+    },
     eyebrow: "About Digilaguna",
     title: "Digital work should feel considered, not complicated.",
     lead: "Digilaguna brings web design, front-end development and digital visuals together to turn ideas into things people actually use.",
@@ -224,6 +234,11 @@ const en = {
   },
 
   contact: {
+    meta: {
+      title: "Contact — start a project | Digilaguna",
+      description:
+        "You do not need a finished brief. Tell us what you are thinking and we will work out the right direction together.",
+    },
     intro: {
       eyebrow: "Start a project",
       title: "Let's start with\nthe idea.",
@@ -249,6 +264,11 @@ const en = {
   },
 
   services: {
+    meta: {
+      title: "Services — websites, e-commerce, tools, AI | Digilaguna",
+      description:
+        "Websites, online stores, custom digital tools, automation, AI and digital visuals — shaped around what your business actually needs.",
+    },
     hero: {
       eyebrow: "Services",
       title: "Digital work\nbuilt around\nthe problem.",
@@ -331,6 +351,11 @@ const en = {
   },
 
   work: {
+    meta: {
+      title: "Work — selected projects | Digilaguna",
+      description:
+        "Projects, experiments and ideas taken from an early thought to something people actually use.",
+    },
     hero: {
       eyebrow: "Selected work",
       title: "Good work starts with a reason.",
@@ -369,6 +394,11 @@ const en = {
   },
 
   workDropmow: {
+    meta: {
+      title: "DropMow — robotic lawn-care service | Digilaguna",
+      description:
+        "A multilingual website concept for a robotic lawn-care service, built around clarity, restraint and a calm Nordic visual direction.",
+    },
     intro: {
       kicker: "Case study / 01",
       title: "DROP MOW",
@@ -448,6 +478,11 @@ const en = {
   },
 
   digitalVisuals: {
+    meta: {
+      title: "Digital visuals — Digilaguna",
+      description:
+        "Visuals for products, websites, campaigns and print, made from the idea, the format and the place they will be used.",
+    },
     hero: {
       eyebrow: "Digital visuals",
       title: "When the right visual doesn't exist, we make one.",
@@ -550,6 +585,28 @@ const en = {
       ai:
         "The works are created with the help of artificial intelligence and finished by hand. They are digital art, printed on canvas.",
       vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",
+    },
+  },
+  legal: {
+    privacy: {
+      title: "Privacy Policy — Digilaguna",
+      description:
+        "How Digilaguna OÜ collects, uses and protects personal data.",
+    },
+    terms: {
+      title: "Terms of Service — Digilaguna",
+      description:
+        "The terms that apply to using the Digilaguna website and services.",
+    },
+    cookies: {
+      title: "Cookie Policy — Digilaguna",
+      description:
+        "Which cookies the Digilaguna website uses and what they are for.",
+    },
+    legalNotice: {
+      title: "Legal Notice — Digilaguna",
+      description:
+        "Company details and legal information for Digilaguna OÜ, Tallinn.",
     },
   },
   notFound: {

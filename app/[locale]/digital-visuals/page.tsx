@@ -3,6 +3,25 @@ import ProjectCTA from "@/app/components/ProjectCTA";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const m = (await getDictionary(locale as Locale)).digitalVisuals.meta;
+
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: `/${locale}/digital-visuals` },
+    openGraph: { title: m.title, description: m.description },
+  };
+}
+
 export default async function DigitalVisuals({
   params,
 }: {

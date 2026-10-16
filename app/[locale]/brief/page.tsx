@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+// Orbleht: miski ei viita sellele. Hoiame otsingust väljas,
+// kuni on otsustatud, kas see jääb või läheb.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default function BriefPage() {
   return (
     <div className="min-h-screen bg-bg text-text">
