@@ -4,7 +4,7 @@ import { locales, localeTags } from "@/i18n/config";
 const SITE = "https://www.digilaguna.com";
 
 const routes = [
-  "", "/services", "/work", "/work/dropmow", "/digital-visuals",
+  "", "/services", "/work", "/work/dropmow", "/digital-visuals", "/oied",
   "/about", "/contact", "/privacy", "/terms", "/cookies", "/legal-notice",
 ];
 

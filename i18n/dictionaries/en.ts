@@ -11,6 +11,7 @@ const en = {
     visuals: "Digital Visuals",
     about: "About",
     contact: "Contact",
+    shop: "Shop",
     cta: "Start a project",
     menuOpen: "Open menu",
     menuClose: "Close menu",
@@ -227,29 +228,6 @@ const en = {
       eyebrow: "Start a project",
       title: "Let's start with\nthe idea.",
       lead: "You don't need a finished brief. Tell us what you're thinking about and we'll figure out the right direction together.",
-    },
-    choice: {
-      starter: {
-        label: "01 / Guided",
-        title: "Start with\nProject Starter",
-        body: "Not sure exactly what you need? Start a conversation and we'll turn the idea into a clearer project direction.",
-      },
-      direct: {
-        label: "02 / Direct",
-        title: "I know what\nI need",
-        body: "Already know what you're looking for? Send a direct enquiry and tell us about the project in your own words.",
-      },
-    },
-    starterMode: {
-      eyebrow: "Project Starter",
-      label: "Digilaguna",
-      title: "What are you thinking about building?",
-    },
-    chat: {
-      initialAssistant: "Start wherever it makes sense. Tell me about the idea.",
-      placeholder: "Tell me about your idea...",
-      error: "Something went wrong. Please try again.",
-      retry: "Retry",
     },
     formMode: {
       eyebrow: "Direct enquiry",
@@ -515,6 +493,65 @@ const en = {
     body: "You do not need to know exactly what you need yet. Tell us what you are trying to achieve and we'll figure out the next step.",
   },
 
+  shop: {
+    meta: {
+      title: "Blooms — mandalas on canvas | DIGILAGUNA",
+      description:
+        "Nine mandala canvas prints. Digital art, printed in Tallinn. Three sizes, ready to hang.",
+    },
+    hero: {
+      eyebrow: "Shop",
+      title: "Blooms — mandalas on canvas",
+      lead: "Colourful mandalas on canvas that bring depth and warmth to a wall. Digital art, printed in Tallinn.",
+    },
+    product: {
+      from: "from",
+      selectSize: "Size",
+      premium: "Premium satin canvas",
+      order: "Order",
+      close: "Close",
+      detail:
+        "Stretched on a 2 cm wooden frame, ready to hang. Made in 3–5 working days.",
+    },
+    delivery: {
+      eyebrow: "Delivery",
+      parcel: "Parcel machine in Estonia",
+      finland: "Finland",
+      finlandPrice: "ask for a quote",
+      pickup: "Pickup in Tallinn",
+      free: "free",
+      time: "Ready in 3–5 working days",
+      label: "Delivery method",
+    },
+    form: {
+      eyebrow: "Order",
+      title: "Send your order",
+      lead: "Fill in the form and we will reply with an invoice.",
+      name: "Name",
+      email: "Email",
+      phone: "Phone",
+      product: "Product",
+      size: "Size",
+      message: "Message",
+      messageOptional: "Optional",
+      total: "Total",
+      submit: "Send order",
+      sending: "Sending…",
+      success: "Thank you. We will be in touch with an invoice shortly.",
+      errorGeneric: "Something went wrong. Please try again.",
+      errorName: "Please enter your name.",
+      errorEmail: "Please enter a valid email address.",
+      errorPhone: "Please enter a phone number.",
+      back: "Back",
+    },
+    terms: {
+      withdrawal:
+        "Goods bought online carry a 14-day right of withdrawal. This does not apply to personalised orders.",
+      ai:
+        "The works are created with the help of artificial intelligence and finished by hand. They are digital art, printed on canvas.",
+      vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",
+    },
+  },
   notFound: {
     title: "This page does not exist.",
     body: "The link may be out of date, or the page may have moved.",

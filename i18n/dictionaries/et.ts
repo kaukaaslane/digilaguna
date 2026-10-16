@@ -13,6 +13,7 @@ const et: Dictionary = {
     visuals: "Digitaalne visuaal",
     about: "Meist",
     contact: "Kontakt",
+    shop: "Pood",
     cta: "Alusta projekti",
     menuOpen: "Ava menüü",
     menuClose: "Sulge menüü",
@@ -228,29 +229,6 @@ const et: Dictionary = {
       eyebrow: "Alusta projekti",
       title: "Alustame\nideest.",
       lead: "Sul ei ole vaja valmis briifi. Räägi, mida mõtled, ja leiame koos õige suuna.",
-    },
-    choice: {
-      starter: {
-        label: "01 / Juhendatud",
-        title: "Alusta\nProjekti alustajaga",
-        body: "Ei ole kindel, mida täpselt vajad? Alusta vestlust ja aitame ideel muutuda selgemaks projekti suunaks.",
-      },
-      direct: {
-        label: "02 / Otse",
-        title: "Tean, mida\nvajan",
-        body: "Tead juba, mida otsid? Saada otsepäring ja räägi projektist oma sõnadega.",
-      },
-    },
-    starterMode: {
-      eyebrow: "Projekti alustaja",
-      label: "Digilaguna",
-      title: "Mida sa mõtled ehitada?",
-    },
-    chat: {
-      initialAssistant: "Alusta sealt, kust tundub mõistlik. Räägi mulle oma ideest.",
-      placeholder: "Räägi oma ideest...",
-      error: "Midagi läks valesti. Palun proovi uuesti.",
-      retry: "Proovi uuesti",
     },
     formMode: {
       eyebrow: "Otsepäring",
@@ -516,6 +494,65 @@ const et: Dictionary = {
     body: "Sa ei pea veel täpselt teadma, mida vajad. Räägi meile, mida soovid saavutada, ja leiame koos järgmise sammu.",
   },
 
+  shop: {
+    meta: {
+      title: "Õied — mandalad lõuendil | DIGILAGUNA",
+      description:
+        "Üheksa mandala-lõuendiprinti. Digitaalne kunst, trükitud Tallinnas. Kolm mõõtu, valmis seinale riputamiseks.",
+    },
+    hero: {
+      eyebrow: "Pood",
+      title: "Õied — mandalad lõuendil",
+      lead: "Värvikad mandalad lõuendil, mis toovad seinale sügavust ja soojust. Digitaalne kunst, trükitud Tallinnas.",
+    },
+    product: {
+      from: "alates",
+      selectSize: "Mõõt",
+      premium: "Premium satiinlõuend",
+      order: "Telli",
+      close: "Sulge",
+      detail:
+        "Pingutatud 2 cm puitalusraamile, valmis seinale riputamiseks. Valmib 3–5 tööpäevaga.",
+    },
+    delivery: {
+      eyebrow: "Tarne",
+      parcel: "Pakiautomaat Eestis",
+      finland: "Soome",
+      finlandPrice: "küsi hinda",
+      pickup: "Järeletulemine Tallinnas",
+      free: "tasuta",
+      time: "Valmib 3–5 tööpäevaga",
+      label: "Tarneviis",
+    },
+    form: {
+      eyebrow: "Tellimus",
+      title: "Saada tellimus",
+      lead: "Täida vorm ja vastame arvega.",
+      name: "Nimi",
+      email: "E-post",
+      phone: "Telefon",
+      product: "Toode",
+      size: "Mõõt",
+      message: "Sõnum",
+      messageOptional: "Valikuline",
+      total: "Kokku",
+      submit: "Saada tellimus",
+      sending: "Saadan…",
+      success: "Aitäh. Saadame peagi arve.",
+      errorGeneric: "Midagi läks valesti. Palun proovi uuesti.",
+      errorName: "Palun sisesta oma nimi.",
+      errorEmail: "Palun sisesta kehtiv e-posti aadress.",
+      errorPhone: "Palun sisesta telefoninumber.",
+      back: "Tagasi",
+    },
+    terms: {
+      withdrawal:
+        "Veebis ostetud tootel on 14-päevane taganemisõigus. Isikupärastatud tellimustele see ei laiene.",
+      ai:
+        "Teosed on loodud tehisintellekti abil ja viimistletud käsitsi, need on digitaalne kunst, trükitud lõuendile.",
+      vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",
+    },
+  },
   notFound: {
     title: "Seda lehte ei ole olemas.",
     body: "Link võib olla aegunud või leht on kolinud.",
