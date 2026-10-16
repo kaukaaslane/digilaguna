@@ -1,5 +1,16 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { checkOrigin, getClientIp, rateLimit } from "@/lib/api-guard";
+
+const MAX_SUBMISSIONS = 3;          // IP kohta
+const WINDOW_MS = 10 * 60 * 1000;   // 10 minuti kohta
+
+const LIMITS = {
+  name: 120,
+  email: 200,
+  company: 200,
+  description: 5000,
+} as const;
 
 export const runtime = "nodejs";
 
@@ -25,6 +36,25 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: Request) {
+  if (!checkOrigin(request)) {
+    return NextResponse.json(
+      { success: false, error: "Forbidden." },
+      { status: 403 }
+    );
+  }
+
+  const limited = rateLimit(
+    `contact:${getClientIp(request)}`,
+    MAX_SUBMISSIONS,
+    WINDOW_MS
+  );
+  if (!limited.ok) {
+    return NextResponse.json(
+      { success: false, error: "Too many enquiries sent. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfter) } }
+    );
+  }
+
   try {
     const body = (await request.json()) as {
       name?: unknown;
@@ -38,6 +68,18 @@ export async function POST(request: Request) {
     const company = typeof body.company === "string" ? body.company.trim() : "";
     const description =
       typeof body.description === "string" ? body.description.trim() : "";
+
+    if (
+      name.length > LIMITS.name ||
+      email.length > LIMITS.email ||
+      company.length > LIMITS.company ||
+      description.length > LIMITS.description
+    ) {
+      return NextResponse.json(
+        { success: false, error: "One of the fields is too long." },
+        { status: 400 }
+      );
+    }
 
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);

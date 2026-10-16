@@ -13,6 +13,7 @@ const fi: Dictionary = {
     visuals: "Digitaalinen visuaalisuus",
     about: "Meistä",
     contact: "Yhteystiedot",
+    shop: "Kauppa",
     cta: "Aloita projekti",
     menuOpen: "Avaa valikko",
     menuClose: "Sulje valikko",
@@ -228,29 +229,6 @@ const fi: Dictionary = {
       eyebrow: "Aloita projekti",
       title: "Aloitetaan\nideasta.",
       lead: "Et tarvitse valmista briiffiä. Kerro, mitä mietit, niin löydämme yhdessä oikean suunnan.",
-    },
-    choice: {
-      starter: {
-        label: "01 / Ohjattu",
-        title: "Aloita\nProject Starterilla",
-        body: "Etkö ole varma, mitä tarkalleen tarvitset? Aloita keskustelu, niin autamme muuttamaan idean selkeämmäksi projektin suunnaksi.",
-      },
-      direct: {
-        label: "02 / Suoraan",
-        title: "Tiedän, mitä\ntarvitsen",
-        body: "Tiedätkö jo, mitä etsit? Lähetä suora yhteydenotto ja kerro projektista omin sanoin.",
-      },
-    },
-    starterMode: {
-      eyebrow: "Project Starter",
-      label: "Digilaguna",
-      title: "Mitä olet ajatellut rakentaa?",
-    },
-    chat: {
-      initialAssistant: "Aloita siitä, mikä tuntuu järkevältä. Kerro minulle ideastasi.",
-      placeholder: "Kerro ideastasi...",
-      error: "Jokin meni pieleen. Yritä uudelleen.",
-      retry: "Yritä uudelleen",
     },
     formMode: {
       eyebrow: "Suora yhteydenotto",
@@ -516,6 +494,65 @@ const fi: Dictionary = {
     body: "Sinun ei tarvitse vielä tietää tarkalleen, mitä tarvitset. Kerro, mitä yrität saavuttaa, niin mietitään yhdessä seuraava askel.",
   },
 
+  shop: {
+    meta: {
+      title: "Kukat — mandalat kankaalla | DIGILAGUNA",
+      description:
+        "Yhdeksän mandalaa kankaalla. Digitaalista taidetta, painettu Tallinnassa. Kolme kokoa, valmis ripustettavaksi.",
+    },
+    hero: {
+      eyebrow: "Kauppa",
+      title: "Kukat — mandalat kankaalla",
+      lead: "Värikkäitä mandaloja kankaalla, jotka tuovat seinälle syvyyttä ja lämpöä. Digitaalista taidetta, painettu Tallinnassa.",
+    },
+    product: {
+      from: "alkaen",
+      selectSize: "Koko",
+      premium: "Premium-satiinikangas",
+      order: "Tilaa",
+      close: "Sulje",
+      detail:
+        "Pingotettu 2 cm:n puukehykseen, valmis ripustettavaksi. Valmistuu 3–5 arkipäivässä.",
+    },
+    delivery: {
+      eyebrow: "Toimitus",
+      parcel: "Pakettiautomaatti Virossa",
+      finland: "Suomi",
+      finlandPrice: "kysy hintaa",
+      pickup: "Nouto Tallinnasta",
+      free: "maksuton",
+      time: "Valmis 3–5 arkipäivässä",
+      label: "Toimitustapa",
+    },
+    form: {
+      eyebrow: "Tilaus",
+      title: "Lähetä tilaus",
+      lead: "Täytä lomake, niin vastaamme laskulla.",
+      name: "Nimi",
+      email: "Sähköposti",
+      phone: "Puhelin",
+      product: "Tuote",
+      size: "Koko",
+      message: "Viesti",
+      messageOptional: "Vapaaehtoinen",
+      total: "Yhteensä",
+      submit: "Lähetä tilaus",
+      sending: "Lähetetään…",
+      success: "Kiitos. Lähetämme laskun pian.",
+      errorGeneric: "Jokin meni pieleen. Yritä uudelleen.",
+      errorName: "Anna nimesi.",
+      errorEmail: "Anna kelvollinen sähköpostiosoite.",
+      errorPhone: "Anna puhelinnumero.",
+      back: "Takaisin",
+    },
+    terms: {
+      withdrawal:
+        "Verkosta ostetulla tuotteella on 14 päivän peruuttamisoikeus. Se ei koske yksilöityjä tilauksia.",
+      ai:
+        "Teokset on luotu tekoälyn avulla ja viimeistelty käsin. Ne ovat digitaalista taidetta, painettuna kankaalle.",
+      vat: "Kaikki hinnat sisältävät arvonlisäveron.",
+    },
+  },
   notFound: {
     title: "Tätä sivua ei ole olemassa.",
     body: "Linkki voi olla vanhentunut tai sivu on siirtynyt.",
