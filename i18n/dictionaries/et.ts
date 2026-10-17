@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 const et: Dictionary = {
   meta: {
-    title: "DIGILAGUNA — Ideedest digitaalseks.",
+    title: "DIGILAGUNA — Ideedest digilahendusteni",
     description:
       "Digilaguna on digistuudio Tallinnas. Veebilehed, e-pood, tööriistad, automatiseerimine ja digitaalne visuaal.",
   },
@@ -10,30 +10,30 @@ const et: Dictionary = {
   nav: {
     services: "Teenused",
     work: "Tööd",
-    visuals: "Digitaalne visuaal",
+    visuals: "Digivisuaalid",
     about: "Meist",
     contact: "Kontakt",
     shop: "Pood",
-    cta: "Alusta projekti",
+    cta: "Räägime sinu ideest",
     menuOpen: "Ava menüü",
     menuClose: "Sulge menüü",
     language: "Keel",
   },
 
   footer: {
-    tagline: "Ideedest digitaalseks.",
-    legal: "Õiguslik teave",
-    privacy: "Privaatsuspoliitika",
+    tagline: "Ideedest digilahendusteni",
+    legal: "Juriidiline teave",
+    privacy: "Privaatsustingimused",
     terms: "Kasutustingimused",
-    cookies: "Küpsiste poliitika",
-    notice: "Õiguslik teade",
+    cookies: "Küpsiste kasutamine",
+    notice: "Juriidiline teave",
   },
 
   common: {
-    startProject: "Alusta projekti",
-    viewWork: "Vaata töid",
-    viewCase: "Vaata juhtumiuuringut",
-    exploreVisuals: "Vaata visuaale",
+    startProject: "Räägime sinu projektist",
+    viewWork: "Vaata meie töid",
+    viewCase: "Vaata projekti lähemalt",
+    exploreVisuals: "Vaata digivisuaale",
     back: "Tagasi",
     send: "Saada",
     sending: "Saadan…",
@@ -48,31 +48,31 @@ const et: Dictionary = {
     hero: {
       eyebrow: "Digistuudio",
       title: ["Sina tuled ideega.", "Meie mõtleme välja,", "mida ehitada."],
-      lead: "Probleem. Toores mõte. Aimdus, et midagi võiks paremini toimida. Sellest piisab alustamiseks.",
-      tags: ["Veebilehed", "E-pood", "Digitööriistad", "Automatiseerimine ja AI"],
+      lead: "Sul on probleem, esialgne idee või tunne, et midagi võiks paremini toimida. Sellest piisab alustamiseks.",
+      tags: ["Veebilehed", "E-pood", "Digitaalsed tööriistad", "Automatiseerimine ja AI"],
     },
 
     positioning: {
-      eyebrow: "Alusta probleemist",
-      title: "Iga idee ei vaja rakendust.\nIga ettevõte ei vaja veebilehte.",
-      body: "Vahel on lahendus väiksem, kui arvasid. Vahel suurem. Nii või teisiti selgitame selle välja enne, kui keegi rea koodi kirjutab.",
-      statement: "Tehnoloogia tuleb pärast ideed.",
+      eyebrow: "Alustame vajadusest",
+      title: "Iga idee ei vaja rakendust.\nIga ettevõte ei vaja keerulist veebilehte.",
+      body: "Mõnikord piisab lihtsast lahendusest, teinekord on vaja enamat. Enne töö alustamist selgitame välja, mis sinu eesmärki kõige paremini toetab.",
+      statement: "Kõigepealt idee, siis tehnoloogia.",
     },
 
     work: {
-      eyebrow: "Valitud tööd",
-      title: "Mõned asjad, mida oleme ehitanud.",
+      eyebrow: "Valik meie töödest",
+      title: "Projektid ja ideed, millega oleme tegelenud.",
       disciplines: ["Veebidisain", "UX", "Front-end arendus"],
       project: {
-        title: "DropMow — robotniidukite teenus",
-        body: "Mitmekeelse veebilehe kontseptsioon robotniidukite teenusele. Üles ehitatud selguse, vaoshoituse ja rahuliku põhjamaise visuaali ümber.",
+        title: "DropMow — robotniiduki teenus",
+        body: "Mitmekeelne veebikontseptsioon robotniiduki teenusele. Fookuses on selge kasutajakogemus ja rahulik põhjamaine visuaalne suund.",
       },
     },
 
     services: {
-      eyebrow: "Mida me ehitame",
-      title: "Digitaalne töö, mis on kujundatud sinu tegeliku vajaduse järgi.",
-      lead: "Veebilehed, e-poed, eritööriistad, automatiseerimine, AI ja digitaalne visuaal.",
+      eyebrow: "Meie teenused",
+      title: "Digilahendused sinu vajaduste järgi.",
+      lead: "Veebilehed, e-poed, digitaalsed tööriistad, automatiseerimine, AI-lahendused ja digivisuaalid.",
       items: [
         {
           number: "01",
@@ -88,7 +88,7 @@ const et: Dictionary = {
         },
         {
           number: "03",
-          title: "Digitööriistad",
+          title: "Digitaalsed tööriistad",
           description:
             "Eritellimusel rakendused ja sisemised tööriistad tööks, mida olemasolev tarkvara päris hästi ei suuda.",
         },
@@ -100,7 +100,7 @@ const et: Dictionary = {
         },
         {
           number: "05",
-          title: "Digitaalne visuaal",
+          title: "Digivisuaalid",
           description:
             "Visuaalid toodetele, brändidele, ruumidele ja digitaalsetele kogemustele.",
         },
@@ -109,7 +109,7 @@ const et: Dictionary = {
 
     process: {
       eyebrow: "Protsess",
-      title: "Alusta ideest. Mitte tehnoloogiast.",
+      title: "Alustame ideest, mitte tehnoloogiast.",
       steps: [
         {
           number: "01",
@@ -119,19 +119,19 @@ const et: Dictionary = {
         },
         {
           number: "02",
-          title: "Meie mõtleme läbi.",
+          title: "Mõtleme lahenduse läbi.",
           description:
             "Vaatame, mida sa saavutada tahad ja milline lahendus oma koha ära teenib.",
         },
         {
           number: "03",
-          title: "Meie ehitame.",
+          title: "Ehitame lahenduse.",
           description:
             "Õige tehnoloogia, parajalt keerukust ja mitte midagi lisatud lihtsalt sellepärast, et saaks.",
         },
         {
           number: "04",
-          title: "Hoiame selle kasulikuna.",
+          title: "Hoiame lahenduse kasulikuna.",
           description:
             "Avaldamine pole lõpp. Digitaalsed asjad peaksid kasvama koos ettevõttega.",
         },
@@ -139,49 +139,49 @@ const et: Dictionary = {
     },
 
     visuals: {
-      eyebrow: "Digitaalne visuaal",
-      title: "Mõnda ideed on parem näidata kui seletada.",
-      lead: "Visuaalne töö ekraanidele, ruumidele, toodetele ja trükile.",
-      alt: "Digilaguna digitaalne visuaal",
+      eyebrow: "Digivisuaalid",
+      title: "Mõni idee räägib enda eest paremini pildis.",
+      lead: "Digivisuaalid ekraanidele, ruumidesse, toodetele ja trükistele.",
+      alt: "Digilaguna digivisuaal",
     },
 
     faq: {
       eyebrow: "Küsimused",
-      title: "Küsimused, mida meilt küsitakse.",
-      lead: "Kui sa pole kindel, kust alustada, annavad need parema pildi sellest, kuidas me töötame.",
+      title: "Korduma kippuvad küsimused",
+      lead: "Kui sa pole kindel, kust alustada, leiad siit vastused levinumatele küsimustele.",
       items: [
         {
-          question: "Milliste projektidega te tegelete?",
+          question: "Milliste projektidega Digilaguna tegeleb?",
           answer:
             "Veebilehed, e-poed, digitööriistad, automatiseerimine, AI-lahendused ja digitaalne visuaal. Õige lähtepunkt sõltub sellest, mida sa saavutada soovid.",
         },
         {
-          question: "Kas ma pean täpselt teadma, mida ma tahan?",
+          question: "Kas pean juba täpselt teadma, mida vajan?",
           answer:
             "Ei. Alusta probleemist, ideest või lihtsalt millestki, mis võiks paremini toimida. Aitame õige lahenduse enne ehitamist paika panna.",
         },
         {
-          question: "Kas te teete eritellimusel veebilehti?",
+          question: "Kas teete veebilehti minu vajaduste järgi?",
           answer:
             "Jah. Ehitame ettevõtte vajaduste järgi, mitte ei suru projekti üldisesse malli.",
         },
         {
-          question: "Kas saate aidata olemasoleva veebilehega?",
+          question: "Kas saate olemasolevat veebilehte parandada?",
           answer:
             "Jah. Vaatame olemasoleva üle, leiame, mida saaks paremaks teha, ja aitame otsustada, kas seda täiendada, uuesti ehitada või lihtsustada.",
         },
         {
-          question: "Kas tegelete e-poodidega?",
+          question: "Kas aitate e-poodidega?",
           answer:
             "Jah. Strateegia, poe ülesseadmine, toote esitlus ja kogu digitaalne kogemus veebis müümise ümber.",
         },
         {
-          question: "Kas saate ehitada sisemisi digitööriistu?",
+          question: "Kas loote ettevõtetele digitaalseid tööriistu?",
           answer:
             "Jah. Kui tiim tugineb tabelarvutustele, korduvale käsitööle või omavahel ühendamata süsteemidele, on eritööriist või automatiseerimine sageli parem vastus.",
         },
         {
-          question: "Kuidas projekt tavaliselt algab?",
+          question: "Kuidas koostöö algab?",
           answer:
             "Vestlusega. Räägi, mida sa saavutada tahad ja mis praegu keeruline on. Sealt edasi paneme paika mõistliku järgmise sammu.",
         },
@@ -190,15 +190,15 @@ const et: Dictionary = {
 
     starter: {
       eyebrow: "Alusta siit",
-      title: "Pole veel kindel, mida vajad?",
-      body: "Täpselt sealt tasubki alustada. Räägi, mida sa mõtled, ja aitame välja mõelda, kuhu sellega edasi minna.",
-      cta: "Alusta oma ideest",
+      title: "Sa pole veel kindel, mida vajad?",
+      body: "Alustamiseks ei pea sul kõike valmis mõeldud olema. Räägi oma ideest ja leiame koos järgmise sammu.",
+      cta: "Räägi oma ideest",
     },
 
     finalCta: {
-      eyebrow: "Võta ühendust",
-      title: "On sul midagi, mida tasub ehitada?",
-      body: "Mõtleme välja, milleks see saada võiks.",
+      eyebrow: "Võta meiega ühendust",
+      title: "Sul on idee? Leiame sellele sobiva lahenduse.",
+      body: "Mõtleme koos, kuidas sinu ideest toimiv lahendus teha.",
     },
   },
 
@@ -209,11 +209,11 @@ const et: Dictionary = {
         "Digistuudio, mis ühendab veebidisaini, front-end arenduse ja digitaalse visuaali. Kuidas me töötame ja miks alustame ideest.",
     },
     eyebrow: "Digilagunast",
-    title: "Digitaalne töö peaks tunduma läbimõeldud, mitte keeruline.",
-    lead: "Digilaguna ühendab veebidisaini, front-end arenduse ja digitaalse visuaali, et muuta ideed asjadeks, mida inimesed tegelikult kasutavad.",
+    title: "Digilahendused peavad olema läbimõeldud, mitte keerulised.",
+    lead: "Digilaguna ühendab veebidisaini, arenduse ja digivisuaalid, et muuta ideed toimivateks digilahendusteks.",
     approach: {
-      eyebrow: "Lähenemine",
-      title: "Alusta ideest. Ehita see, mis tegelikult aitab.",
+      eyebrow: "Meie lähenemine",
+      title: "Alustame ideest. Loome lahenduse, millest on päriselt kasu.",
       body: [
         "Iga probleem ei vaja keerulist lahendust. Esimene samm on mõista, mida sa saavutada tahad, mis ette jääb ja mis teeks kõige suurema vahe.",
         "Edasi on disainil ja tehnoloogial oma töö teha. Need peaksid tegema idee selgemaks, kasutamise lihtsamaks ja edasiliikumise kergemaks.",
@@ -241,7 +241,7 @@ const et: Dictionary = {
         "Sul ei ole vaja valmis briifi. Räägi, mida mõtled, ja leiame koos õige suuna.",
     },
     intro: {
-      eyebrow: "Alusta projekti",
+      eyebrow: "Räägime sinu projektist",
       title: "Alustame\nideest.",
       lead: "Sul ei ole vaja valmis briifi. Räägi, mida mõtled, ja leiame koos õige suuna.",
     },
@@ -256,10 +256,10 @@ const et: Dictionary = {
       companyPlaceholder: "Ettevõtte või projekti nimi",
       descriptionLabel: "Mida soovid ehitada?",
       descriptionPlaceholder: "Räägi natuke projektist...",
-      submit: "Saada päring",
+      submit: "Saada sõnum",
       sending: "Saadan...",
       successDefault: "Sinu päring on saadetud.",
-      errorGeneric: "Midagi läks valesti. Palun proovi uuesti.",
+      errorGeneric: "Midagi läks valesti. Proovi palun uuesti.",
     },
     footerNote: "Ei ole veel kindel, mida vajad? See on täiesti okei. Alusta Projekti alustajaga ja leiame koos edasise.",
   },
@@ -326,10 +326,10 @@ const et: Dictionary = {
     },
     approach: {
       eyebrow: "Kuidas me töötame",
-      title: "Alusta ideest. Mitte tehnoloogiast.",
+      title: "Alustame vajadusest, mitte tehnoloogiast.",
       lead: "Hea digitaalne lahendus algab sellest, et mõistetakse, mida on vaja muuta.",
       steps: [
-        { number: "01", title: "Alusta probleemist", description: "Räägi, mida soovid saavutada, mis ei toimi või mille peale oled mõelnud." },
+        { number: "01", title: "Alustame vajadusest", description: "Räägi, mida soovid saavutada, mis ei toimi või mille peale oled mõelnud." },
         { number: "02", title: "Määratle õige lahendus", description: "Vaatame probleemi enne tehnoloogia valimist. Mõnikord on vastuseks veebileht. Mõnikord midagi palju lihtsamat." },
         { number: "03", title: "Ehita see, mis on mõistlik", description: "Disainime ja arendame lahenduse, keskendudes selgusele, kasutatavusele ja liigse keerukuse vältimisele." },
         { number: "04", title: "Jätka täiustamist", description: "Digitaalsed tooted ei pea käivitamisel tingimata valmis olema. Need saavad areneda koos sinu ettevõtte, klientide ja vajadustega." },
@@ -358,7 +358,7 @@ const et: Dictionary = {
         "Projektid, katsetused ja ideed, mille oleme viinud varajasest mõttest millekski, mida inimesed päriselt kasutavad.",
     },
     hero: {
-      eyebrow: "Valitud tööd",
+      eyebrow: "Valik meie töödest",
       title: "Hea töö algab põhjusest.",
       lead: "Pilk projektidele, katsetustele ja ideedele, mille oleme viinud varajasest mõttest millekski, mida inimesed saavad päriselt kasutada.",
     },
@@ -569,14 +569,14 @@ const et: Dictionary = {
       product: "Toode",
       size: "Mõõt",
       message: "Sõnum",
-      messageOptional: "Valikuline",
+      messageOptional: "Soovi korral",
       total: "Kokku",
       submit: "Saada tellimus",
       sending: "Saadan…",
       success: "Aitäh. Saadame peagi arve.",
-      errorGeneric: "Midagi läks valesti. Palun proovi uuesti.",
+      errorGeneric: "Midagi läks valesti. Proovi palun uuesti.",
       errorName: "Palun sisesta oma nimi.",
-      errorEmail: "Palun sisesta kehtiv e-posti aadress.",
+      errorEmail: "Palun sisesta korrektne e-posti aadress.",
       errorPhone: "Palun sisesta telefoninumber.",
       back: "Tagasi",
     },
@@ -611,8 +611,8 @@ const et: Dictionary = {
     },
   },
   notFound: {
-    title: "Seda lehte ei ole olemas.",
-    body: "Link võib olla aegunud või leht on kolinud.",
+    title: "Seda lehte ei leitud.",
+    body: "Link võib olla aegunud või leht asub nüüd mujal.",
     cta: "Tagasi avalehele",
   },
 };
