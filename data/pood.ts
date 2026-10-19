@@ -192,9 +192,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "allikas",
+        slug: "mustiline-ring-i",
         sourceFile: "seened-02.png",
-        name: { et: "Allikas", en: "The Spring", ru: "Источник", fi: "Lähde" },
+        name: { et: "Müstiline ring I", en: "Mystic Ring I", ru: "Мистическое кольцо I", fi: "Mystinen rengas I" },
         description: {
           et: "Seened kasvavad helendava veering keskelt.",
           en: "Mushrooms rise from the middle of a glowing ripple.",
@@ -203,9 +203,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "varav",
+        slug: "mustiline-ring-ii",
         sourceFile: "seened-03.png",
-        name: { et: "Värav", en: "The Gate", ru: "Врата", fi: "Portti" },
+        name: { et: "Müstiline ring II", en: "Mystic Ring II", ru: "Мистическое кольцо II", fi: "Mystinen rengas II" },
         description: {
           et: "Valgusrõngas metsa ja vee vahel.",
           en: "A ring of light between the forest and the water.",
@@ -292,14 +292,14 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "patina",
-        sourceFile: "sulamid-04.png",
-        name: { et: "Patina", en: "Patina", ru: "Патина", fi: "Patina" },
+        slug: "plaatina",
+        sourceFile: "sulakuld2.png",
+        name: { et: "Plaatina", en: "Platinum", ru: "Платина", fi: "Platina" },
         description: {
-          et: "Kuld ja rohekas oksiid, mis sööb ennast sisse.",
-          en: "Gold and a green oxide eating its way in.",
-          ru: "Золото и зеленоватый оксид, въедающийся внутрь.",
-          fi: "Kultaa ja vihertävää oksidia, joka syö tiensä sisään.",
+          et: "Kuld ja roheline, mis voolavad teineteise sisse.",
+          en: "Gold and green flowing into one another.",
+          ru: "Золото и зелёное, перетекающие друг в друга.",
+          fi: "Kultaa ja vihreää, jotka virtaavat toisiinsa.",
         },
       },
       {
