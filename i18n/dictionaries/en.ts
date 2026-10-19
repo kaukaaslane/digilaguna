@@ -532,12 +532,12 @@ const en = {
     meta: {
       title: "Shop — digital art on canvas | DIGILAGUNA",
       description:
-        "Mandalas and other digital works on canvas. Printed in Tallinn, stretched on a frame, ready to hang.",
+        "Mandalas and other digital works on canvas. Stretched on a frame, ready to hang.",
     },
     hero: {
       eyebrow: "Shop",
       title: "Digital art on canvas",
-      lead: "Work that brings depth and warmth to a wall. Printed in Tallinn and shipped in 3–5 working days.",
+      lead: "Work that brings depth and warmth to a wall. Made and shipped in 3–5 working days.",
     },
     collection: {
       view: "View collection",

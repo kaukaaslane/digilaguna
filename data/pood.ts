@@ -52,10 +52,10 @@ export const COLLECTIONS: Collection[] = [
       fi: "Digitaalista taidetta kankaalla",
     },
     description: {
-      et: "Värvikad mandalad lõuendil, mis toovad seinale sügavust ja soojust. Digitaalne kunst, trükitud Tallinnas.",
-      en: "Colourful mandalas on canvas that bring depth and warmth to a wall. Digital art, printed in Tallinn.",
-      ru: "Яркие мандалы на холсте, которые добавят стене глубину и тепло. Цифровое искусство, напечатано в Таллинне.",
-      fi: "Värikkäitä mandaloja kankaalla, jotka tuovat seinälle syvyyttä ja lämpöä. Digitaalista taidetta, painettu Tallinnassa.",
+      et: "Värvikad mandalad lõuendil, mis toovad seinale sügavust ja soojust.",
+      en: "Colourful mandalas on canvas that bring depth and warmth to a wall.",
+      ru: "Яркие мандалы на холсте, которые добавят стене глубину и тепло.",
+      fi: "Värikkäitä mandaloja kankaalla, jotka tuovat seinälle syvyyttä ja lämpöä.",
     },
     products: [
       {

@@ -533,12 +533,12 @@ const fi: Dictionary = {
     meta: {
       title: "Kauppa — digitaalista taidetta kankaalla | DIGILAGUNA",
       description:
-        "Mandaloja ja muita digitaalisia teoksia kankaalla. Painettu Tallinnassa, pingotettu kehykseen, valmis ripustettavaksi.",
+        "Mandaloja ja muita digitaalisia teoksia kankaalla. Pingotettu kehykseen, valmis ripustettavaksi.",
     },
     hero: {
       eyebrow: "Kauppa",
       title: "Digitaalista taidetta kankaalla",
-      lead: "Teoksia, jotka tuovat seinälle syvyyttä ja lämpöä. Painamme Tallinnassa ja lähetämme 3–5 arkipäivässä.",
+      lead: "Teoksia, jotka tuovat seinälle syvyyttä ja lämpöä. Valmistus ja lähetys 3–5 arkipäivässä.",
     },
     collection: {
       view: "Katso kokoelma",

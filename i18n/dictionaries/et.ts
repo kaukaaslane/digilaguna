@@ -533,12 +533,12 @@ const et: Dictionary = {
     meta: {
       title: "Pood — digitaalne kunst lõuendil | DIGILAGUNA",
       description:
-        "Mandalad ja muud digitaalsed teosed lõuendil. Trükitud Tallinnas, pingutatud raamile, valmis seinale riputamiseks.",
+        "Mandalad ja muud digitaalsed teosed lõuendil. Pingutatud raamile, valmis seinale riputamiseks.",
     },
     hero: {
       eyebrow: "Pood",
       title: "Digitaalne kunst lõuendil",
-      lead: "Teosed, mis toovad seinale sügavust ja soojust. Trükime Tallinnas ja saadame välja 3–5 tööpäevaga.",
+      lead: "Teosed, mis toovad seinale sügavust ja soojust. Tellimus valmib 3–5 tööpäevaga.",
     },
     collection: {
       view: "Vaata kollektsiooni",
