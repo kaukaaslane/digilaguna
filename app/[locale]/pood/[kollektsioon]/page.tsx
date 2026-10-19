@@ -61,13 +61,12 @@ export default async function Kollektsioon({ params }: { params: Params }) {
       <section className="rule">
         <div className="site-container section-lg">
           <div className="max-w-4xl">
-            <Link
-              href={p("/pood")}
-              className="mb-8 inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text"
-            >
-              <span aria-hidden>&larr;</span>
-              {t.collection.backToShop}
-            </Link>
+            <div className="mb-10">
+              <Link href={p("/pood")} className="btn btn-secondary btn-back">
+                <span aria-hidden className="btn-arrow">&larr;</span>
+                {t.collection.backToShop}
+              </Link>
+            </div>
 
             <div className="mb-5 eyebrow">{c.tagline[l]}</div>
 

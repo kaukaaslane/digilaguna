@@ -107,13 +107,15 @@ export default async function Toode({ params }: { params: Params }) {
 
       <section>
         <div className="site-container section">
-          <Link
-            href={p(`/pood/${collection.slug}`)}
-            className="mb-10 inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text"
-          >
-            <span aria-hidden>&larr;</span>
-            {collection.name[l]}
-          </Link>
+          <div className="mb-10">
+            <Link
+              href={p(`/pood/${collection.slug}`)}
+              className="btn btn-secondary btn-back"
+            >
+              <span aria-hidden className="btn-arrow">&larr;</span>
+              {collection.name[l]}
+            </Link>
+          </div>
 
           <div className="grid gap-12 md:grid-cols-2 md:gap-16">
             {/* Pilt */}

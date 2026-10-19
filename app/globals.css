@@ -343,3 +343,10 @@ details[open] > .faq-summary > .faq-icon {
   white-space: nowrap;
   border: 0;
 }
+
+/* ---------------------------------------------------------- Tagasi --- */
+/* Nool on vasakul ja liigub hoveril vasakule — vastupidi tavalisele
+   .btn-arrow'le, mis viitab edasiliikumisele. Peab tulema .btn-i reeglite
+   JÄREL, et sama kaaluga selektor võidaks. */
+
+.btn-back:hover .btn-arrow { transform: translateX(-3px); }
