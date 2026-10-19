@@ -89,8 +89,8 @@ export default function Navbar({
           </Link>
 
           <Link
-            href={p("/oied")}
-            data-active={pathname === p("/oied")}
+            href={p("/pood")}
+            data-active={pathname === p("/pood")}
             className="link-nav"
           >
             {dict.nav.shop}
@@ -294,8 +294,8 @@ export default function Navbar({
               </Link>
 
               <Link
-                href={p("/oied")}
-                data-active={pathname === p("/oied")}
+                href={p("/pood")}
+                data-active={pathname === p("/pood")}
                 onClick={closeMenu}
                 className="link-nav block"
               >

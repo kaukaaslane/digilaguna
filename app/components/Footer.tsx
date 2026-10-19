@@ -48,7 +48,7 @@ export default function Footer({
             <Link href={p("/digital-visuals")} className={navLinkClass}>
               {dict.nav.visuals}
             </Link>
-            <Link href={p("/oied")} className={navLinkClass}>
+            <Link href={p("/pood")} className={navLinkClass}>
               {dict.nav.shop}
             </Link>
 

@@ -531,21 +531,24 @@ const fi: Dictionary = {
 
   shop: {
     meta: {
-      title: "Kukat — mandalat kankaalla | DIGILAGUNA",
+      title: "Kauppa — digitaalista taidetta kankaalla | DIGILAGUNA",
       description:
-        "Yhdeksän mandalaa kankaalla. Digitaalista taidetta, painettu Tallinnassa. Kolme kokoa, valmis ripustettavaksi.",
+        "Mandaloja ja muita digitaalisia teoksia kankaalla. Painettu Tallinnassa, pingotettu kehykseen, valmis ripustettavaksi.",
     },
     hero: {
       eyebrow: "Kauppa",
-      title: "Kukat — mandalat kankaalla",
-      lead: "Värikkäitä mandaloja kankaalla, jotka tuovat seinälle syvyyttä ja lämpöä. Digitaalista taidetta, painettu Tallinnassa.",
+      title: "Digitaalista taidetta kankaalla",
+      lead: "Teoksia, jotka tuovat seinälle syvyyttä ja lämpöä. Painamme Tallinnassa ja lähetämme 3–5 arkipäivässä.",
+    },
+    collection: {
+      view: "Katso kokoelma",
+      backToShop: "Kaikki kokoelmat",
     },
     product: {
       from: "alkaen",
       selectSize: "Koko",
       premium: "Premium-satiinikangas",
       order: "Tilaa",
-      close: "Sulje",
       detail:
         "Pingotettu 2 cm:n puukehykseen, valmis ripustettavaksi. Valmistuu 3–5 arkipäivässä.",
     },

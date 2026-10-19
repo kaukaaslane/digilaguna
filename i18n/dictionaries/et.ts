@@ -531,21 +531,24 @@ const et: Dictionary = {
 
   shop: {
     meta: {
-      title: "Õied — mandalad lõuendil | DIGILAGUNA",
+      title: "Pood — digitaalne kunst lõuendil | DIGILAGUNA",
       description:
-        "Üheksa mandala-lõuendiprinti. Digitaalne kunst, trükitud Tallinnas. Kolm mõõtu, valmis seinale riputamiseks.",
+        "Mandalad ja muud digitaalsed teosed lõuendil. Trükitud Tallinnas, pingutatud raamile, valmis seinale riputamiseks.",
     },
     hero: {
       eyebrow: "Pood",
-      title: "Õied — mandalad lõuendil",
-      lead: "Värvikad mandalad lõuendil, mis toovad seinale sügavust ja soojust. Digitaalne kunst, trükitud Tallinnas.",
+      title: "Digitaalne kunst lõuendil",
+      lead: "Teosed, mis toovad seinale sügavust ja soojust. Trükime Tallinnas ja saadame välja 3–5 tööpäevaga.",
+    },
+    collection: {
+      view: "Vaata kollektsiooni",
+      backToShop: "Kõik kollektsioonid",
     },
     product: {
       from: "alates",
       selectSize: "Mõõt",
       premium: "Premium satiinlõuend",
       order: "Telli",
-      close: "Sulge",
       detail:
         "Pingutatud 2 cm puitalusraamile, valmis seinale riputamiseks. Valmib 3–5 tööpäevaga.",
     },

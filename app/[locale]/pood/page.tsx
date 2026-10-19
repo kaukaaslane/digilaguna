@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import ShopClient from "./ShopClient";
-import { isLocale, type Locale } from "@/i18n/config";
+import { isLocale, localizePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { PRODUCTS, SIZES, PREMIUM_SURCHARGE, SHIPPING } from "@/data/oied";
+import {
+  COLLECTIONS,
+  SHIPPING,
+  CHEAPEST,
+  imagePath,
+} from "@/data/pood";
 
 export async function generateMetadata({
   params,
@@ -12,16 +18,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const t = (await getDictionary(locale as Locale)).shop;
+  const m = (await getDictionary(locale as Locale)).shop.meta;
 
   return {
-    title: t.meta.title,
-    description: t.meta.description,
-    alternates: { canonical: `/${locale}/oied` },
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: `/${locale}/pood` },
+    openGraph: { title: m.title, description: m.description },
   };
 }
 
-export default async function Oied({
+const money = (n: number) => `${n.toString().replace(".", ",")} €`;
+
+export default async function Pood({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -29,12 +38,9 @@ export default async function Oied({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  const dict = await getDictionary(locale as Locale);
-  const t = dict.shop;
   const l = locale as Locale;
-
-  const money = (n: number) =>
-    `${n.toString().replace(".", ",")} €`;
+  const t = (await getDictionary(l)).shop;
+  const p = (route: string) => localizePath(route, l);
 
   return (
     <div className="overflow-x-hidden bg-bg text-text">
@@ -55,23 +61,63 @@ export default async function Oied({
         </div>
       </section>
 
-      {/* Tooted + tellimusvorm (klient) */}
-      <ShopClient
-        locale={l}
-        t={t}
-        products={PRODUCTS.map((p) => ({
-          slug: p.slug,
-          image: p.image,
-          name: p.name[l],
-          description: p.description[l],
-        }))}
-        sizes={SIZES.map((s) => ({
-          id: s.id,
-          label: s.label[l],
-          price: s.price,
-        }))}
-        premiumSurcharge={PREMIUM_SURCHARGE}
-      />
+      {/* Kollektsioonid */}
+      <section className="rule">
+        <div className="site-container section">
+          <div className="space-y-20 md:space-y-28">
+            {COLLECTIONS.map((c) => (
+              <article key={c.slug}>
+                <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
+                  <div>
+                    <div className="mb-4 eyebrow">{c.tagline[l]}</div>
+
+                    <h2 className="text-3xl font-medium tracking-[-0.025em] md:text-4xl">
+                      {c.name[l]}
+                    </h2>
+                  </div>
+
+                  <Link
+                    href={p(`/pood/${c.slug}`)}
+                    className="btn btn-secondary"
+                  >
+                    {t.collection.view}
+                    <span aria-hidden className="btn-arrow">
+                      &rarr;
+                    </span>
+                  </Link>
+                </div>
+
+                <p className="mb-10 max-w-2xl text-sm leading-7 text-text-secondary md:text-base">
+                  {c.description[l]}
+                </p>
+
+                {/* Eelvaade: kolm esimest tööd */}
+                <div className="grid grid-cols-3 gap-3 md:gap-5">
+                  {c.products.slice(0, 3).map((prod) => (
+                    <Link
+                      key={prod.slug}
+                      href={p(`/pood/${c.slug}/${prod.slug}`)}
+                      className="group relative block aspect-square media media-zoom"
+                    >
+                      <Image
+                        src={imagePath(c.slug, prod.slug)}
+                        alt={prod.name[l]}
+                        fill
+                        sizes="(min-width: 768px) 30vw, 33vw"
+                        className="object-cover"
+                      />
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="mt-5 text-sm text-text-faint">
+                  {t.product.from} {money(CHEAPEST)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Tarne */}
       <section className="rule">

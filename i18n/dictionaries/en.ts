@@ -530,21 +530,24 @@ const en = {
 
   shop: {
     meta: {
-      title: "Blooms — mandalas on canvas | DIGILAGUNA",
+      title: "Shop — digital art on canvas | DIGILAGUNA",
       description:
-        "Nine mandala canvas prints. Digital art, printed in Tallinn. Three sizes, ready to hang.",
+        "Mandalas and other digital works on canvas. Printed in Tallinn, stretched on a frame, ready to hang.",
     },
     hero: {
       eyebrow: "Shop",
-      title: "Blooms — mandalas on canvas",
-      lead: "Colourful mandalas on canvas that bring depth and warmth to a wall. Digital art, printed in Tallinn.",
+      title: "Digital art on canvas",
+      lead: "Work that brings depth and warmth to a wall. Printed in Tallinn and shipped in 3–5 working days.",
+    },
+    collection: {
+      view: "View collection",
+      backToShop: "All collections",
     },
     product: {
       from: "from",
       selectSize: "Size",
       premium: "Premium satin canvas",
       order: "Order",
-      close: "Close",
       detail:
         "Stretched on a 2 cm wooden frame, ready to hang. Made in 3–5 working days.",
     },
