@@ -159,6 +159,162 @@ export const COLLECTIONS: Collection[] = [
       },
     ],
   },
+  {
+    slug: "seened",
+    name: {
+      et: "Seened",
+      en: "Mushrooms",
+      ru: "Грибы",
+      fi: "Sienet",
+    },
+    tagline: {
+      et: "Seente müstiline maailm",
+      en: "The mystical world of fungi",
+      ru: "Мистический мир грибов",
+      fi: "Sienten myyttinen maailma",
+    },
+    description: {
+      et: "Seente omaette kooslus — see, mis elab metsa all ja mida harva märgatakse.",
+      en: "The world fungi make among themselves — the one that lives under the forest and is rarely noticed.",
+      ru: "Собственный мир грибов — тот, что живёт под лесом и редко попадается на глаза.",
+      fi: "Sienten oma yhteisö — se, joka elää metsän alla ja jonka harvoin huomaa.",
+    },
+    products: [
+      {
+        slug: "lugeja",
+        sourceFile: "seened-01.png",
+        name: { et: "Lugeja", en: "The Reader", ru: "Читающая", fi: "Lukija" },
+        description: {
+          et: "Keegi istub helendavate seente keskel ja loeb.",
+          en: "Someone sits among glowing mushrooms, reading.",
+          ru: "Кто-то сидит среди светящихся грибов и читает.",
+          fi: "Joku istuu hohtavien sienten keskellä ja lukee.",
+        },
+      },
+      {
+        slug: "allikas",
+        sourceFile: "seened-02.png",
+        name: { et: "Allikas", en: "The Spring", ru: "Источник", fi: "Lähde" },
+        description: {
+          et: "Seened kasvavad helendava veering keskelt.",
+          en: "Mushrooms rise from the middle of a glowing ripple.",
+          ru: "Грибы растут из центра светящегося круга на воде.",
+          fi: "Sienet nousevat hohtavan väreilyn keskeltä.",
+        },
+      },
+      {
+        slug: "varav",
+        sourceFile: "seened-03.png",
+        name: { et: "Värav", en: "The Gate", ru: "Врата", fi: "Portti" },
+        description: {
+          et: "Valgusrõngas metsa ja vee vahel.",
+          en: "A ring of light between the forest and the water.",
+          ru: "Кольцо света между лесом и водой.",
+          fi: "Valorengas metsän ja veden välissä.",
+        },
+      },
+      {
+        slug: "laternad",
+        sourceFile: "seened-04.png",
+        name: { et: "Laternad", en: "Lanterns", ru: "Фонари", fi: "Lyhdyt" },
+        description: {
+          et: "Sinised kübarad ripuvad nagu laternad metsa all.",
+          en: "Blue caps hang like lanterns under the forest.",
+          ru: "Синие шляпки висят под лесом, словно фонари.",
+          fi: "Siniset lakit riippuvat kuin lyhdyt metsän alla.",
+        },
+      },
+      {
+        slug: "rada",
+        sourceFile: "seened-05.png",
+        name: { et: "Rada", en: "The Path", ru: "Тропа", fi: "Polku" },
+        description: {
+          et: "Rada läbi metsa, mida valgustavad seened.",
+          en: "A path through the forest, lit by mushrooms.",
+          ru: "Тропа через лес, освещённая грибами.",
+          fi: "Polku metsän läpi, sienten valaisemana.",
+        },
+      },
+    ],
+  },
+  {
+    slug: "sulamid",
+    name: {
+      et: "Sulamid",
+      en: "Alloys",
+      ru: "Сплавы",
+      fi: "Metalliseokset",
+    },
+    tagline: {
+      et: "Vedelad metallid mikroskoobi all",
+      en: "Liquid metals under the microscope",
+      ru: "Жидкие металлы под микроскопом",
+      fi: "Nestemäisiä metalleja mikroskoopin alla",
+    },
+    description: {
+      et: "Sula metall suure suurendusega — voolav, tarduv, hõõguv.",
+      en: "Molten metal at high magnification — flowing, setting, glowing.",
+      ru: "Расплавленный металл при большом увеличении — текущий, застывающий, светящийся.",
+      fi: "Sulaa metallia suurennettuna — virtaavaa, jähmettyvää, hehkuvaa.",
+    },
+    products: [
+      {
+        slug: "tuhk",
+        sourceFile: "sulamid-01.png",
+        name: { et: "Tuhk", en: "Ash", ru: "Пепел", fi: "Tuhka" },
+        description: {
+          et: "Must pind, mille all hõõgub veel punane.",
+          en: "A black surface with red still glowing beneath it.",
+          ru: "Чёрная поверхность, под которой ещё тлеет красное.",
+          fi: "Musta pinta, jonka alla hehkuu yhä punainen.",
+        },
+      },
+      {
+        slug: "elavhobe",
+        sourceFile: "sulamid-02.png",
+        name: { et: "Elavhõbe", en: "Quicksilver", ru: "Ртуть", fi: "Elohopea" },
+        description: {
+          et: "Hõbedased piisad kulla ja musta vahel.",
+          en: "Silver droplets between gold and black.",
+          ru: "Серебряные капли между золотом и чёрным.",
+          fi: "Hopeisia pisaroita kullan ja mustan välissä.",
+        },
+      },
+      {
+        slug: "sula",
+        sourceFile: "sulamid-03.png",
+        name: { et: "Sula", en: "Molten", ru: "Расплав", fi: "Sula" },
+        description: {
+          et: "Kuld voolab mustast välja ja tardub.",
+          en: "Gold flows out of the black and sets.",
+          ru: "Золото вытекает из черноты и застывает.",
+          fi: "Kulta virtaa mustasta ulos ja jähmettyy.",
+        },
+      },
+      {
+        slug: "patina",
+        sourceFile: "sulamid-04.png",
+        name: { et: "Patina", en: "Patina", ru: "Патина", fi: "Patina" },
+        description: {
+          et: "Kuld ja rohekas oksiid, mis sööb ennast sisse.",
+          en: "Gold and a green oxide eating its way in.",
+          ru: "Золото и зеленоватый оксид, въедающийся внутрь.",
+          fi: "Kultaa ja vihertävää oksidia, joka syö tiensä sisään.",
+        },
+      },
+      {
+        slug: "maak",
+        sourceFile: "sulamid-05.png",
+        name: { et: "Maak", en: "Ore", ru: "Руда", fi: "Malmi" },
+        description: {
+          et: "Kuldne soon kivimi ja türkiisi vahel.",
+          en: "A gold seam between rock and turquoise.",
+          ru: "Золотая жила между породой и бирюзой.",
+          fi: "Kultainen juonne kiven ja turkoosin välissä.",
+        },
+      },
+    ],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
