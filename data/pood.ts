@@ -181,9 +181,9 @@ export const COLLECTIONS: Collection[] = [
     },
     products: [
       {
-        slug: "lugeja",
+        slug: "meditatsioon",
         sourceFile: "seened-01.png",
-        name: { et: "Lugeja", en: "The Reader", ru: "Читающая", fi: "Lukija" },
+        name: { et: "Meditatsioon", en: "Meditation", ru: "Медитация", fi: "Meditaatio" },
         description: {
           et: "Keegi istub helendavate seente keskel ja loeb.",
           en: "Someone sits among glowing mushrooms, reading.",
@@ -214,9 +214,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "laternad",
+        slug: "seenepere",
         sourceFile: "seened-04.png",
-        name: { et: "Laternad", en: "Lanterns", ru: "Фонари", fi: "Lyhdyt" },
+        name: { et: "Seenepere", en: "The Family", ru: "Семейство", fi: "Sieniperhe" },
         description: {
           et: "Sinised kübarad ripuvad nagu laternad metsa all.",
           en: "Blue caps hang like lanterns under the forest.",
@@ -225,9 +225,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "rada",
+        slug: "salajane-rada",
         sourceFile: "seened-05.png",
-        name: { et: "Rada", en: "The Path", ru: "Тропа", fi: "Polku" },
+        name: { et: "Salajane rada", en: "Secret Path", ru: "Тайная тропа", fi: "Salainen polku" },
         description: {
           et: "Rada läbi metsa, mida valgustavad seened.",
           en: "A path through the forest, lit by mushrooms.",
@@ -259,9 +259,9 @@ export const COLLECTIONS: Collection[] = [
     },
     products: [
       {
-        slug: "tuhk",
+        slug: "raud",
         sourceFile: "sulamid-01.png",
-        name: { et: "Tuhk", en: "Ash", ru: "Пепел", fi: "Tuhka" },
+        name: { et: "Raud", en: "Iron", ru: "Железо", fi: "Rauta" },
         description: {
           et: "Must pind, mille all hõõgub veel punane.",
           en: "A black surface with red still glowing beneath it.",
@@ -270,9 +270,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "elavhobe",
+        slug: "sulahobe",
         sourceFile: "sulamid-02.png",
-        name: { et: "Elavhõbe", en: "Quicksilver", ru: "Ртуть", fi: "Elohopea" },
+        name: { et: "Sulahõbe", en: "Molten Silver", ru: "Расплавленное серебро", fi: "Sula hopea" },
         description: {
           et: "Hõbedased piisad kulla ja musta vahel.",
           en: "Silver droplets between gold and black.",
@@ -281,9 +281,9 @@ export const COLLECTIONS: Collection[] = [
         },
       },
       {
-        slug: "sula",
+        slug: "sulakuld",
         sourceFile: "sulamid-03.png",
-        name: { et: "Sula", en: "Molten", ru: "Расплав", fi: "Sula" },
+        name: { et: "Sulakuld", en: "Molten Gold", ru: "Расплавленное золото", fi: "Sula kulta" },
         description: {
           et: "Kuld voolab mustast välja ja tardub.",
           en: "Gold flows out of the black and sets.",
