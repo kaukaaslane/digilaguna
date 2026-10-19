@@ -33,7 +33,11 @@ export async function generateMetadata({
     openGraph: {
       title,
       description: c.description[l],
-      images: [imagePath(c.slug, c.products[0].slug)],
+      // Esimese töö pilt. Tühja kollektsiooni korral jääb saidi
+      // üldine OG-pilt, selle asemel et ehitus kokku kukuks.
+      images: c.products[0]
+        ? [imagePath(c.slug, c.products[0].slug)]
+        : undefined,
     },
   };
 }
