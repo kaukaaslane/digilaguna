@@ -590,8 +590,8 @@ const et: Dictionary = {
       toggle: "Proovi oma seinal",
       close: "Sulge eelvaade",
       lead: "Lisa oma seina foto ja vaata, kuidas töö valitud mõõdus seal välja näeb.",
-      choosePhoto: "Vali seinafoto",
-      changePhoto: "Vali teine foto",
+      takePhoto: "Tee pilt",
+      choosePhoto: "Vali galeriist",
       privacy:
         "Foto jääb sinu seadmesse — seda ei laadita kuhugi üles ega salvestata.",
       dragHint: "Lohista töö seinal paika. Nooleklahvidega saab täpsustada.",

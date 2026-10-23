@@ -590,8 +590,8 @@ const fi: Dictionary = {
       toggle: "Katso omalla seinällä",
       close: "Sulje esikatselu",
       lead: "Lisää kuva seinästäsi ja katso, miltä teos näyttää siinä valitussa koossa.",
-      choosePhoto: "Valitse seinäkuva",
-      changePhoto: "Valitse toinen kuva",
+      takePhoto: "Ota kuva",
+      choosePhoto: "Valitse kuvista",
       privacy:
         "Kuva pysyy laitteellasi — sitä ei ladata minnekään eikä tallenneta.",
       dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",

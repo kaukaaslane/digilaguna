@@ -72,6 +72,9 @@ export default function WallPreview({
     objectUrlRef.current = url;
     setPhotoUrl(url);
     setPos({ fx: 0.5, fy: 0.42 });
+
+    // Nulli väli, muidu sama faili teistkordsel valimisel change ei käivitu.
+    e.target.value = "";
   };
 
   const pxPerCm = box.w > 0 ? box.w / wallCm : 0;
@@ -222,22 +225,32 @@ export default function WallPreview({
         </button>
       </div>
 
-      {/* Foto valik */}
-      <label className="mt-5 block">
-        <span className="sr-only">
-          {photoUrl ? t.changePhoto : t.choosePhoto}
-        </span>
+      {/* Kaks eraldi nuppu, sest ühtegi usaldusväärset lippu pole:
+          `capture`-iga läheb Android otse kaamerasse ja galerii jääb
+          vahele, ilma selleta avab süsteemi fotovalija, kus kaamerat
+          pole. Kumbki üksi jätab poole kasutajatest hätta. */}
+      <div className="mt-5 flex flex-wrap gap-3">
+        <label className="btn btn-secondary cursor-pointer">
+          {t.takePhoto}
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={pickPhoto}
+            className="sr-only"
+          />
+        </label>
 
-        {/* Ilma `capture`-ita avaneb telefoni tavaline valija, kus on
-            korraga kaamera, galerii ja failid. `capture="environment"`
-            sundis otse kaamerasse ja olemasolevat fotot ei saanud valida. */}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={pickPhoto}
-          className="block w-full text-sm text-text-muted file:mr-4 file:cursor-pointer file:border file:border-line-strong file:bg-transparent file:px-4 file:py-2 file:text-sm file:text-text"
-        />
-      </label>
+        <label className="btn btn-secondary cursor-pointer">
+          {t.choosePhoto}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={pickPhoto}
+            className="sr-only"
+          />
+        </label>
+      </div>
 
       <p className="mt-3 text-xs leading-5 text-text-faint">{t.privacy}</p>
 

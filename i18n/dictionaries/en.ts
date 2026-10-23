@@ -589,8 +589,8 @@ const en = {
       toggle: "See it on your wall",
       close: "Close preview",
       lead: "Add a photo of your wall and see how the work looks there at the size you picked.",
-      choosePhoto: "Choose a wall photo",
-      changePhoto: "Choose another photo",
+      takePhoto: "Take a photo",
+      choosePhoto: "Choose from photos",
       privacy:
         "The photo stays on your device — nothing is uploaded or stored.",
       dragHint: "Drag the work into place. Arrow keys nudge it.",
