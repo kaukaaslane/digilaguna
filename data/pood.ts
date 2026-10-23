@@ -359,6 +359,22 @@ export const SIZES: SizeOption[] = [
     price: 79,
     cm: 50,
   },
+  {
+    /**
+     * NB: praegused failid EI kanna seda mõõtu välja — 1200 px annab
+     * 100 cm juures 30 DPI. Ära suuna siia turundust enne, kui
+     * scripts/check-print-res.py ütleb selle mõõdu kohta OK.
+     */
+    id: "100x100",
+    label: {
+      et: "100×100 cm",
+      en: "100×100 cm",
+      ru: "100×100 см",
+      fi: "100×100 cm",
+    },
+    price: 199,
+    cm: 100,
+  },
 ];
 
 /** Premium satiinlõuend, lisandub valitud mõõdu hinnale. */
