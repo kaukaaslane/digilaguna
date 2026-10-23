@@ -5,12 +5,29 @@ import type { Dictionary } from "@/i18n/dictionaries/en";
 
 type WallText = Dictionary["shop"]["wallPreview"];
 
-/** Vaikimisi eeldus: telefonifoto seinast katab umbes kolm meetrit. */
-const DEFAULT_WALL_CM = 300;
-const MIN_WALL_CM = 80;
-const MAX_WALL_CM = 1200;
+/**
+ * Mõõtkava tuleb võrdlusesemest, mitte kasutaja hinnangust.
+ *
+ * Varem küsiti seina laiust. See oli vale küsimus: kaadris on peaaegu
+ * alati rohkem kui üks sein — ukseavad, piidad, möödaminev köök — ja
+ * aus vastus andis vale tulemuse. Nüüd tõmbab kasutaja kaks punkti
+ * tuntud suurusega eseme servadele ja ei pea midagi hindama.
+ */
+const OBJECT_CM = { door: 80, socket: 8 } as const;
+type ObjectKey = keyof typeof OBJECT_CM | "custom";
 
-/** Nooleklahviga nihe — osa konteineri laiusest. */
+/**
+ * Algseis on meelega juba ligikaudu õige: telefonifoto seinast katab
+ * tüüpiliselt paarsada sentimeetrit, ja uks hõivab sellest umbes
+ * kaks viiendikku. Nii näeb kasutaja mõistlikku tulemust enne, kui
+ * ta midagi puudutab — parandamine on täpsustus, mitte eeltingimus.
+ */
+const START_A = { fx: 0.3, fy: 0.8 };
+const START_B = { fx: 0.7, fy: 0.8 };
+
+/** Liiga lühike joon paisutaks mõõtkava lõpmatuseni. */
+const MIN_SPAN_PX = 16;
+
 const NUDGE = 0.02;
 
 export default function WallPreview({
@@ -28,10 +45,13 @@ export default function WallPreview({
 }) {
   const [open, setOpen] = useState(false);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
-  const [wallCm, setWallCm] = useState(DEFAULT_WALL_CM);
 
-  /** Asukoht on murdosa konteinerist, nii et see peab akna muutmist üle. */
-  const [pos, setPos] = useState({ fx: 0.5, fy: 0.42 });
+  const [obj, setObj] = useState<ObjectKey>("door");
+  const [customCm, setCustomCm] = useState(100);
+  const [a, setA] = useState(START_A);
+  const [b, setB] = useState(START_B);
+
+  const [pos, setPos] = useState({ fx: 0.5, fy: 0.38 });
   const [dragging, setDragging] = useState(false);
   const [box, setBox] = useState({ w: 0, h: 0 });
 
@@ -39,14 +59,11 @@ export default function WallPreview({
   const photoRef = useRef<HTMLImageElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
 
-  /* Mõõda konteiner — px/cm sõltub sellest. */
   useEffect(() => {
     const el = frameRef.current;
     if (!el || !photoUrl) return;
 
-    const measure = () =>
-      setBox({ w: el.clientWidth, h: el.clientHeight });
-
+    const measure = () => setBox({ w: el.clientWidth, h: el.clientHeight });
     measure();
 
     const ro = new ResizeObserver(measure);
@@ -54,7 +71,6 @@ export default function WallPreview({
     return () => ro.disconnect();
   }, [photoUrl]);
 
-  /* Vabasta blob-URL, muidu jääb mälu kinni. */
   useEffect(
     () => () => {
       if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
@@ -71,16 +87,28 @@ export default function WallPreview({
     const url = URL.createObjectURL(file);
     objectUrlRef.current = url;
     setPhotoUrl(url);
-    setPos({ fx: 0.5, fy: 0.42 });
+    setPos({ fx: 0.5, fy: 0.38 });
+    setA(START_A);
+    setB(START_B);
 
     // Nulli väli, muidu sama faili teistkordsel valimisel change ei käivitu.
     e.target.value = "";
   };
 
-  const pxPerCm = box.w > 0 ? box.w / wallCm : 0;
-  const artPx = pxPerCm * sizeCm;
+  const objectCm = obj === "custom" ? customCm : OBJECT_CM[obj];
 
-  /** Hoia töö kaadri sees. */
+  const spanPx = Math.hypot(
+    (b.fx - a.fx) * box.w,
+    (b.fy - a.fy) * box.h,
+  );
+
+  const pxPerCm = spanPx >= MIN_SPAN_PX && objectCm > 0 ? spanPx / objectCm : 0;
+
+  /** Kaadri laius sentimeetrites — näidatakse kinnituseks, mitte sisendiks. */
+  const frameCm = pxPerCm > 0 ? Math.round(box.w / pxPerCm) : 0;
+
+  const artPx = pxPerCm > 0 ? Math.min(pxPerCm * sizeCm, box.w * 2) : 0;
+
   const clamp = useCallback(
     (fx: number, fy: number) => {
       if (box.w === 0 || box.h === 0) return { fx, fy };
@@ -88,7 +116,6 @@ export default function WallPreview({
       const hx = artPx / 2 / box.w;
       const hy = artPx / 2 / box.h;
 
-      // Kui töö on kaadrist laiem, jäta keskele — kinni ei kiilu.
       const cx = hx * 2 >= 1 ? 0.5 : Math.min(Math.max(fx, hx), 1 - hx);
       const cy = hy * 2 >= 1 ? 0.5 : Math.min(Math.max(fy, hy), 1 - hy);
 
@@ -97,48 +124,79 @@ export default function WallPreview({
     [artPx, box.w, box.h],
   );
 
-  /* Mõõdu vahetus võib töö servast välja viia. */
   useEffect(() => {
     setPos((prev) => clamp(prev.fx, prev.fy));
   }, [clamp]);
 
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+  /* Lohistamine: töö ja kaks mõõtepunkti käituvad ühtmoodi. */
+  const startDrag = (e: React.PointerEvent<HTMLElement>) => {
+    e.stopPropagation();
     e.currentTarget.setPointerCapture(e.pointerId);
-    setDragging(true);
   };
 
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragging || box.w === 0) return;
+  const endDrag = (e: React.PointerEvent<HTMLElement>) => {
+    e.stopPropagation();
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+    setDragging(false);
+  };
 
+  const movePoint =
+    (set: typeof setA) => (e: React.PointerEvent<HTMLElement>) => {
+      if (!e.currentTarget.hasPointerCapture?.(e.pointerId)) return;
+      if (box.w === 0 || box.h === 0) return;
+
+      e.stopPropagation();
+      set((p) => ({
+        fx: Math.min(Math.max(p.fx + e.movementX / box.w, 0), 1),
+        fy: Math.min(Math.max(p.fy + e.movementY / box.h, 0), 1),
+      }));
+    };
+
+  const moveArt = (e: React.PointerEvent<HTMLElement>) => {
+    if (!e.currentTarget.hasPointerCapture?.(e.pointerId)) return;
+    if (box.w === 0 || box.h === 0) return;
+
+    setDragging(true);
     setPos((prev) =>
       clamp(prev.fx + e.movementX / box.w, prev.fy + e.movementY / box.h),
     );
   };
 
-  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
-    e.currentTarget.releasePointerCapture?.(e.pointerId);
-    setDragging(false);
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const nudgeOf = (key: string) => {
     const nudges: Record<string, { dx: number; dy: number }> = {
       ArrowLeft: { dx: -NUDGE, dy: 0 },
       ArrowRight: { dx: NUDGE, dy: 0 },
       ArrowUp: { dx: 0, dy: -NUDGE },
       ArrowDown: { dx: 0, dy: NUDGE },
     };
+    return nudges[key];
+  };
 
-    const step = nudges[e.key];
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const step = nudgeOf(e.key);
     if (!step) return;
 
     e.preventDefault();
     setPos((prev) => clamp(prev.fx + step.dx, prev.fy + step.dy));
   };
 
-  /** Ekspordib täislahutuses — sama kaader, mida ekraanil näeb. */
+  /** Mõõtepunktid on fookustatavad, seega peavad ka klaviatuuriga liikuma. */
+  const pointKeyDown =
+    (set: typeof setA) => (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const step = nudgeOf(e.key);
+      if (!step) return;
+
+      e.preventDefault();
+      set((p) => ({
+        fx: Math.min(Math.max(p.fx + step.dx, 0), 1),
+        fy: Math.min(Math.max(p.fy + step.dy, 0), 1),
+      }));
+    };
+
+  /** Ekspordib täislahutuses. Mõõtejoon on DOM-is, nii et pilti ei satu. */
   const download = async () => {
     const photo = photoRef.current;
-    if (!photo) return;
+    if (!photo || artPx <= 0) return;
 
     const w = photo.naturalWidth;
     const h = photo.naturalHeight;
@@ -162,16 +220,19 @@ export default function WallPreview({
       return;
     }
 
-    // Sama osakaal kaadrist kui ekraanil, aga foto päris pikslites.
     const artW = (artPx / box.w) * w;
-    const cx = pos.fx * w;
-    const cy = pos.fy * h;
 
     ctx.save();
     ctx.shadowColor = "rgba(0,0,0,0.45)";
     ctx.shadowBlur = artW * 0.06;
     ctx.shadowOffsetY = artW * 0.03;
-    ctx.drawImage(art, cx - artW / 2, cy - artW / 2, artW, artW);
+    ctx.drawImage(
+      art,
+      pos.fx * w - artW / 2,
+      pos.fy * h - artW / 2,
+      artW,
+      artW,
+    );
     ctx.restore();
 
     const blob = await new Promise<Blob | null>((res) =>
@@ -180,13 +241,13 @@ export default function WallPreview({
     if (!blob) return;
 
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `digilaguna-${alt
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `digilaguna-${alt
       .toLowerCase()
       .replace(/[^a-z0-9]+/gi, "-")
       .replace(/^-|-$/g, "")}-${sizeCm}x${sizeCm}.jpg`;
-    a.click();
+    link.click();
     URL.revokeObjectURL(url);
   };
 
@@ -204,6 +265,12 @@ export default function WallPreview({
       </button>
     );
   }
+
+  const objects: { key: ObjectKey; label: string }[] = [
+    { key: "door", label: t.objDoor },
+    { key: "socket", label: t.objSocket },
+    { key: "custom", label: t.objCustom },
+  ];
 
   return (
     <section className="mt-4 border border-line-strong p-5">
@@ -225,10 +292,7 @@ export default function WallPreview({
         </button>
       </div>
 
-      {/* Kaks eraldi nuppu, sest ühtegi usaldusväärset lippu pole:
-          `capture`-iga läheb Android otse kaamerasse ja galerii jääb
-          vahele, ilma selleta avab süsteemi fotovalija, kus kaamerat
-          pole. Kumbki üksi jätab poole kasutajatest hätta. */}
+      {/* Kaks nuppu, sest ükski lipp ei paku Androidil mõlemat. */}
       <div className="mt-5 flex flex-wrap gap-3">
         <label className="btn btn-secondary cursor-pointer">
           {t.takePhoto}
@@ -256,7 +320,6 @@ export default function WallPreview({
 
       {photoUrl && (
         <>
-          {/* Kaader */}
           <div
             ref={frameRef}
             className="relative mt-5 w-full select-none overflow-hidden bg-bg-raised"
@@ -274,8 +337,8 @@ export default function WallPreview({
                 role="button"
                 tabIndex={0}
                 aria-label={t.dragHint}
-                onPointerDown={onPointerDown}
-                onPointerMove={onPointerMove}
+                onPointerDown={startDrag}
+                onPointerMove={moveArt}
                 onPointerUp={endDrag}
                 onPointerCancel={endDrag}
                 onKeyDown={onKeyDown}
@@ -302,40 +365,109 @@ export default function WallPreview({
                 />
               </div>
             )}
-          </div>
 
-          <p className="mt-3 text-xs text-text-faint">{t.dragHint}</p>
+            {/* Mõõtejoon */}
+            <svg
+              aria-hidden
+              className="pointer-events-none absolute inset-0 h-full w-full"
+            >
+              <line
+                x1={`${a.fx * 100}%`}
+                y1={`${a.fy * 100}%`}
+                x2={`${b.fx * 100}%`}
+                y2={`${b.fy * 100}%`}
+                stroke="var(--color-accent)"
+                strokeWidth="2"
+                strokeDasharray="5 4"
+              />
+            </svg>
+
+            {[
+              { pt: a, set: setA, label: t.pointStart },
+              { pt: b, set: setB, label: t.pointEnd },
+            ].map((h, i) => (
+              <div
+                key={i}
+                role="slider"
+                tabIndex={0}
+                aria-label={h.label}
+                aria-valuenow={Math.round(h.pt.fx * 100)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                onPointerDown={startDrag}
+                onPointerMove={movePoint(h.set)}
+                onPointerUp={endDrag}
+                onPointerCancel={endDrag}
+                onKeyDown={pointKeyDown(h.set)}
+                style={{
+                  left: `${h.pt.fx * 100}%`,
+                  top: `${h.pt.fy * 100}%`,
+                  touchAction: "none",
+                }}
+                className="absolute h-9 w-9 -translate-x-1/2 -translate-y-1/2 cursor-grab touch-none rounded-full border-2 border-[var(--color-accent)] bg-[rgba(0,0,0,0.45)] shadow-lg"
+              />
+            ))}
+          </div>
 
           {/* Mõõtkava */}
           <div className="mt-5">
-            <label
-              htmlFor="wall-cm"
-              className="mb-2 block text-sm text-text-secondary"
-            >
-              {t.wallWidth}
-            </label>
+            <p className="eyebrow">{t.calibTitle}</p>
 
-            <div className="flex items-center gap-3">
-              <input
-                id="wall-cm"
-                type="range"
-                min={MIN_WALL_CM}
-                max={MAX_WALL_CM}
-                step={10}
-                value={wallCm}
-                onChange={(e) => setWallCm(Number(e.target.value))}
-                className="w-full accent-[var(--color-accent)]"
-              />
+            <p className="mt-3 text-sm leading-6 text-text-secondary">
+              {t.calibHint}
+            </p>
 
-              <span className="w-20 shrink-0 text-right text-sm tabular-nums">
-                {wallCm} cm
-              </span>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {objects.map((o) => (
+                <button
+                  key={o.key}
+                  type="button"
+                  onClick={() => setObj(o.key)}
+                  aria-pressed={obj === o.key}
+                  className={`border px-4 py-2 text-sm ${
+                    obj === o.key
+                      ? "border-[var(--color-accent)] text-accent"
+                      : "border-line text-text-muted"
+                  }`}
+                >
+                  {o.label}
+                </button>
+              ))}
             </div>
 
-            <p className="mt-2 text-xs leading-5 text-text-faint">
-              {t.wallWidthHint}
-            </p>
+            {obj === "custom" && (
+              <div className="mt-4 flex items-center gap-3">
+                <label htmlFor="custom-cm" className="text-sm text-text-secondary">
+                  {t.customCm}
+                </label>
+
+                <input
+                  id="custom-cm"
+                  type="number"
+                  min={1}
+                  max={500}
+                  value={customCm}
+                  onChange={(e) =>
+                    setCustomCm(Math.min(Math.max(Number(e.target.value) || 1, 1), 500))
+                  }
+                  className="w-24 border border-line bg-bg-raised px-3 py-2 text-sm text-text"
+                />
+
+                <span className="text-sm text-text-faint">cm</span>
+              </div>
+            )}
+
+            {frameCm > 0 && (
+              <p className="mt-4 text-sm text-text-faint">
+                {t.frameWidth}{" "}
+                <span className="tabular-nums text-text-secondary">
+                  ≈ {frameCm} cm
+                </span>
+              </p>
+            )}
           </div>
+
+          <p className="mt-4 text-xs leading-5 text-text-faint">{t.dragHint}</p>
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
             <span className="text-sm text-text-secondary">{sizeLabel}</span>

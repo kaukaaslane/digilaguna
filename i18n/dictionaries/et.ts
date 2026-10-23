@@ -595,9 +595,16 @@ const et: Dictionary = {
       privacy:
         "Foto jääb sinu seadmesse — seda ei laadita kuhugi üles ega salvestata.",
       dragHint: "Lohista töö seinal paika. Nooleklahvidega saab täpsustada.",
-      wallWidth: "Kui lai on fotol olev sein?",
-      wallWidthHint:
-        "Umbkaudne mõõt piisab. Sellest arvutatakse töö päris suurus, nii et mõõtude vahe tuleb päriselt välja.",
+      calibTitle: "Mõõtkava",
+      calibHint:
+        "Tõmba kaks kuldset punkti valitud eseme servadele. Ülejäänu arvutatakse sellest.",
+      objDoor: "Uks",
+      objSocket: "Pistikupesa",
+      objCustom: "Muu ese",
+      customCm: "Laius",
+      frameWidth: "Sein kaadris",
+      pointStart: "Mõõtepunkt, vasak",
+      pointEnd: "Mõõtepunkt, parem",
       download: "Salvesta pilt",
       promo:
         "Igal tööl saad enne ostmist vaadata, kuidas see sinu seinal päris suuruses välja näeb.",

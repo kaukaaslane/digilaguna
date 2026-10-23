@@ -594,9 +594,16 @@ const en = {
       privacy:
         "The photo stays on your device — nothing is uploaded or stored.",
       dragHint: "Drag the work into place. Arrow keys nudge it.",
-      wallWidth: "How wide is the wall in the photo?",
-      wallWidthHint:
-        "A rough measure is enough. It sets the true size of the work, so the difference between sizes actually shows.",
+      calibTitle: "Scale",
+      calibHint:
+        "Drag the two gold dots onto the edges of the object you picked. Everything else follows from that.",
+      objDoor: "Door",
+      objSocket: "Socket",
+      objCustom: "Something else",
+      customCm: "Width",
+      frameWidth: "Wall in view",
+      pointStart: "Measuring point, left",
+      pointEnd: "Measuring point, right",
       download: "Save image",
       promo:
         "On every work you can see how it looks on your own wall, at true size, before you buy.",
