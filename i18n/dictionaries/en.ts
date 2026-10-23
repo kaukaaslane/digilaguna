@@ -594,9 +594,9 @@ const en = {
       privacy:
         "The photo stays on your device — nothing is uploaded or stored.",
       dragHint: "Drag the work into place. Arrow keys nudge it.",
-      wallWidth: "How wide is the wall in the photo?",
+      wallWidth: "How wide is the whole photo, edge to edge?",
       wallWidthHint:
-        "A rough measure is enough. It sets the true size of the work, so the difference between sizes actually shows.",
+        "Not just the wall — everything visible in the shot, doorways and corners included. A rough figure is enough: a normal room photo covers about 200 cm.",
       download: "Save image",
       promo:
         "On every work you can see how it looks on your own wall, at true size, before you buy.",

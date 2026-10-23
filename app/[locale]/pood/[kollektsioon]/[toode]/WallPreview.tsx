@@ -5,10 +5,15 @@ import type { Dictionary } from "@/i18n/dictionaries/en";
 
 type WallText = Dictionary["shop"]["wallPreview"];
 
-/** Vaikimisi eeldus: telefonifoto seinast katab umbes kolm meetrit. */
-const DEFAULT_WALL_CM = 300;
-const MIN_WALL_CM = 80;
-const MAX_WALL_CM = 1200;
+/**
+ * Telefonifoto seinast katab tüüpiliselt paarsada sentimeetrit, mitte
+ * kolme meetrit. Vahemik on meelega kitsas: 80..1200 juures jäi kogu
+ * kasulik ala slaideri esimesse kuuendikku ja telefonis oli võimatu
+ * täpselt tabada.
+ */
+const DEFAULT_WALL_CM = 200;
+const MIN_WALL_CM = 60;
+const MAX_WALL_CM = 400;
 
 /** Nooleklahviga nihe — osa konteineri laiusest. */
 const NUDGE = 0.02;
@@ -321,7 +326,7 @@ export default function WallPreview({
                 type="range"
                 min={MIN_WALL_CM}
                 max={MAX_WALL_CM}
-                step={10}
+                step={5}
                 value={wallCm}
                 onChange={(e) => setWallCm(Number(e.target.value))}
                 className="w-full accent-[var(--color-accent)]"

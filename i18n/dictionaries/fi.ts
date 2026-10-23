@@ -595,9 +595,9 @@ const fi: Dictionary = {
       privacy:
         "Kuva pysyy laitteellasi — sitä ei ladata minnekään eikä tallenneta.",
       dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",
-      wallWidth: "Kuinka leveä kuvassa oleva seinä on?",
+      wallWidth: "Kuinka leveä koko kuva on reunasta reunaan?",
       wallWidthHint:
-        "Karkea mitta riittää. Siitä lasketaan teoksen todellinen koko, joten kokojen ero näkyy oikeasti.",
+        "Ei pelkkä seinä — kaikki, mikä kuvassa näkyy, oviaukot ja nurkat mukaan lukien. Karkea luku riittää: tavallinen huonekuva kattaa noin 200 cm.",
       download: "Tallenna kuva",
       promo:
         "Jokaisesta teoksesta voit ennen ostoa katsoa, miltä se näyttää omalla seinälläsi todellisessa koossa.",
