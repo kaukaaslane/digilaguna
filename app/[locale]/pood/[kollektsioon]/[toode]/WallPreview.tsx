@@ -228,10 +228,12 @@ export default function WallPreview({
           {photoUrl ? t.changePhoto : t.choosePhoto}
         </span>
 
+        {/* Ilma `capture`-ita avaneb telefoni tavaline valija, kus on
+            korraga kaamera, galerii ja failid. `capture="environment"`
+            sundis otse kaamerasse ja olemasolevat fotot ei saanud valida. */}
         <input
           type="file"
           accept="image/*"
-          capture="environment"
           onChange={pickPhoto}
           className="block w-full text-sm text-text-muted file:mr-4 file:cursor-pointer file:border file:border-line-strong file:bg-transparent file:px-4 file:py-2 file:text-sm file:text-text"
         />
