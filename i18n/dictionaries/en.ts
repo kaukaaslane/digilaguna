@@ -586,8 +586,6 @@ const en = {
       back: "Back",
     },
     terms: {
-      ai:
-        "The works are created with the help of artificial intelligence and finished by hand. They are digital art, printed on canvas.",
       vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",
     },
   },

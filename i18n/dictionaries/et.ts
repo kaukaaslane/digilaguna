@@ -587,8 +587,6 @@ const et: Dictionary = {
       back: "Tagasi",
     },
     terms: {
-      ai:
-        "Teosed on loodud tehisintellekti abil ja viimistletud käsitsi, need on digitaalne kunst, trükitud lõuendile.",
       vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",
     },
   },

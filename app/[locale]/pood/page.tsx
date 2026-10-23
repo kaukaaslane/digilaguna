@@ -164,10 +164,9 @@ export default async function Pood({
 
       {/* Tingimused */}
       <section>
-        <div className="site-container section">
-          <div className="max-w-2xl space-y-4 text-sm leading-7 text-text-muted">
+        <div className="site-container py-12">
+          <div className="max-w-2xl text-sm leading-7 text-text-muted">
             <p>{t.terms.vat}</p>
-            <p>{t.terms.ai}</p>
           </div>
         </div>
       </section>

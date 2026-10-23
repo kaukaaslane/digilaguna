@@ -587,8 +587,6 @@ const fi: Dictionary = {
       back: "Takaisin",
     },
     terms: {
-      ai:
-        "Teokset on luotu tekoälyn avulla ja viimeistelty käsin. Ne ovat digitaalista taidetta, painettuna kankaalle.",
       vat: "Digilaguna OÜ ei ole arvonlisäverovelvollinen. Näytetyt hinnat ovat lopullisia.",
     },
   },

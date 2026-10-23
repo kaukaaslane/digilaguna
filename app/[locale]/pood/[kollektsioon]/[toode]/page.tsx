@@ -171,9 +171,8 @@ export default async function Toode({ params }: { params: Params }) {
       {/* Tingimused */}
       <section className="border-t border-line">
         <div className="site-container py-12">
-          <div className="max-w-2xl space-y-3 text-xs leading-6 text-text-faint">
+          <div className="max-w-2xl text-xs leading-6 text-text-faint">
             <p>{t.terms.vat}</p>
-            <p>{t.terms.ai}</p>
           </div>
         </div>
       </section>
