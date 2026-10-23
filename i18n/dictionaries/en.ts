@@ -598,6 +598,8 @@ const en = {
       wallWidthHint:
         "A rough measure is enough. It sets the true size of the work, so the difference between sizes actually shows.",
       download: "Save image",
+      promo:
+        "On every work you can see how it looks on your own wall, at true size, before you buy.",
     },
     terms: {
       vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",

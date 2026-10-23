@@ -599,6 +599,8 @@ const et: Dictionary = {
       wallWidthHint:
         "Umbkaudne mõõt piisab. Sellest arvutatakse töö päris suurus, nii et mõõtude vahe tuleb päriselt välja.",
       download: "Salvesta pilt",
+      promo:
+        "Igal tööl saad enne ostmist vaadata, kuidas see sinu seinal päris suuruses välja näeb.",
     },
     terms: {
       vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",

@@ -134,6 +134,12 @@ export default async function Toode({ params }: { params: Params }) {
               <p className="mt-6 max-w-md text-sm leading-7 text-text-muted">
                 {t.product.detail}
               </p>
+
+              {/* Nupp ise on paremal veerus vormi sees, mobiilis kerimise
+                  taga. See rida ütleb pildi kõrval ära, et see olemas on. */}
+              <p className="mt-5 max-w-md text-sm leading-6 text-accent">
+                {t.wallPreview.promo}
+              </p>
             </div>
 
             {/* Info ja tellimine */}

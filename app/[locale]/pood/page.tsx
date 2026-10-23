@@ -57,6 +57,12 @@ export default async function Pood({
             <p className="mt-8 max-w-2xl text-base leading-7 text-text-secondary md:text-lg">
               {t.hero.lead}
             </p>
+
+            {/* Seinaeelvaade elab tootelehel tellimisvormi sees. Ilma selle
+                reata ei tea külastaja, et see olemas on. */}
+            <p className="mt-6 max-w-xl text-sm leading-6 text-accent">
+              {t.wallPreview.promo}
+            </p>
           </div>
         </div>
       </section>

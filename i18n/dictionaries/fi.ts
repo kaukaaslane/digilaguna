@@ -599,6 +599,8 @@ const fi: Dictionary = {
       wallWidthHint:
         "Karkea mitta riittää. Siitä lasketaan teoksen todellinen koko, joten kokojen ero näkyy oikeasti.",
       download: "Tallenna kuva",
+      promo:
+        "Jokaisesta teoksesta voit ennen ostoa katsoa, miltä se näyttää omalla seinälläsi todellisessa koossa.",
     },
     terms: {
       vat: "Digilaguna OÜ ei ole arvonlisäverovelvollinen. Näytetyt hinnat ovat lopullisia.",

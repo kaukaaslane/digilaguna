@@ -77,6 +77,10 @@ export default async function Kollektsioon({ params }: { params: Params }) {
             <p className="mt-8 max-w-2xl text-base leading-7 text-text-secondary md:text-lg">
               {c.description[l]}
             </p>
+
+            <p className="mt-6 max-w-xl text-sm leading-6 text-accent">
+              {t.wallPreview.promo}
+            </p>
           </div>
         </div>
       </section>
