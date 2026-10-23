@@ -144,6 +144,16 @@ export default async function ServicesPage({
                 </article>
               ))}
             </div>
+
+            {/* Digivisuaalid on teenus, mitte pood. Peamenüüst võetud ära,
+                sest kõrvuti "Poega" luges külastaja neid sama asjana.
+                Leht jääb alles — link siit ja jalusest, sitemap muutumatu. */}
+            <div className="mt-14">
+              <Link href={p("/digital-visuals")} className="btn btn-secondary">
+                {dict.nav.visuals}
+                <span aria-hidden className="btn-arrow">→</span>
+              </Link>
+            </div>
           </div>
         </section>
 

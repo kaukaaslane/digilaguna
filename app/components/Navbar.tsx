@@ -81,14 +81,6 @@ export default function Navbar({
           </Link>
 
           <Link
-            href={p("/digital-visuals")}
-            data-active={pathname === p("/digital-visuals")}
-            className="link-nav"
-          >
-            {dict.nav.visuals}
-          </Link>
-
-          <Link
             href={p("/pood")}
             data-active={pathname === p("/pood")}
             className="link-nav"
@@ -115,7 +107,7 @@ export default function Navbar({
           {pathname !== p("/contact") && (
             <Link
               href={p("/contact")}
-            data-active={pathname === p("/contact")}
+              data-active={pathname === p("/contact")}
               className="btn btn-secondary"
             >
               <span>{dict.nav.cta}</span>
@@ -268,7 +260,7 @@ export default function Navbar({
             <nav className="flex min-h-[60vh] flex-col gap-6 text-xl text-text">
               <Link
                 href={p("/services")}
-            data-active={pathname === p("/services")}
+                data-active={pathname === p("/services")}
                 onClick={closeMenu}
                 className="link-nav block"
               >
@@ -277,20 +269,11 @@ export default function Navbar({
 
               <Link
                 href={p("/work")}
-            data-active={pathname === p("/work")}
+                data-active={pathname === p("/work")}
                 onClick={closeMenu}
                 className="link-nav block"
               >
                 {dict.nav.work}
-              </Link>
-
-              <Link
-                href={p("/digital-visuals")}
-            data-active={pathname === p("/digital-visuals")}
-                onClick={closeMenu}
-                className="link-nav block"
-              >
-                {dict.nav.visuals}
               </Link>
 
               <Link
@@ -304,7 +287,7 @@ export default function Navbar({
 
               <Link
                 href={p("/about")}
-            data-active={pathname === p("/about")}
+                data-active={pathname === p("/about")}
                 onClick={closeMenu}
                 className="link-nav block"
               >
@@ -313,7 +296,7 @@ export default function Navbar({
 
               <Link
                 href={p("/contact")}
-            data-active={pathname === p("/contact")}
+                data-active={pathname === p("/contact")}
                 onClick={closeMenu}
                 className="link-nav block"
               >
@@ -324,7 +307,7 @@ export default function Navbar({
                 <div className="mt-6">
                   <Link
                     href={p("/contact")}
-            data-active={pathname === p("/contact")}
+                    data-active={pathname === p("/contact")}
                     onClick={closeMenu}
                     className="btn btn-secondary"
                   >
