@@ -595,16 +595,9 @@ const fi: Dictionary = {
       privacy:
         "Kuva pysyy laitteellasi — sitä ei ladata minnekään eikä tallenneta.",
       dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",
-      calibTitle: "Mittakaava",
-      calibHint:
-        "Vedä kaksi kultaista pistettä valitsemasi esineen reunoihin. Muu lasketaan siitä.",
-      objDoor: "Ovi",
-      objSocket: "Pistorasia",
-      objCustom: "Jokin muu",
-      customCm: "Leveys",
-      frameWidth: "Seinä kuvassa",
-      pointStart: "Mittapiste, vasen",
-      pointEnd: "Mittapiste, oikea",
+      wallWidth: "Kuinka leveä kuvassa oleva seinä on?",
+      wallWidthHint:
+        "Karkea mitta riittää. Siitä lasketaan teoksen todellinen koko, joten kokojen ero näkyy oikeasti.",
       download: "Tallenna kuva",
       promo:
         "Jokaisesta teoksesta voit ennen ostoa katsoa, miltä se näyttää omalla seinälläsi todellisessa koossa.",
