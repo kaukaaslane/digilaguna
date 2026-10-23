@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import WallPreview from "./WallPreview";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
 type ShopText = Dictionary["shop"];
 
-type SizeView = { id: string; label: string; price: number };
+type SizeView = { id: string; label: string; price: number; cm: number };
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -23,6 +24,7 @@ export default function OrderForm({
   productName,
   productSlug,
   collectionSlug,
+  imageSrc,
 }: {
   locale: Locale;
   t: ShopText;
@@ -31,6 +33,7 @@ export default function OrderForm({
   productName: string;
   productSlug: string;
   collectionSlug: string;
+  imageSrc: string;
 }) {
   const [sizeId, setSizeId] = useState(sizes[0].id);
   const [qty, setQty] = useState(1);
@@ -145,6 +148,16 @@ export default function OrderForm({
           +{money(premiumSurcharge)}
         </span>
       </label>
+
+      {/* Seinaeelvaade. Mõõt tuleb valitud suurusest, nii et kliendil pole
+          vaba skaalat — ta ei saa kokku klõpsida mõõtu, mida me ei müü. */}
+      <WallPreview
+        src={imageSrc}
+        alt={productName}
+        sizeCm={size.cm}
+        sizeLabel={size.label}
+        t={t.wallPreview}
+      />
 
       {/* Kogus */}
       <div className="mt-4 flex items-center justify-between gap-6 rule py-3">

@@ -586,6 +586,20 @@ const fi: Dictionary = {
       errorPhone: "Anna puhelinnumero.",
       back: "Takaisin",
     },
+    wallPreview: {
+      toggle: "Katso omalla seinällä",
+      close: "Sulje esikatselu",
+      lead: "Lisää kuva seinästäsi ja katso, miltä teos näyttää siinä valitussa koossa.",
+      choosePhoto: "Valitse seinäkuva",
+      changePhoto: "Valitse toinen kuva",
+      privacy:
+        "Kuva pysyy laitteellasi — sitä ei ladata minnekään eikä tallenneta.",
+      dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",
+      wallWidth: "Kuinka leveä kuvassa oleva seinä on?",
+      wallWidthHint:
+        "Karkea mitta riittää. Siitä lasketaan teoksen todellinen koko, joten kokojen ero näkyy oikeasti.",
+      download: "Tallenna kuva",
+    },
     terms: {
       vat: "Digilaguna OÜ ei ole arvonlisäverovelvollinen. Näytetyt hinnat ovat lopullisia.",
     },

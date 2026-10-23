@@ -156,11 +156,13 @@ export default async function Toode({ params }: { params: Params }) {
                     id: s.id,
                     label: s.label[l],
                     price: s.price,
+                    cm: s.cm,
                   }))}
                   premiumSurcharge={PREMIUM_SURCHARGE}
                   productName={product.name[l]}
                   productSlug={product.slug}
                   collectionSlug={collection.slug}
+                  imageSrc={imagePath(collection.slug, product.slug)}
                 />
               </div>
             </div>

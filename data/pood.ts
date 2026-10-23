@@ -326,6 +326,12 @@ export type SizeOption = {
   label: Localized;
   /** Hind eurodes. */
   price: number;
+  /**
+   * Külje pikkus sentimeetrites. Kõik mõõdud on ruudud, nii et üks arv
+   * piisab. Seinaeelvaade arvutab sellest päris suuruse — ära tuleta
+   * seda id-stringist, muidu läheb katki esimese mitteruudu lisamisel.
+   */
+  cm: number;
 };
 
 export const SIZES: SizeOption[] = [
@@ -333,16 +339,19 @@ export const SIZES: SizeOption[] = [
     id: "30x30",
     label: { et: "30×30 cm", en: "30×30 cm", ru: "30×30 см", fi: "30×30 cm" },
     price: 39,
+    cm: 30,
   },
   {
     id: "40x40",
     label: { et: "40×40 cm", en: "40×40 cm", ru: "40×40 см", fi: "40×40 cm" },
     price: 55,
+    cm: 40,
   },
   {
     id: "50x50",
     label: { et: "50×50 cm", en: "50×50 cm", ru: "50×50 см", fi: "50×50 cm" },
     price: 75,
+    cm: 50,
   },
 ];
 

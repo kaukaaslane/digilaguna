@@ -586,6 +586,20 @@ const et: Dictionary = {
       errorPhone: "Palun sisesta telefoninumber.",
       back: "Tagasi",
     },
+    wallPreview: {
+      toggle: "Proovi oma seinal",
+      close: "Sulge eelvaade",
+      lead: "Lisa oma seina foto ja vaata, kuidas töö valitud mõõdus seal välja näeb.",
+      choosePhoto: "Vali seinafoto",
+      changePhoto: "Vali teine foto",
+      privacy:
+        "Foto jääb sinu seadmesse — seda ei laadita kuhugi üles ega salvestata.",
+      dragHint: "Lohista töö seinal paika. Nooleklahvidega saab täpsustada.",
+      wallWidth: "Kui lai on fotol olev sein?",
+      wallWidthHint:
+        "Umbkaudne mõõt piisab. Sellest arvutatakse töö päris suurus, nii et mõõtude vahe tuleb päriselt välja.",
+      download: "Salvesta pilt",
+    },
     terms: {
       vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",
     },

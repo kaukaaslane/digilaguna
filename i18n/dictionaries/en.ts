@@ -585,6 +585,20 @@ const en = {
       errorPhone: "Please enter a phone number.",
       back: "Back",
     },
+    wallPreview: {
+      toggle: "See it on your wall",
+      close: "Close preview",
+      lead: "Add a photo of your wall and see how the work looks there at the size you picked.",
+      choosePhoto: "Choose a wall photo",
+      changePhoto: "Choose another photo",
+      privacy:
+        "The photo stays on your device — nothing is uploaded or stored.",
+      dragHint: "Drag the work into place. Arrow keys nudge it.",
+      wallWidth: "How wide is the wall in the photo?",
+      wallWidthHint:
+        "A rough measure is enough. It sets the true size of the work, so the difference between sizes actually shows.",
+      download: "Save image",
+    },
     terms: {
       vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",
     },
