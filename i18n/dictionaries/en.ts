@@ -549,10 +549,9 @@ const en = {
       quantityDecrease: "Decrease quantity",
       quantityIncrease: "Increase quantity",
       selectSize: "Size",
-      premium: "Premium satin canvas",
       order: "Order",
       detail:
-        "Stretched on a 2 cm wooden frame, ready to hang. Made in 3–5 working days.",
+        "Premium satin canvas, stretched on a 2 cm wooden frame, ready to hang. Made in 3–5 working days.",
     },
     delivery: {
       eyebrow: "Delivery",

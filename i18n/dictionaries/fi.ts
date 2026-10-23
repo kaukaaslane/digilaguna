@@ -550,10 +550,9 @@ const fi: Dictionary = {
       quantityDecrease: "Vähennä määrää",
       quantityIncrease: "Lisää määrää",
       selectSize: "Koko",
-      premium: "Premium-satiinikangas",
       order: "Tilaa",
       detail:
-        "Pingotettu 2 cm:n puukehykseen, valmis ripustettavaksi. Valmistuu 3–5 arkipäivässä.",
+        "Premium-satiinikangas, pingotettu 2 cm:n puukehykseen, valmis ripustettavaksi. Valmistuu 3–5 arkipäivässä.",
     },
     delivery: {
       eyebrow: "Toimitus",

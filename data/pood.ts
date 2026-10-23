@@ -336,28 +336,32 @@ export type SizeOption = {
 
 export const SIZES: SizeOption[] = [
   {
+    id: "20x20",
+    label: { et: "20×20 cm", en: "20×20 cm", ru: "20×20 см", fi: "20×20 cm" },
+    price: 29,
+    cm: 20,
+  },
+  {
     id: "30x30",
     label: { et: "30×30 cm", en: "30×30 cm", ru: "30×30 см", fi: "30×30 cm" },
-    price: 39,
+    price: 45,
     cm: 30,
   },
   {
     id: "40x40",
     label: { et: "40×40 cm", en: "40×40 cm", ru: "40×40 см", fi: "40×40 cm" },
-    price: 55,
+    price: 59,
     cm: 40,
   },
   {
     id: "50x50",
     label: { et: "50×50 cm", en: "50×50 cm", ru: "50×50 см", fi: "50×50 cm" },
-    price: 75,
+    price: 79,
     cm: 50,
   },
 ];
 
 /** Premium satiinlõuend, lisandub valitud mõõdu hinnale. */
-export const PREMIUM_SURCHARGE = 8;
-
 export const SHIPPING = {
   parcelMachineEE: 3.9,
   /** null tähendab "küsi hinda". */

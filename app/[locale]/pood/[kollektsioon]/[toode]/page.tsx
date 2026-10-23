@@ -7,7 +7,6 @@ import { isLocale, localizePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import {
   SIZES,
-  PREMIUM_SURCHARGE,
   getCollection,
   getProduct,
   imagePath,
@@ -91,7 +90,7 @@ export default async function Toode({ params }: { params: Params }) {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
       lowPrice: Math.min(...prices),
-      highPrice: Math.max(...prices) + PREMIUM_SURCHARGE,
+      highPrice: Math.max(...prices),
       offerCount: SIZES.length,
       availability: "https://schema.org/InStock",
       seller: { "@type": "Organization", name: "Digilaguna OÜ" },
@@ -164,7 +163,6 @@ export default async function Toode({ params }: { params: Params }) {
                     price: s.price,
                     cm: s.cm,
                   }))}
-                  premiumSurcharge={PREMIUM_SURCHARGE}
                   productName={product.name[l]}
                   productSlug={product.slug}
                   collectionSlug={collection.slug}

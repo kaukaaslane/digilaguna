@@ -550,10 +550,9 @@ const et: Dictionary = {
       quantityDecrease: "Vähenda kogust",
       quantityIncrease: "Suurenda kogust",
       selectSize: "Mõõt",
-      premium: "Premium satiinlõuend",
       order: "Telli",
       detail:
-        "Pingutatud 2 cm puitalusraamile, valmis seinale riputamiseks. Valmib 3–5 tööpäevaga.",
+        "Premium satiinlõuend, pingutatud 2 cm puitalusraamile, valmis seinale riputamiseks. Valmib 3–5 tööpäevaga.",
     },
     delivery: {
       eyebrow: "Tarne",

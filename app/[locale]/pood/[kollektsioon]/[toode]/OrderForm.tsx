@@ -20,7 +20,6 @@ export default function OrderForm({
   locale,
   t,
   sizes,
-  premiumSurcharge,
   productName,
   productSlug,
   collectionSlug,
@@ -29,7 +28,6 @@ export default function OrderForm({
   locale: Locale;
   t: ShopText;
   sizes: SizeView[];
-  premiumSurcharge: number;
   productName: string;
   productSlug: string;
   collectionSlug: string;
@@ -37,13 +35,12 @@ export default function OrderForm({
 }) {
   const [sizeId, setSizeId] = useState(sizes[0].id);
   const [qty, setQty] = useState(1);
-  const [premium, setPremium] = useState(false);
   const [deliveryId, setDeliveryId] = useState("parcel");
   const [status, setStatus] = useState<Status>("idle");
   const [fieldError, setFieldError] = useState<string | null>(null);
 
   const size = sizes.find((s) => s.id === sizeId) ?? sizes[0];
-  const unitPrice = size.price + (premium ? premiumSurcharge : 0);
+  const unitPrice = size.price;
   const total = unitPrice * qty;
 
   const deliveryOptions = [
@@ -82,7 +79,6 @@ export default function OrderForm({
           product: productName,
           productSlug: `${collectionSlug}/${productSlug}`,
           size: size.label,
-          premium,
           quantity: qty,
           unitPrice,
           delivery:
@@ -133,21 +129,6 @@ export default function OrderForm({
           ))}
         </div>
       </fieldset>
-
-      <label className="mt-4 flex cursor-pointer items-baseline justify-between gap-6 rule py-3">
-        <span className="flex items-baseline gap-3 text-sm">
-          <input
-            type="checkbox"
-            checked={premium}
-            onChange={(e) => setPremium(e.target.checked)}
-            className="accent-[var(--color-accent)]"
-          />
-          {t.product.premium}
-        </span>
-        <span className="text-sm font-medium">
-          +{money(premiumSurcharge)}
-        </span>
-      </label>
 
       {/* Seinaeelvaade. Mõõt tuleb valitud suurusest, nii et kliendil pole
           vaba skaalat — ta ei saa kokku klõpsida mõõtu, mida me ei müü. */}

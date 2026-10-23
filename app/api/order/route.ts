@@ -68,7 +68,6 @@ export async function POST(request: Request) {
     const size = str(body.size);
     const delivery = str(body.delivery);
     const locale = str(body.locale);
-    const premium = body.premium === true;
     const total = typeof body.total === "number" ? body.total : null;
     const unitPrice =
       typeof body.unitPrice === "number" ? body.unitPrice : null;
@@ -143,7 +142,6 @@ export async function POST(request: Request) {
       `Product: ${product} (${productSlug})`,
       `Size: ${size}`,
       `Quantity: ${quantity}`,
-      `Premium canvas: ${premium ? "yes" : "no"}`,
       `Delivery: ${delivery || "-"}`,
       `Unit price: ${unitPrice === null ? "-" : `${unitPrice} EUR`}`,
       `Total shown to customer: ${total === null ? "-" : `${total} EUR`}`,
@@ -171,7 +169,6 @@ export async function POST(request: Request) {
           ${row("Product", `${product} (${productSlug})`)}
           ${row("Size", size)}
           ${row("Quantity", String(quantity))}
-          ${row("Premium canvas", premium ? "yes" : "no")}
           ${row("Delivery", delivery || "-")}
           ${row("Unit price", unitPrice === null ? "-" : `${unitPrice} EUR`)}
           ${row("Total shown to customer", total === null ? "-" : `${total} EUR`)}
