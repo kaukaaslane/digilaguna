@@ -344,16 +344,6 @@ export const SIZES: SizeOption[] = [
     label: { et: "50×50 cm", en: "50×50 cm", ru: "50×50 см", fi: "50×50 cm" },
     price: 75,
   },
-  {
-    id: "triptych",
-    label: {
-      et: "Kolmik 3× 30×30 cm",
-      en: "Triptych 3× 30×30 cm",
-      ru: "Триптих 3× 30×30 см",
-      fi: "Kolmikko 3× 30×30 cm",
-    },
-    price: 105,
-  },
 ];
 
 /** Premium satiinlõuend, lisandub valitud mõõdu hinnale. */
