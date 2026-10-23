@@ -200,7 +200,7 @@ export default function WallPreview({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="btn btn-secondary mt-4 w-full justify-center"
+        className="btn btn-accent mt-4 w-full justify-center"
       >
         {t.toggle}
         <span aria-hidden className="btn-arrow">

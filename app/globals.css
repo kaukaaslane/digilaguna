@@ -170,6 +170,23 @@ p { text-wrap: pretty; }
 }
 .btn-primary:hover { background: #ffffff; border-color: #ffffff; }
 
+/* Accent — solid gold. Reserved for one thing: the wall preview, which is
+   the step that sells the print. Gold is otherwise only a hairline on this
+   site, so a filled gold button is the loudest element on the page. Do not
+   add a second one; the moment there are two, neither is a signal.
+   Dark text on this gold is 8.9:1, so it clears AA with room to spare. */
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+  font-weight: 600;
+}
+.btn-accent:hover {
+  background: #d7bb81;
+  border-color: #d7bb81;
+}
+.btn-accent .btn-arrow { color: var(--color-bg); }
+
 /* Secondary — ghost. Everything else. */
 .btn-secondary {
   color: var(--color-text);
