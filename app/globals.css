@@ -170,20 +170,27 @@ p { text-wrap: pretty; }
 }
 .btn-primary:hover { background: #ffffff; border-color: #ffffff; }
 
-/* Accent — solid gold. Reserved for one thing: the wall preview, which is
-   the step that sells the print. Gold is otherwise only a hairline on this
-   site, so a filled gold button is the loudest element on the page. Do not
-   add a second one; the moment there are two, neither is a signal.
-   Dark text on this gold is 8.9:1, so it clears AA with room to spare. */
+/* Accent — filled gold. Reserved for one thing: the wall preview, which is
+   the step that sells the print. Do not add a second one; the moment there
+   are two, neither is a signal.
+
+   The fill is not the raw accent. A hairline of --color-accent and a filled
+   pill of it do not read as equal weight: the same chroma over a large area
+   shouts. Mixing 12% of the page black back in deepens it just enough to sit
+   with the greys, and it stays derived from the token rather than becoming a
+   fourteenth hand-picked hex. Hover resolves to the pure accent, so the
+   button both brightens and gains contrast on the way up.
+
+   Dark text: 7.07:1 at rest, 8.93:1 on hover. Both clear AAA, so AA is met
+   whatever the viewer's text scaling. */
 .btn-accent {
   background: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 88%, var(--color-bg));
   color: var(--color-bg);
-  border-color: var(--color-accent);
-  font-weight: 600;
+  border-color: transparent;
 }
 .btn-accent:hover {
-  background: #d7bb81;
-  border-color: #d7bb81;
+  background: var(--color-accent);
 }
 .btn-accent .btn-arrow { color: var(--color-bg); }
 
