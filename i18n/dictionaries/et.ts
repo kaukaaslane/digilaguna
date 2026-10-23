@@ -546,6 +546,9 @@ const et: Dictionary = {
     },
     product: {
       from: "alates",
+      quantity: "Kogus",
+      quantityDecrease: "Vähenda kogust",
+      quantityIncrease: "Suurenda kogust",
       selectSize: "Mõõt",
       premium: "Premium satiinlõuend",
       order: "Telli",
@@ -584,8 +587,6 @@ const et: Dictionary = {
       back: "Tagasi",
     },
     terms: {
-      withdrawal:
-        "Veebis ostetud tootel on 14-päevane taganemisõigus. Isikupärastatud tellimustele see ei laiene.",
       ai:
         "Teosed on loodud tehisintellekti abil ja viimistletud käsitsi, need on digitaalne kunst, trükitud lõuendile.",
       vat: "Digilaguna OÜ ei ole käibemaksukohustuslane. Näidatud hinnad on lõpphinnad.",

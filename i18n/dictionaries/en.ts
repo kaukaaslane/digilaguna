@@ -545,6 +545,9 @@ const en = {
     },
     product: {
       from: "from",
+      quantity: "Quantity",
+      quantityDecrease: "Decrease quantity",
+      quantityIncrease: "Increase quantity",
       selectSize: "Size",
       premium: "Premium satin canvas",
       order: "Order",
@@ -583,8 +586,6 @@ const en = {
       back: "Back",
     },
     terms: {
-      withdrawal:
-        "Goods bought online carry a 14-day right of withdrawal. This does not apply to personalised orders.",
       ai:
         "The works are created with the help of artificial intelligence and finished by hand. They are digital art, printed on canvas.",
       vat: "Digilaguna OÜ is not registered for VAT. The prices shown are final.",

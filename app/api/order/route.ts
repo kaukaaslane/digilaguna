@@ -70,6 +70,17 @@ export async function POST(request: Request) {
     const locale = str(body.locale);
     const premium = body.premium === true;
     const total = typeof body.total === "number" ? body.total : null;
+    const unitPrice =
+      typeof body.unitPrice === "number" ? body.unitPrice : null;
+    // Kogus tuleb kliendilt: piirame mõistlikku vahemikku, et kirja ei
+    // saaks täita jaburate väärtustega.
+    const quantity =
+      typeof body.quantity === "number" &&
+      Number.isInteger(body.quantity) &&
+      body.quantity >= 1 &&
+      body.quantity <= 10
+        ? body.quantity
+        : 1;
 
     if (!name) {
       return NextResponse.json(
@@ -131,8 +142,10 @@ export async function POST(request: Request) {
       "",
       `Product: ${product} (${productSlug})`,
       `Size: ${size}`,
+      `Quantity: ${quantity}`,
       `Premium canvas: ${premium ? "yes" : "no"}`,
       `Delivery: ${delivery || "-"}`,
+      `Unit price: ${unitPrice === null ? "-" : `${unitPrice} EUR`}`,
       `Total shown to customer: ${total === null ? "-" : `${total} EUR`}`,
       "",
       "Message:",
@@ -146,7 +159,7 @@ export async function POST(request: Request) {
       from: '"Õied order" <info@digilaguna.com>',
       to: "info@digilaguna.com",
       replyTo: email,
-      subject: `Order: ${product} (${size}) — ${name}`,
+      subject: `Order: ${product} (${size})${quantity > 1 ? ` x${quantity}` : ""} — ${name}`,
       text: lines.join("\n"),
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1a1a1a;">
@@ -157,8 +170,10 @@ export async function POST(request: Request) {
           <hr />
           ${row("Product", `${product} (${productSlug})`)}
           ${row("Size", size)}
+          ${row("Quantity", String(quantity))}
           ${row("Premium canvas", premium ? "yes" : "no")}
           ${row("Delivery", delivery || "-")}
+          ${row("Unit price", unitPrice === null ? "-" : `${unitPrice} EUR`)}
           ${row("Total shown to customer", total === null ? "-" : `${total} EUR`)}
           <hr />
           <p><strong>Message:</strong></p>

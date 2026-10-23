@@ -546,6 +546,9 @@ const fi: Dictionary = {
     },
     product: {
       from: "alkaen",
+      quantity: "Määrä",
+      quantityDecrease: "Vähennä määrää",
+      quantityIncrease: "Lisää määrää",
       selectSize: "Koko",
       premium: "Premium-satiinikangas",
       order: "Tilaa",
@@ -584,8 +587,6 @@ const fi: Dictionary = {
       back: "Takaisin",
     },
     terms: {
-      withdrawal:
-        "Verkosta ostetulla tuotteella on 14 päivän peruuttamisoikeus. Se ei koske yksilöityjä tilauksia.",
       ai:
         "Teokset on luotu tekoälyn avulla ja viimeistelty käsin. Ne ovat digitaalista taidetta, painettuna kankaalle.",
       vat: "Digilaguna OÜ ei ole arvonlisäverovelvollinen. Näytetyt hinnat ovat lopullisia.",

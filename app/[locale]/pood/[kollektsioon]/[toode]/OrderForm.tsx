@@ -10,6 +10,9 @@ type SizeView = { id: string; label: string; price: number };
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/** Suurem kogus on juba kokkulepe, mitte poeostu — suunatakse sõnumisse. */
+const MAX_QTY = 10;
+
 const money = (n: number) => `${n.toString().replace(".", ",")} €`;
 
 export default function OrderForm({
@@ -30,13 +33,15 @@ export default function OrderForm({
   collectionSlug: string;
 }) {
   const [sizeId, setSizeId] = useState(sizes[0].id);
+  const [qty, setQty] = useState(1);
   const [premium, setPremium] = useState(false);
   const [deliveryId, setDeliveryId] = useState("parcel");
   const [status, setStatus] = useState<Status>("idle");
   const [fieldError, setFieldError] = useState<string | null>(null);
 
   const size = sizes.find((s) => s.id === sizeId) ?? sizes[0];
-  const total = size.price + (premium ? premiumSurcharge : 0);
+  const unitPrice = size.price + (premium ? premiumSurcharge : 0);
+  const total = unitPrice * qty;
 
   const deliveryOptions = [
     { id: "parcel", label: t.delivery.parcel },
@@ -75,6 +80,8 @@ export default function OrderForm({
           productSlug: `${collectionSlug}/${productSlug}`,
           size: size.label,
           premium,
+          quantity: qty,
+          unitPrice,
           delivery:
             deliveryOptions.find((d) => d.id === deliveryId)?.label ?? "",
           total,
@@ -139,6 +146,40 @@ export default function OrderForm({
         </span>
       </label>
 
+      {/* Kogus */}
+      <div className="mt-4 flex items-center justify-between gap-6 rule py-3">
+        <span className="text-sm">{t.product.quantity}</span>
+
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setQty((n) => Math.max(1, n - 1))}
+            disabled={qty <= 1}
+            aria-label={t.product.quantityDecrease}
+            className="qty-btn"
+          >
+            &minus;
+          </button>
+
+          <span
+            aria-live="polite"
+            className="w-10 text-center text-sm font-medium tabular-nums"
+          >
+            {qty}
+          </span>
+
+          <button
+            type="button"
+            onClick={() => setQty((n) => Math.min(MAX_QTY, n + 1))}
+            disabled={qty >= MAX_QTY}
+            aria-label={t.product.quantityIncrease}
+            className="qty-btn"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
       {/* Tarneviis */}
       <div className="mt-6">
         <label htmlFor="delivery" className="mb-3 block eyebrow">
@@ -160,7 +201,15 @@ export default function OrderForm({
 
       <div className="mt-6 flex items-baseline justify-between gap-6 border-t border-line-strong pt-5">
         <span className="eyebrow">{t.form.total}</span>
-        <span className="text-2xl font-medium">{money(total)}</span>
+
+        <span className="flex items-baseline gap-3">
+          {qty > 1 && (
+            <span className="text-sm text-text-faint tabular-nums">
+              {qty} &times; {money(unitPrice)}
+            </span>
+          )}
+          <span className="text-2xl font-medium">{money(total)}</span>
+        </span>
       </div>
 
       {/* Vorm */}
