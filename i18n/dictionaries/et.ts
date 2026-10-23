@@ -594,9 +594,11 @@ const et: Dictionary = {
       privacy:
         "Foto jääb sinu seadmesse — seda ei laadita kuhugi üles ega salvestata.",
       dragHint: "Lohista töö seinal paika. Nooleklahvidega saab täpsustada.",
-      wallWidth: "Kui lai on kogu pilt servast servani?",
+      wallWidth: "Kui lai on see sein?",
       wallWidthHint:
-        "Mitte ainult sein — kogu ala, mis fotol näha on, koos ukseavade ja nurkadega. Umbkaudne arv piisab: tavaline toafoto katab umbes 200 cm.",
+        "Tõmba kaks kuldset punkti oma seina servadele ja sisesta siia selle seina laius. Mõõdetud arv on kõige täpsem, aga ka hinnang töötab.",
+      pointStart: "Seina vasak serv",
+      pointEnd: "Seina parem serv",
       download: "Salvesta pilt",
       promo:
         "Igal tööl saad enne ostmist vaadata, kuidas see sinu seinal päris suuruses välja näeb.",
