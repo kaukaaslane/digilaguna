@@ -588,18 +588,17 @@ const et: Dictionary = {
     wallPreview: {
       toggle: "Proovi oma seinal",
       close: "Sulge eelvaade",
-      lead: "Lisa oma seina foto ja vaata, kuidas töö valitud mõõdus seal välja näeb.",
+      lead: "Sisesta oma seina mõõdud ja vaata, kui suur töö sellel päriselt on.",
+      wallWidth: "Seina laius",
+      wallHeight: "Seina kõrgus",
+      dragHint: "Lohista töö paika. Nooleklahvidega saab täpsustada.",
+      centreHeight: "Keskpunkt põrandast",
+      photoOptional:
+        "Lisa oma seina foto, kui tahad tööd päris ruumis näha. Mõõtu see ei muuda.",
       takePhoto: "Tee pilt",
       choosePhoto: "Vali galeriist",
       privacy:
         "Foto jääb sinu seadmesse — seda ei laadita kuhugi üles ega salvestata.",
-      dragHint: "Lohista töö seinal paika. Nooleklahvidega saab täpsustada.",
-      wallWidth: "Kui lai on see sein?",
-      wallWidthHint:
-        "Tõmba kaks kuldset punkti oma seina servadele ja sisesta siia selle seina laius. Mõõdetud arv on kõige täpsem, aga ka hinnang töötab.",
-      pointStart: "Seina vasak serv",
-      pointEnd: "Seina parem serv",
-      download: "Salvesta pilt",
       promo:
         "Igal tööl saad enne ostmist vaadata, kuidas see sinu seinal päris suuruses välja näeb.",
     },

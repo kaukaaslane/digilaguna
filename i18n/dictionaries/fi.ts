@@ -588,18 +588,17 @@ const fi: Dictionary = {
     wallPreview: {
       toggle: "Katso omalla seinällä",
       close: "Sulje esikatselu",
-      lead: "Lisää kuva seinästäsi ja katso, miltä teos näyttää siinä valitussa koossa.",
+      lead: "Syötä seinäsi mitat ja katso, kuinka suuri teos siinä todella on.",
+      wallWidth: "Seinän leveys",
+      wallHeight: "Seinän korkeus",
+      dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",
+      centreHeight: "Keskipiste lattiasta",
+      photoOptional:
+        "Lisää kuva seinästäsi nähdäksesi teoksen oikeassa huoneessa. Kokoon se ei vaikuta.",
       takePhoto: "Ota kuva",
       choosePhoto: "Valitse kuvista",
       privacy:
         "Kuva pysyy laitteellasi — sitä ei ladata minnekään eikä tallenneta.",
-      dragHint: "Raahaa teos paikalleen. Nuolinäppäimillä voi tarkentaa.",
-      wallWidth: "Kuinka leveä tämä seinä on?",
-      wallWidthHint:
-        "Vedä kaksi kultaista pistettä seinäsi reunoihin ja syötä tähän sen seinän leveys. Mitattu luku on tarkin, mutta arviokin toimii.",
-      pointStart: "Seinän vasen reuna",
-      pointEnd: "Seinän oikea reuna",
-      download: "Tallenna kuva",
       promo:
         "Jokaisesta teoksesta voit ennen ostoa katsoa, miltä se näyttää omalla seinälläsi todellisessa koossa.",
     },

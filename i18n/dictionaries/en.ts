@@ -587,18 +587,17 @@ const en = {
     wallPreview: {
       toggle: "See it on your wall",
       close: "Close preview",
-      lead: "Add a photo of your wall and see how the work looks there at the size you picked.",
+      lead: "Enter your wall's measurements and see how large the work really is on it.",
+      wallWidth: "Wall width",
+      wallHeight: "Wall height",
+      dragHint: "Drag the work into place. Arrow keys nudge it.",
+      centreHeight: "Centre above floor",
+      photoOptional:
+        "Add a photo of your wall to see the work in the actual room. It does not change the size.",
       takePhoto: "Take a photo",
       choosePhoto: "Choose from photos",
       privacy:
         "The photo stays on your device — nothing is uploaded or stored.",
-      dragHint: "Drag the work into place. Arrow keys nudge it.",
-      wallWidth: "How wide is this wall?",
-      wallWidthHint:
-        "Drag the two gold dots to the edges of your wall, then enter that wall's width here. A measured figure is best, but an estimate works too.",
-      pointStart: "Wall edge, left",
-      pointEnd: "Wall edge, right",
-      download: "Save image",
       promo:
         "On every work you can see how it looks on your own wall, at true size, before you buy.",
     },
