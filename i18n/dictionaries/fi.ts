@@ -539,6 +539,9 @@ const fi: Dictionary = {
       eyebrow: "Kauppa",
       title: "Digitaalista taidetta kankaalla",
       lead: "Teoksia, jotka tuovat seinälle syvyyttä ja lämpöä. Valmistus ja lähetys 3–5 arkipäivässä.",
+      imageAlt: "Digilagunan teos kehystettynä olohuoneen seinällä sohvan yläpuolella",
+      custom:
+        "Kuvassa on kehystetty teos panoraamakoossa. Myymälän teokset ovat neliön muotoisia kankaita — erikoiskoot, panoraama ja kehystys erillistilauksesta.",
     },
     collection: {
       view: "Katso kokoelma",

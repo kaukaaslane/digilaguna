@@ -64,6 +64,26 @@ export default async function Pood({
               {t.wallPreview.promo}
             </p>
           </div>
+
+          {/* Dekoratsiooniostja otsustab silmaga. Tekst üksi ei vasta
+              küsimusele, mida ta päriselt küsib — kuidas see seinal on
+              ja kui suur ta diivani kohal tuleb. */}
+          <div className="relative mt-14 aspect-[3/2] w-full media">
+            <Image
+              src="/pood/interjoor.webp"
+              alt={t.hero.imageAlt}
+              fill
+              sizes="(min-width: 1280px) 1216px, 100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* Pildil on raamitud panoraam, poes ruudukujulised lõuendid.
+              See rida teeb vahest pakkumise, mitte segaduse. */}
+          <p className="mt-6 max-w-2xl text-sm leading-6 text-text-muted">
+            {t.hero.custom}
+          </p>
         </div>
       </section>
 

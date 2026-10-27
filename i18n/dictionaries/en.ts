@@ -538,6 +538,9 @@ const en = {
       eyebrow: "Shop",
       title: "Digital art on canvas",
       lead: "Work that brings depth and warmth to a wall. Made and shipped in 3–5 working days.",
+      imageAlt: "A Digilaguna work, framed, on a living-room wall above a sofa",
+      custom:
+        "The photo shows a framed work in a panoramic size. The works in the shop are square canvases — custom sizes, panoramic formats and framing are available on request.",
     },
     collection: {
       view: "View collection",
