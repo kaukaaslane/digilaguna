@@ -44,61 +44,62 @@ export default async function Pood({
 
   return (
     <div className="overflow-x-hidden bg-bg text-text">
-      {/* Hero */}
-      <section className="relative overflow-hidden rule">
-        <Image
-          src="/pood/interjoor.webp"
-          alt={t.hero.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+      {/* Hero.
 
-        {/* Kate. Mobiilis ühtlane, sest kitsas kaadris pole tekstil kuhu
-            põgeneda; laiemal ekraanil vasakult paremale hääbuv, nii et
-            tekst saab tumeda aluse ja töö ise jääb paremal näha. */}
-        <div aria-hidden className="absolute inset-0 bg-bg/80 md:hidden" />
-        <div
-          aria-hidden
-          className="absolute inset-0 hidden md:block"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.9) 38%, rgba(8,8,8,0.55) 68%, rgba(8,8,8,0.2) 100%)",
-          }}
-        />
-
-        <div className="relative site-container section-lg">
-          <div className="max-w-3xl">
-            <div className="mb-5 eyebrow">{t.hero.eyebrow}</div>
-
-            <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] tracking-[-0.03em] md:text-7xl">
-              {t.hero.title}
-            </h1>
-
-            <p className="mt-8 max-w-2xl text-base leading-7 text-text-secondary md:text-lg">
-              {t.hero.lead}
-            </p>
-
-            <p className="mt-6 max-w-xl text-sm leading-6 text-accent">
-              {t.wallPreview.promo}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pildil on raamitud panoraam, poes ruudukujulised lõuendid.
-          See rida teeb vahest pakkumise, mitte segaduse. */}
+          Tekst oli enne pildi peal ja see nõudis katet. Kate aga tappis
+          just selle, mille pärast pilt seal on: soe hele interjöör tumeda
+          lehe vastas. Kõrvuti paigutus annab mõlemale oma pinna — tekst
+          istub saidi enda mustal täie kontrastiga, pilt jääb puutumata. */}
       <section className="rule">
-        <div className="site-container py-8">
-          <p className="max-w-2xl text-sm leading-6 text-text-muted">
+        <div className="site-container section-lg">
+          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+            <div>
+              <div className="mb-5 eyebrow">{t.hero.eyebrow}</div>
+
+              <h1 className="text-5xl font-medium leading-[0.98] tracking-[-0.03em] md:text-6xl">
+                {t.hero.title}
+              </h1>
+
+              <p className="mt-7 max-w-md text-base leading-7 text-text-secondary md:text-lg">
+                {t.hero.lead}
+              </p>
+
+              <p className="mt-5 max-w-md text-sm leading-6 text-accent">
+                {t.wallPreview.promo}
+              </p>
+
+              <div className="mt-9">
+                <Link href="#kollektsioonid" className="btn btn-primary">
+                  {t.hero.cta}
+                  <span aria-hidden className="btn-arrow">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative aspect-[3/2] w-full media">
+              <Image
+                src="/pood/interjoor.webp"
+                alt={t.hero.imageAlt}
+                fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Pildil on raamitud panoraam, poes ruudukujulised lõuendid.
+              See rida teeb vahest pakkumise, mitte segaduse. */}
+          <p className="mt-12 max-w-2xl text-sm leading-6 text-text-muted">
             {t.hero.custom}
           </p>
         </div>
       </section>
 
       {/* Kollektsioonid */}
-      <section className="rule">
+      <section id="kollektsioonid" className="rule">
         <div className="site-container section">
           <div className="space-y-20 md:space-y-28">
             {COLLECTIONS.map((c) => (

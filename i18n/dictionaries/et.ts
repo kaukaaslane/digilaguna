@@ -539,6 +539,7 @@ const et: Dictionary = {
       eyebrow: "Pood",
       title: "Digitaalne kunst lõuendil",
       lead: "Teosed, mis toovad seinale sügavust ja soojust. Tellimus valmib 3–5 tööpäevaga.",
+      cta: "Vaata töid",
       imageAlt: "Digilaguna töö raamituna heleda elutoa seinal diivani kohal",
       custom:
         "Pildil on raamitud töö panoraamses mõõdus. Poe tööd on ruudukujulised lõuendid — erimõõdud, panoraam ja raamimine käivad eritellimusena.",
