@@ -49,7 +49,7 @@ export default async function Pood({
           Tekst istub pildi peal. Kate on vasakul 90–96% must, nii et
           teksti kontrast on umbes 12:1 — tumedam kui vaja, aga see hoiab
           paremal poolel pildi lahti, kus töö ja lamp näha jäävad. */}
-      <section className="relative overflow-hidden rule">
+      <section className="relative flex min-h-[82vh] items-center overflow-hidden rule">
         <Image
           src="/pood/interjoor.webp"
           alt={t.hero.imageAlt}
@@ -59,19 +59,21 @@ export default async function Pood({
           className="object-cover"
         />
 
-        {/* Mobiilis ühtlane, sest kitsas kaadris pole tekstil kuhu
-            põgeneda; laiemal ekraanil vasakult paremale hääbuv. */}
-        <div aria-hidden className="absolute inset-0 bg-bg/80 md:hidden" />
+        {/* Kate oli 90–96% ja tegi toast halli tapeedi. Mõõdetud: teksti
+            ala püsib AA-s kuni 60% katteni, nii et 68% jätab varu ja laseb
+            elutoa välja. Paremal hääbub peaaegu olematuks, et töö ja lamp
+            jääksid täies värvis näha. */}
+        <div aria-hidden className="absolute inset-0 bg-bg/72 md:hidden" />
         <div
           aria-hidden
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(90deg, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.9) 38%, rgba(8,8,8,0.55) 68%, rgba(8,8,8,0.2) 100%)",
+              "linear-gradient(90deg, rgba(8,8,8,0.82) 0%, rgba(8,8,8,0.68) 38%, rgba(8,8,8,0.28) 68%, rgba(8,8,8,0.04) 100%)",
           }}
         />
 
-        <div className="relative site-container section-lg">
+        <div className="relative w-full site-container py-20 md:py-28">
           <div className="max-w-3xl">
             <div className="mb-5 eyebrow">{t.hero.eyebrow}</div>
 
