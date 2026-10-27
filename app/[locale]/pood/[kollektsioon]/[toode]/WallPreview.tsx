@@ -310,7 +310,7 @@ export default function WallPreview({
         )}
       </div>
 
-      <p className="mt-3 flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs text-text-faint">
+      <p className="mt-3 flex flex-wrap justify-between gap-x-6 gap-y-1 text-sm text-text-muted">
         <span>{t.dragHint}</span>
         <span className="tabular-nums">
           {t.centreHeight} {centreFromFloorCm} cm
@@ -344,7 +344,7 @@ export default function WallPreview({
           </label>
         </div>
 
-        <p className="mt-3 text-xs leading-5 text-text-faint">{t.privacy}</p>
+        <p className="mt-3 text-sm leading-6 text-text-muted">{t.privacy}</p>
       </div>
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">

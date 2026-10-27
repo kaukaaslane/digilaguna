@@ -110,7 +110,7 @@ export default function ContactClient({ dict }: { dict: Dictionary }) {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-xs text-text-muted"
+                    className="mb-2 block text-sm text-text-muted"
                   >
                     {t.formMode.nameLabel}
                   </label>
@@ -127,7 +127,7 @@ export default function ContactClient({ dict }: { dict: Dictionary }) {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-xs text-text-muted"
+                    className="mb-2 block text-sm text-text-muted"
                   >
                     {t.formMode.emailLabel}
                   </label>
@@ -145,7 +145,7 @@ export default function ContactClient({ dict }: { dict: Dictionary }) {
                 <div>
                   <label
                     htmlFor="company"
-                    className="mb-2 block text-xs text-text-muted"
+                    className="mb-2 block text-sm text-text-muted"
                   >
                     {t.formMode.companyLabel}
                   </label>
@@ -161,7 +161,7 @@ export default function ContactClient({ dict }: { dict: Dictionary }) {
                 <div>
                   <label
                     htmlFor="description"
-                    className="mb-2 block text-xs text-text-muted"
+                    className="mb-2 block text-sm text-text-muted"
                   >
                     {t.formMode.descriptionLabel}
                   </label>
@@ -205,7 +205,7 @@ export default function ContactClient({ dict }: { dict: Dictionary }) {
       {/* FOOTER NOTE */}
       <section className="border-t border-line">
         <div className="site-container py-12">
-          <p className="max-w-xl text-xs leading-6 text-text-faint">
+          <p className="max-w-xl text-sm leading-6 text-text-muted">
             {t.footerNote}
           </p>
         </div>
