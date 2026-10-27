@@ -361,9 +361,13 @@ export const SIZES: SizeOption[] = [
   },
   {
     /**
-     * NB: praegused failid EI kanna seda mõõtu välja — 1200 px annab
-     * 100 cm juures 30 DPI. Ära suuna siia turundust enne, kui
-     * scripts/check-print-res.py ütleb selle mõõdu kohta OK.
+     * Veebifailid on 1200 px ja jäävad selleks — need on eelvaated,
+     * mitte trükimastrid. Suurte mõõtude trükifaili teeb trükikoda
+     * tellimuse peale originaalist, nii et DPI-arvutus veebifailide
+     * pealt siin ei kehti. scripts/check-print-res.py mõõdab
+     * veebifaile ja tema hoiatused suurte mõõtude kohta on seetõttu
+     * eksitavad — jooksuta teda uute originaalide, mitte poefailide
+     * vastu.
      */
     id: "100x100",
     label: {
