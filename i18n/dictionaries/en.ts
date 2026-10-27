@@ -530,13 +530,13 @@ const en = {
 
   shop: {
     meta: {
-      title: "Shop — digital art on canvas | DIGILAGUNA",
+      title: "Shop — digital visuals on canvas | DIGILAGUNA",
       description:
         "Mandalas and other digital works on canvas. Stretched on a frame, ready to hang.",
     },
     hero: {
       eyebrow: "Shop",
-      title: "Digital art on canvas",
+      title: "Digital visuals on canvas",
       lead: "Work that brings depth and warmth to a wall. Made and shipped in 3–5 working days.",
       cta: "Browse the works",
       imageAlt: "A Digilaguna work, framed, on a living-room wall above a sofa",

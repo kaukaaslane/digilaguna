@@ -69,7 +69,7 @@ export default async function Pood({
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(90deg, rgba(8,8,8,0.82) 0%, rgba(8,8,8,0.68) 38%, rgba(8,8,8,0.28) 68%, rgba(8,8,8,0.04) 100%)",
+              "radial-gradient(ellipse 75% 120% at 0% 55%, rgba(8,8,8,0.62) 0%, rgba(8,8,8,0.28) 45%, rgba(8,8,8,0) 78%), linear-gradient(90deg, rgba(8,8,8,0.82) 0%, rgba(8,8,8,0.68) 38%, rgba(8,8,8,0.28) 68%, rgba(8,8,8,0.04) 100%)",
           }}
         />
 

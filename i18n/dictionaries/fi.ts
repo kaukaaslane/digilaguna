@@ -531,13 +531,13 @@ const fi: Dictionary = {
 
   shop: {
     meta: {
-      title: "Kauppa — digitaalista taidetta kankaalla | DIGILAGUNA",
+      title: "Kauppa — digitaalisia visuaaleja kankaalla | DIGILAGUNA",
       description:
         "Mandaloja ja muita digitaalisia teoksia kankaalla. Pingotettu kehykseen, valmis ripustettavaksi.",
     },
     hero: {
       eyebrow: "Kauppa",
-      title: "Digitaalista taidetta kankaalla",
+      title: "Digitaalisia visuaaleja kankaalla",
       lead: "Teoksia, jotka tuovat seinälle syvyyttä ja lämpöä. Valmistus ja lähetys 3–5 arkipäivässä.",
       cta: "Katso teokset",
       imageAlt: "Digilagunan teos kehystettynä olohuoneen seinällä sohvan yläpuolella",

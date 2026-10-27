@@ -531,13 +531,13 @@ const et: Dictionary = {
 
   shop: {
     meta: {
-      title: "Pood — digitaalne kunst lõuendil | DIGILAGUNA",
+      title: "Pood — digitaalne visuaal lõuendil | DIGILAGUNA",
       description:
         "Mandalad ja muud digitaalsed teosed lõuendil. Pingutatud raamile, valmis seinale riputamiseks.",
     },
     hero: {
       eyebrow: "Pood",
-      title: "Digitaalne kunst lõuendil",
+      title: "Digitaalne visuaal lõuendil",
       lead: "Teosed, mis toovad seinale sügavust ja soojust. Tellimus valmib 3–5 tööpäevaga.",
       cta: "Vaata töid",
       imageAlt: "Digilaguna töö raamituna heleda elutoa seinal diivani kohal",
