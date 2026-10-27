@@ -45,9 +45,31 @@ export default async function Pood({
   return (
     <div className="overflow-x-hidden bg-bg text-text">
       {/* Hero */}
-      <section className="rule">
-        <div className="site-container section-lg">
-          <div className="max-w-4xl">
+      <section className="relative overflow-hidden rule">
+        <Image
+          src="/pood/interjoor.webp"
+          alt={t.hero.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+
+        {/* Kate. Mobiilis ühtlane, sest kitsas kaadris pole tekstil kuhu
+            põgeneda; laiemal ekraanil vasakult paremale hääbuv, nii et
+            tekst saab tumeda aluse ja töö ise jääb paremal näha. */}
+        <div aria-hidden className="absolute inset-0 bg-bg/80 md:hidden" />
+        <div
+          aria-hidden
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.9) 38%, rgba(8,8,8,0.55) 68%, rgba(8,8,8,0.2) 100%)",
+          }}
+        />
+
+        <div className="relative site-container section-lg">
+          <div className="max-w-3xl">
             <div className="mb-5 eyebrow">{t.hero.eyebrow}</div>
 
             <h1 className="max-w-3xl text-5xl font-medium leading-[0.98] tracking-[-0.03em] md:text-7xl">
@@ -58,30 +80,18 @@ export default async function Pood({
               {t.hero.lead}
             </p>
 
-            {/* Seinaeelvaade elab tootelehel tellimisvormi sees. Ilma selle
-                reata ei tea külastaja, et see olemas on. */}
             <p className="mt-6 max-w-xl text-sm leading-6 text-accent">
               {t.wallPreview.promo}
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* Dekoratsiooniostja otsustab silmaga. Tekst üksi ei vasta
-              küsimusele, mida ta päriselt küsib — kuidas see seinal on
-              ja kui suur ta diivani kohal tuleb. */}
-          <div className="relative mt-14 aspect-[3/2] w-full media">
-            <Image
-              src="/pood/interjoor.webp"
-              alt={t.hero.imageAlt}
-              fill
-              sizes="(min-width: 1280px) 1216px, 100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          {/* Pildil on raamitud panoraam, poes ruudukujulised lõuendid.
-              See rida teeb vahest pakkumise, mitte segaduse. */}
-          <p className="mt-6 max-w-2xl text-sm leading-6 text-text-muted">
+      {/* Pildil on raamitud panoraam, poes ruudukujulised lõuendid.
+          See rida teeb vahest pakkumise, mitte segaduse. */}
+      <section className="rule">
+        <div className="site-container py-8">
+          <p className="max-w-2xl text-sm leading-6 text-text-muted">
             {t.hero.custom}
           </p>
         </div>
