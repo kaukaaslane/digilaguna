@@ -12,7 +12,7 @@ import {
   imagePath,
 } from "@/data/pood";
 
-const SITE = "https://www.digilaguna.com";
+const SITE = "https://digilaguna.com";
 
 type Params = Promise<{
   locale: string;

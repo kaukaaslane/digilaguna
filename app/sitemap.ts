@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales, localeTags } from "@/i18n/config";
 import { COLLECTIONS } from "@/data/pood";
 
-const SITE = "https://www.digilaguna.com";
+const SITE = "https://digilaguna.com";
 
 /** Püsilehed. Poe lehed tulevad andmefailist, vt allpool. */
 const staticRoutes = [

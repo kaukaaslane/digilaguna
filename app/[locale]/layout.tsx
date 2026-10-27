@@ -8,7 +8,7 @@ import SiteSchema from "@/app/components/SiteSchema";
 import { locales, localeTags, isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
-const SITE = "https://www.digilaguna.com";
+const SITE = "https://digilaguna.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

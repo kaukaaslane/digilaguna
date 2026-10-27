@@ -11,7 +11,7 @@
  * saidile viivad lingid hakkavad brändiotsingut toetama.
  */
 
-export const SITE = "https://www.digilaguna.com";
+export const SITE = "https://digilaguna.com";
 
 export const BUSINESS = {
   /** Kaubamärginimi, mida inimesed otsivad. */
