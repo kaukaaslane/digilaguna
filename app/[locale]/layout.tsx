@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import SiteSchema from "@/app/components/SiteSchema";
+import Analytics from "@/app/components/Analytics";
 import { locales, localeTags, isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
@@ -84,6 +85,8 @@ export default async function LocaleLayout({
         <Navbar locale={locale as Locale} dict={dict} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale as Locale} dict={dict} />
+
+        <Analytics />
       </body>
     </html>
   );
