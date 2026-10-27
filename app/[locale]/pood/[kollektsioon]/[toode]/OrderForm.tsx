@@ -183,7 +183,7 @@ export default function OrderForm({
           id="delivery"
           value={deliveryId}
           onChange={(e) => setDeliveryId(e.target.value)}
-          className="w-full border border-line bg-bg-raised px-4 py-3 text-sm text-text"
+          className="w-full border border-line bg-bg-raised px-4 py-3 text-base text-text"
         >
           {deliveryOptions.map((d) => (
             <option key={d.id} value={d.id}>
@@ -236,7 +236,7 @@ export default function OrderForm({
             name="message"
             rows={3}
             maxLength={2000}
-            className="w-full border border-line bg-bg-raised px-4 py-3 text-sm text-text"
+            className="w-full border border-line bg-bg-raised px-4 py-3 text-base text-text"
           />
         </div>
 
@@ -286,7 +286,7 @@ function Field({
         autoComplete={autoComplete}
         required={required}
         maxLength={200}
-        className="w-full border border-line bg-bg-raised px-4 py-3 text-sm text-text"
+        className="w-full border border-line bg-bg-raised px-4 py-3 text-base text-text"
       />
     </div>
   );
