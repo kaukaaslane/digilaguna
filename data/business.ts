@@ -33,11 +33,20 @@ export const BUSINESS = {
 } as const;
 
 /**
- * Profiilid, mis kuuluvad samale ettevõttele. Lähevad `sameAs`-i.
- * Lisa siia terve aadress, nt "https://www.facebook.com/digilaguna".
- * Tühjana jäetakse väli struktuurandmetest välja.
+ * Profiilid, mis kuuluvad samale ettevõttele. Lähevad `sameAs`-i ja
+ * ütlevad Google'ile, et need kontod ja see sait on üks ettevõte.
+ *
+ * Facebooki aadress on numbriline, sest lehel pole kasutajanime
+ * määratud. See töötab — Google järgib teda ja numbriline kuju jääb
+ * kehtima ka siis, kui nimi hiljem lisandub.
+ *
+ * Instagram on meelega puudu: olemasolev konto on isiklik, mitte
+ * ettevõtte oma. Vale seos on halvem kui seos puudu, sest sameAs
+ * väidab, et see konto ON ettevõte.
  */
-export const SOCIAL: string[] = [];
+export const SOCIAL: string[] = [
+  "https://www.facebook.com/profile.php?id=61577596337753",
+];
 
 /** Piirkonnad, kuhu päriselt teenindame — tarne käib praegu EE ja FI. */
 export const AREA_SERVED = ["Estonia", "Finland"] as const;
