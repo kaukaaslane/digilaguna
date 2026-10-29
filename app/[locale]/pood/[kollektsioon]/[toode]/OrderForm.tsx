@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import WallPreview from "./WallPreview";
+import { SHIPPING } from "@/data/pood";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -14,7 +15,13 @@ type Status = "idle" | "sending" | "sent" | "error";
 /** Suurem kogus on juba kokkulepe, mitte poeostu — suunatakse sõnumisse. */
 const MAX_QTY = 10;
 
-const money = (n: number) => `${n.toString().replace(".", ",")} €`;
+/**
+ * Sama kuju mis kinnituskirjas (lib/order-reply.ts): kaks kohta komast.
+ * Klient peab nägema täpselt sama numbrit enne tellimust ja pärast seda —
+ * "3,9 €" vormis ja "3,90 €" kirjas on sama summa, aga näeb välja nagu
+ * kaks eri hinda.
+ */
+const money = (n: number) => `${n.toFixed(2).replace(".", ",")} €`;
 
 export default function OrderForm({
   locale,
@@ -41,13 +48,34 @@ export default function OrderForm({
 
   const size = sizes.find((s) => s.id === sizeId) ?? sizes[0];
   const unitPrice = size.price;
-  const total = unitPrice * qty;
+  const itemTotal = unitPrice * qty;
 
+  /**
+   * Tarne hind käib valikuga kaasa, mitte ei tule alles kinnituskirjaga.
+   * Varem näitas vorm ainult toote hinda ja kiri lisas tarne juurde —
+   * kliendi jaoks tähendas see, et hind tõusis pärast tellimuse saatmist.
+   *
+   * null = hinda ei saa ette öelda (Soome). Siis ei ole ka lõppsummat,
+   * mida näidata: parem jätta see lahti kui pakkuda numbrit, mis muutub.
+   */
   const deliveryOptions = [
-    { id: "parcel", label: t.delivery.parcel },
-    { id: "finland", label: t.delivery.finland },
-    { id: "pickup", label: t.delivery.pickup },
+    { id: "parcel", label: t.delivery.parcel, price: SHIPPING.parcelMachineEE },
+    { id: "finland", label: t.delivery.finland, price: SHIPPING.finland },
+    { id: "pickup", label: t.delivery.pickup, price: SHIPPING.pickupTallinn },
   ];
+
+  const delivery =
+    deliveryOptions.find((d) => d.id === deliveryId) ?? deliveryOptions[0];
+  const shipping = delivery.price;
+  const total = shipping === null ? null : itemTotal + shipping;
+
+  /** Hinnasilt tarnevaliku juures: tasuta, summa või "küsi hinda". */
+  const shippingLabel = (price: number | null) =>
+    price === null
+      ? t.delivery.finlandPrice
+      : price === 0
+        ? t.delivery.free
+        : money(price);
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -82,10 +110,11 @@ export default function OrderForm({
           sizeId: size.id,
           quantity: qty,
           unitPrice,
-          delivery:
-            deliveryOptions.find((d) => d.id === deliveryId)?.label ?? "",
+          delivery: delivery.label,
           deliveryId,
-          total,
+          // Mida klient päriselt ekraanil nägi. Soome puhul on see toote
+          // summa, sest tarnet ei saanud ette öelda.
+          total: total ?? itemTotal,
         }),
       });
       setStatus(res.ok ? "sent" : "error");
@@ -189,23 +218,38 @@ export default function OrderForm({
         >
           {deliveryOptions.map((d) => (
             <option key={d.id} value={d.id}>
-              {d.label}
+              {d.label} &mdash; {shippingLabel(d.price)}
             </option>
           ))}
         </select>
       </div>
 
-      <div className="mt-6 flex items-baseline justify-between gap-6 border-t border-line-strong pt-5">
-        <span className="eyebrow">{t.form.total}</span>
+      {/* Hinna koosseis lahti: toode, tarne, kokku. Nii ei ole
+          kinnituskirjas ühtki numbrit, mida klient siin ei näinud. */}
+      <div className="mt-6 border-t border-line-strong pt-5">
+        <div className="flex items-baseline justify-between gap-6 text-sm">
+          <span className="text-text-secondary">
+            {t.form.product}
+            {qty > 1 && (
+              <span className="ml-2 text-text-faint tabular-nums">
+                {qty} &times; {money(unitPrice)}
+              </span>
+            )}
+          </span>
+          <span className="tabular-nums">{money(itemTotal)}</span>
+        </div>
 
-        <span className="flex items-baseline gap-3">
-          {qty > 1 && (
-            <span className="text-sm text-text-faint tabular-nums">
-              {qty} &times; {money(unitPrice)}
-            </span>
-          )}
-          <span className="text-2xl font-medium">{money(total)}</span>
-        </span>
+        <div className="mt-2 flex items-baseline justify-between gap-6 text-sm">
+          <span className="text-text-secondary">{t.delivery.eyebrow}</span>
+          <span className="tabular-nums">{shippingLabel(shipping)}</span>
+        </div>
+
+        <div className="mt-4 flex items-baseline justify-between gap-6 border-t border-line pt-4">
+          <span className="eyebrow">{t.form.total}</span>
+          <span className="text-2xl font-medium tabular-nums">
+            {money(total ?? itemTotal)}
+          </span>
+        </div>
       </div>
 
       {/* Vorm */}
