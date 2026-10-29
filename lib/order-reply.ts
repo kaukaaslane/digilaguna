@@ -153,15 +153,19 @@ const COPY: Record<Locale, Copy> = {
   },
 };
 
-/**
- * IBAN tuleb keskkonnamuutujast, mitte koodist — repo on avalik.
- * Sea Vercelis: Settings -> Environment Variables -> PAYMENT_IBAN.
- * Puudumisel jääb mustandisse suurtähtedega märge, nii et pooleldi
- * täidetud kiri ei lähe vaikselt välja.
- */
-const iban = process.env.PAYMENT_IBAN?.trim() ?? "";
-
 export function buildOrderReply(f: Fields) {
+  /**
+   * IBAN tuleb keskkonnamuutujast, mitte koodist — repo on avalik.
+   * Sea Vercelis: Settings -> Environment Variables -> PAYMENT_IBAN.
+   * Puudumisel jääb mustandisse suurtähtedega märge, nii et pooleldi
+   * täidetud kiri ei lähe vaikselt välja.
+   *
+   * Loetakse päringu ajal, mitte mooduli laadimisel: Verceli "Secret"
+   * tüüpi muutujad jõuavad kohale alles käitusajal ja funktsiooni sees
+   * lugemine ei sõltu sellest, millal moodul esimest korda laetakse.
+   */
+  const iban = process.env.PAYMENT_IBAN?.trim() ?? "";
+
   const locale: Locale = isLocale(f.locale) ? f.locale : "et";
   const t = COPY[locale];
 
