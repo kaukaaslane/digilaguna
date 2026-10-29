@@ -59,7 +59,12 @@ export const AREA_SERVED = ["Estonia", "Finland"] as const;
  * vaikne puudumine.
  */
 export const PAYMENT = {
-  iban: "",
-  /** Kes kirjale alla kirjutab. */
+  /**
+   * Kes kirjale alla kirjutab. IBAN-it siin EI OLE ja ei tohi olla:
+   * see repo on avalik ja git ajalugu ei unusta — ühe commitiga sees
+   * olnud konto number jääb sinna ka pärast rea kustutamist.
+   *
+   * IBAN loetakse keskkonnamuutujast PAYMENT_IBAN, vt lib/order-reply.ts.
+   */
   signer: "Toomas",
 };
