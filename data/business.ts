@@ -50,3 +50,16 @@ export const SOCIAL: string[] = [
 
 /** Piirkonnad, kuhu päriselt teenindame — tarne käib praegu EE ja FI. */
 export const AREA_SERVED = ["Estonia", "Finland"] as const;
+
+/**
+ * Makseandmed, mis lähevad tellimuse vastusesse.
+ *
+ * Tühjana jääb mustandisse nähtav märge, et neid pole. Nii ei lähe
+ * pooleldi täidetud kiri kogemata välja — parem silmatorkav auk kui
+ * vaikne puudumine.
+ */
+export const PAYMENT = {
+  iban: "",
+  /** Kes kirjale alla kirjutab. */
+  signer: "Toomas",
+};

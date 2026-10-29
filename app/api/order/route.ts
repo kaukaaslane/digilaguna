@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { buildOrderReply } from "@/lib/order-reply";
 import { NextResponse } from "next/server";
 import {
   checkOrigin,
@@ -66,7 +67,9 @@ export async function POST(request: Request) {
     const product = str(body.product);
     const productSlug = str(body.productSlug);
     const size = str(body.size);
+    const sizeId = str(body.sizeId);
     const delivery = str(body.delivery);
+    const deliveryId = str(body.deliveryId);
     const locale = str(body.locale);
     const total = typeof body.total === "number" ? body.total : null;
     const unitPrice =
@@ -150,11 +153,36 @@ export async function POST(request: Request) {
       message || "-",
     ];
 
+    // Saatmisvalmis vastus kliendile. Hinnad arvutatakse andmefailist
+    // uuesti, nii et see kiri ei saa näidata muud kui poe tegelikku hinda.
+    const reply = buildOrderReply({
+      locale,
+      name,
+      sizeId,
+      deliveryId,
+      quantity,
+      product,
+    });
+
+    // Üks klikk avab postiprogrammi kõigega juba täidetuna.
+    const mailto =
+      `mailto:${email}` +
+      `?subject=${encodeURIComponent(reply.subject)}` +
+      `&body=${encodeURIComponent(reply.body)}`;
+
+    lines.push(
+      "",
+      "— — — — — — — — — — — — — — — — — — — —",
+      "VASTUS KLIENDILE (kontrolli ja saada):",
+      "",
+      reply.body,
+    );
+
     const row = (k: string, v: string) =>
       `<p><strong>${k}:</strong> ${escapeHtml(v)}</p>`;
 
     const info = await transporter.sendMail({
-      from: '"Õied order" <info@digilaguna.com>',
+      from: '"Digilaguna pood" <info@digilaguna.com>',
       to: "info@digilaguna.com",
       replyTo: email,
       subject: `Order: ${product} (${size})${quantity > 1 ? ` x${quantity}` : ""} — ${name}`,
@@ -175,6 +203,20 @@ export async function POST(request: Request) {
           <hr />
           <p><strong>Message:</strong></p>
           <p>${escapeHtml(message || "-").replace(/\n/g, "<br />")}</p>
+
+          <hr />
+          <p style="margin:24px 0 8px"><strong>Vastus kliendile</strong>
+            — kontrolli üle ja saada.</p>
+          <p style="margin:0 0 16px">
+            <a href="${mailto}"
+               style="display:inline-block;background:#111;color:#fff;
+                      padding:12px 20px;text-decoration:none;border-radius:4px">
+              Ava vastus postiprogrammis &rarr;
+            </a>
+          </p>
+          <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;
+                      background:#f5f5f5;padding:16px;border-radius:4px;
+                      line-height:1.6">${escapeHtml(reply.body)}</pre>
         </div>
       `,
     });

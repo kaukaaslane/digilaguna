@@ -79,10 +79,12 @@ export default function OrderForm({
           product: productName,
           productSlug: `${collectionSlug}/${productSlug}`,
           size: size.label,
+          sizeId: size.id,
           quantity: qty,
           unitPrice,
           delivery:
             deliveryOptions.find((d) => d.id === deliveryId)?.label ?? "",
+          deliveryId,
           total,
         }),
       });
